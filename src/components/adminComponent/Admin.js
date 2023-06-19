@@ -30,17 +30,36 @@ export default function Admin(){
                         <div className={'button-nav'} ><a href="#" >Đăng xuất</a></div>
                         <div className={'button-nav search'}>Tìm kiếm</div>
                     </div>
+
                     <div className="action">
-                        <h1>Trang chủ</h1>
-                        <a href="#">Trang chủ</a>
+                        <a className={'main-home'}>Trang chủ</a>
+                        <a className={'link-main'} href="#">Trang chủ</a>
                     </div>
+
                     <div className="row mt-3">
                         <div className="col-3">
-                            <div className="item">
+                            <div className="item1">
                                 <div className="row">
                                     <div className="col-8 p-2">
                                         <h2>150</h2>
-                                        <h4>New orders</h4>
+                                        <h6>New orders</h6>
+                                    </div>
+                                    <div className="col-4 pt-3">
+                                        <img src="img/OIP.jpg" style={{width: '100%'}} alt=""/>
+                                    </div>
+                                    <div className="col-12 d-flex text-center">
+                                        <div className="more">More info</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-3">
+                            <div className="item2">
+                                <div className="row">
+                                    <div className="col-8 p-2">
+                                        <h2>53%</h2>
+                                        <h6>Bounce Rate</h6>
                                     </div>
                                     <div className="col-4 pt-3">
                                         <img src="img/OIP_1.jpg" style={{width: '100%'}} alt=""/>
@@ -51,19 +70,42 @@ export default function Admin(){
                                 </div>
                             </div>
                         </div>
+
                         <div className="col-3">
-                            <h2>Bounce Rate</h2>
-                            <img width="120px" height="90px" src="img/OIP_1.jpg" alt="" />
+                            <div className="item3">
+                                <div className="row">
+                                    <div className="col-8 p-2">
+                                        <h2>44</h2>
+                                        <h6>User Registration</h6>
+                                    </div>
+                                    <div className="col-4 pt-3">
+                                        <img src="img/img.png" style={{width: '100%'}} alt=""/>
+                                    </div>
+                                    <div className="col-12 d-flex text-center">
+                                        <div className="more">More info</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div className="col-3">
-                            <h2>Unique Visitors</h2>
-                            <img width="120px" height="90px" src="img/OIP_2.png" alt="" />
-                        </div>
-                        <div className="col-3">
-                            <h2>Unique Visitors</h2>
-                            <img width="120px" height="90px" src="img/OIP_2.png" alt="" />
+                            <div className="item4">
+                                <div className="row">
+                                    <div className="col-8 p-2">
+                                        <h2>65</h2>
+                                        <h6>Unique Visitors</h6>
+                                    </div>
+                                    <div className="col-4 pt-3">
+                                        <img src="img/image3.jpg" style={{width: '100%'}} alt=""/>
+                                    </div>
+                                    <div className="col-12 d-flex text-center">
+                                        <div className="more">More info</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <div id="footer">
                         <p>Copyright &copy; 2023 TMDT</p>
                     </div>

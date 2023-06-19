@@ -98,7 +98,7 @@ a:hover, a:visited {
 #header #main-search {}
 
 .action {
-    padding: 1.5em 20%;
+    padding: 1em ;
     background-color: #efefef;
     border: 1px solid #e8e8e8;
 }
@@ -109,11 +109,34 @@ a:hover, a:visited {
     color: #838383;
     padding: 20em 1em;
 }
-.item {
+.item1 {
     width: 100%;
     border-radius: 5px;
     background: orange;
     padding: 10px;
+    min-height: 200px;
+}
+.item2 {
+    width: 100%;
+    border-radius: 5px;
+    background: #b6d4fe;
+    padding: 10px;
+    min-height: 150px;
+}
+.item3 {
+    width: 100%;
+    border-radius: 5px;
+    background: darkseagreen;
+    padding: 10px;
+    min-height: 150px;
+    max-height: 150px;
+}
+.item4 {
+    width: 100%;
+    border-radius: 5px;
+    background: plum;
+    padding: 10px;
+    min-height: 150px;
 }
 .more {
     width: 97%;
@@ -125,4 +148,14 @@ a:hover, a:visited {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+
+.link-main {
+    padding-bottom: 50px;
+    float: right;
+}
+.main-home {
+    font-weight: 700;
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
