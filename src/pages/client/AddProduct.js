@@ -65,6 +65,7 @@ const AddProduct = () => {
         const selectedFiles = Array.from(event.target.files);
         console.log(selectedFiles);
         setFiles(selectedFiles);
+        // handleUpload();
     }
 
 
