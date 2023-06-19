@@ -9,10 +9,10 @@ export default function Header(){
                 <div className="container text-light">
                     <div className="w-100 d-flex justify-content-between">
                         <div>
-                            <i className="fa fa-envelope mx-2" />
-                            <a className="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                            <i className="fa fa-phone mx-2" />
-                            <a className="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <i className="fa-solid fa-shop mx-2"></i>
+                            <a className="navbar-sm-brand text-light text-decoration-none me-3" href="#">Become a seller  </a>
+                            <i className="fa-solid fa-people-roof mx-2"/>
+                            <a className="navbar-sm-brand text-light text-decoration-none" href="#">Manage</a>
                         </div>
                         <div>
                             <a className="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i className="fab fa-facebook-f fa-sm fa-fw me-2" /></a>

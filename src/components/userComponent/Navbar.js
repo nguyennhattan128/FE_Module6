@@ -29,23 +29,32 @@ export default function Navbar(){
                                 </li>
                             </ul>
                         </div>
-                        <div className="navbar align-self-center d-flex">
+                        <div className="navbar align-self-center d-flex mb-3">
                             <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                             </div>
-                            <form>
                                 <div className="d-flex">
                                     <input type="text" className="form-control" id="inputMobileSearch" placeholder="Search ..." />
+                                    <button className="btn-icon" type="submit"><i className="fa fa-fw fa-search text-dark mr-2" /></button>
                                 </div>
-                                <button className="btn-icon" type="submit"><i className="fa fa-fw fa-search text-dark mr-2" /></button>
-                            </form>
-
-                            <a className="nav-icon position-relative text-decoration-none" href="#">
+                            <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
                                 <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
                                 <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                             </a>
-                            <a className="nav-icon position-relative text-decoration-none" href="#">
-                                <i className=" fa-solid fa-user text-dark mr-3" />
-                                <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                            <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
+
+                                <div className="dropdown">
+                                    <i className=" fa-solid fa-user text-dark mr-3" />
+                                    <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                                    <div className="dropdown-content">
+                                        <Link to={'/'}>My account</Link>
+                                        <br/>
+                                        <br/>
+                                        <Link to={'/Register'}>Register</Link>
+                                        <br/>
+                                        <br/>
+                                        <Link to={'/login'}>Login</Link>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ export default function ListProduct(){
     return(
         <>
             <section className="bg-light">
-                <div className="container py-5">
+                <div className="container py-3">
                     <div className="row text-center py-3">
                         <div className="col-lg-6 m-auto">
                             <h1 className="h1">Today's Suggestions</h1>
