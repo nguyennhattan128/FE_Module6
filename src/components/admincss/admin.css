@@ -30,7 +30,7 @@ a:hover, a:visited {
 #menu {
     position: fixed;
     height: 100%;
-    background-color: #191818;
+    background-color: #59ab6e;
     width: 250px;
     left: 0;
 }
@@ -62,7 +62,7 @@ a:hover, a:visited {
     position: absolute;
     top: 0;
     left: 250px;
-    background-color: #191818;
+    background-color: #454545;
 }
 #menu ul li:hover .sub-menu {
     display: block;
@@ -156,4 +156,11 @@ a:hover, a:visited {
     font-weight: 700;
     color: black;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.img-admin {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding-top: 15px;
+    padding-left: 10px;
 }

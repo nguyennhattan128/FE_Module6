@@ -8,7 +8,12 @@ export default function Admin(){
                 <div id="menu">
                     <ul>
                         <li><a href="#"><i className="fa-solid fa-user"></i> Admin</a></li>
-                        <li><a href="#">Nguyễn Văn Nam</a></li>
+                        <li>
+                            <div className={'d-flex'}>
+                                <img src="./img/brand_04.png" alt="" className={'img-admin'}/>
+                                <a href="#">Nguyễn Văn Nam</a>
+                            </div>
+                        </li>
                         <li><a href="#"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
                         <li><a href="#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
 
