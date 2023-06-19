@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import {toast} from "react-toastify";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -118,7 +119,10 @@ const AddProduct = () => {
             let isValid = totalFile <= 4;
 
             if(!isValid){
-                Swal.fire('You are only allowed to select up to 4 image files');
+                // Swal.fire('You are only allowed to select up to 4 image files');
+                toast.error('You are only allowed to select up to 4 image files', {
+                    position: 'top-center'})
+
             } else {
                 formik.setFieldValue("images", [...formik.values.images, ...imageUrls]);
                 setIsSubmit(false);
@@ -139,6 +143,21 @@ const AddProduct = () => {
                 <Form>
                     <div className="container py-5">
                         <div className="row py-5">
+                                <div className="row">
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        color: 'green',
+                                        fontWeight: 'bold',
+                                        marginBottom: 20
+                                    }}>
+                                    <h3>
+                                        ADD NEW PRODUCT
+                                    </h3>
+                                </div>
+                            </div>
                                 <div className="row">
                                     <div className="form-group col-md-4 mb-3">
                                         <div className="product-images">
@@ -184,6 +203,7 @@ const AddProduct = () => {
                                                             border: "1px solid #ddd",
                                                             borderRadius: 5,
                                                             padding: 5,
+                                                            cursor: "pointer"
                                                         }}
                                                         onClick={(e)=>{
                                                             const input = document.createElement("input");
@@ -231,17 +251,17 @@ const AddProduct = () => {
                                             ))}
                                         </div>
                                     </div>
-                                    <div className="form-group col-md-4 mb-3">
-                                        <div>
-                                            <label htmlFor="name">Select product images</label>
-                                            <input
-                                                type="file"
-                                                name='images'
-                                                multiple
-                                                onChange={(e) =>{handleFileChange(e)}}
-                                                accept="image/jpeg,image/png"
-                                            />
-                                        </div>
+                                    <div className="form-group col-md-8 mb-3">
+                                        {/*<div>*/}
+                                        {/*    <label htmlFor="name">Select product images</label>*/}
+                                        {/*    <input*/}
+                                        {/*        type="file"*/}
+                                        {/*        name='images'*/}
+                                        {/*        multiple*/}
+                                        {/*        onChange={(e) =>{handleFileChange(e)}}*/}
+                                        {/*        accept="image/jpeg,image/png"*/}
+                                        {/*    />*/}
+                                        {/*</div>*/}
                                         <div>
                                             <label htmlFor="name">Product name</label>
                                             <Field type="text" className="form-control mt-1" placeholder="Product Name" name='name'/>
@@ -252,8 +272,6 @@ const AddProduct = () => {
                                             <Field type="text" className="form-control mt-1" placeholder="Price" name='price'/>
                                             <p style={{color: "red"}}><ErrorMessage name="price"/></p>
                                         </div>
-                                    </div>
-                                    <div className="form-group col-md-4 mb-3" style={{marginTop:58}}>
                                         <div>
                                             <label htmlFor="quantity">Quantity</label>
                                             <Field type="text" className="form-control mt-1" placeholder="Quantity" name='quantity'/>
