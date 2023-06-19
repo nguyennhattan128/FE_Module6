@@ -70,7 +70,7 @@ a:hover, a:visited {
 }
 #content {
     padding: 1em;
-    padding-left: 9em;
+    padding-left: 7em;
 }
 #header .action {
     text-align: center;
@@ -93,6 +93,7 @@ a:hover, a:visited {
 }
 .search {
     float: right;
+    width: 3%;
 }
 #header #main-sign-out {}
 #header #main-search {}

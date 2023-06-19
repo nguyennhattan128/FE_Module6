@@ -1,4 +1,4 @@
-import "../admincss/admin.css"
+import "./admin.css"
 
 export default function Admin(){
     return(
@@ -7,32 +7,36 @@ export default function Admin(){
 
                 <div id="menu">
                     <ul>
-                        <li><a href="#"><i className="fa-solid fa-user"></i> Admin</a></li>
+                        <li><a href="src/components/adminComponent#"><i className="fa-solid fa-user"></i> Admin</a></li>
                         <li>
                             <div className={'d-flex'}>
                                 <img src="./img/brand_04.png" alt="" className={'img-admin'}/>
-                                <a href="#">Nguyễn Văn Nam</a>
+                                <a href="src/components/adminComponent#">Nguyễn Văn Nam</a>
                             </div>
                         </li>
-                        <li><a href="#"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
-                        <li><a href="#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
-
+                        <li><a href="src/components/adminComponent#"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
+                        <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
                             <ul className="sub-menu">
-                                <li><a href="#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
-                                <li><a href="#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
-                                <li><a href="#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
+                                <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
+                                <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
+                                <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i className="fa-solid fa-layer-group"></i> Quản lý đơn hàng</a></li>
-                        <li><a href="#"><i className="fa-solid fa-users"></i> Quản lý người dùng</a></li>
+                        <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Quản lý đơn hàng</a></li>
+                        <li><a href="src/components/adminComponent#"><i className="fa-solid fa-users"></i> Quản lý người dùng</a>
+                            <ul className="sub-menu">
+                                <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách người dùng</a></li>
+                                <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
                 <div id="content">
                     <div id="header">
                         <div  className={'button-nav logo'} ><i className="fa-solid fa-bars"></i></div>
-                        <div className={'button-nav'}><a href="#" >Trang chủ</a></div>
-                        <div className={'button-nav'} ><a href="#" >Đăng xuất</a></div>
+                        <div className={'button-nav'}><a href="src/components/adminComponent#" >Trang chủ</a></div>
+                        <div className={'button-nav'} ><a href="src/components/adminComponent#" >Đăng xuất</a></div>
                         <div className={'button-nav search'}><i className="fa-solid fa-magnifying-glass"></i></div>
                     </div>
 

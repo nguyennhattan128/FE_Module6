@@ -1,4 +1,4 @@
-import Admin from "../../components/adminComponent/Admin";
+import Admin from "../admin/Admin";
 
 export default function SupperAdmin(){
 
