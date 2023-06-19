@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Main from "./pages/client/Main";
+import  Path from "./constant/Path"
+import User from "./layouts/User";
+
+import Management from "./layouts/Management";
+import SupperAdmin from "./pages/management/SupperAdmin";
+import Admin from "./components/adminComponent/Admin";
+import {Register} from "./pages/auth/Register";
+import {Login} from "./pages/auth/Login";
+import ViewShop from "./components/userComponent/ViewShop";
+import About from "./components/userComponent/About";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <>
+          <Routes>
+              <Route path={Path.LOGIN} element={<Login/>}/>
+              <Route path={Path.REGISTER} element={<Register/>}/>
+              <Route path={Path.HOME} element={<User/>}>
+                  <Route path='' element={<Main/>}/>
+                  <Route path='/about' element={<About/>}/>
+                  <Route path='/shop' element={<ViewShop/>}/>
+              </Route>
+              <Route path={Path.MANAGEMENT} element={<Management/>}>
+                  <Route path='admin' element={<Admin/>}/>
+              </Route>
+              <Route path={'test'} element={<Admin/>}/>
+
+
+
+          </Routes>
+      </>
+  )
 }
 
 export default App;
