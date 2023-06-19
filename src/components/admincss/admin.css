@@ -114,7 +114,7 @@ a:hover, a:visited {
     border-radius: 5px;
     background: orange;
     padding: 10px;
-    min-height: 200px;
+    min-height: 150px;
 }
 .item2 {
     width: 100%;
@@ -128,8 +128,7 @@ a:hover, a:visited {
     border-radius: 5px;
     background: darkseagreen;
     padding: 10px;
-    min-height: 150px;
-    max-height: 150px;
+    min-height: 180px;
 }
 .item4 {
     width: 100%;
@@ -140,8 +139,7 @@ a:hover, a:visited {
 }
 .more {
     width: 97%;
-    border-top: 1px #e5c9c9 solid;
-    margin-top: 10px;
+    padding-top: 50px;
 }
 
 .avt {

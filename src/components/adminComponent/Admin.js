@@ -7,33 +7,32 @@ export default function Admin(){
 
                 <div id="menu">
                     <ul>
-                        <li><a href="#">Admin</a></li>
+                        <li><a href="#"><i className="fa-solid fa-user"></i> Admin</a></li>
                         <li><a href="#">Nguyễn Văn Nam</a></li>
-                        <li><a href="#">Trang chủ</a></li>
-                        <li>
-                            <a href="#">Quản lý sản phẩm </a>
+                        <li><a href="#"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
+                        <li><a href="#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
+
                             <ul className="sub-menu">
-                                <li><a href="#">Danh sách</a></li>
-                                <li><a href="#">Thêm mới</a></li>
-                                <li><a href="#">Thể loại sản phẩm</a></li>
+                                <li><a href="#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
+                                <li><a href="#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
+                                <li><a href="#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Quản lý đơn hàng</a></li>
-                        <li><a href="#">Quản lý người dùng</a></li>
+                        <li><a href="#"><i className="fa-solid fa-layer-group"></i> Quản lý đơn hàng</a></li>
+                        <li><a href="#"><i className="fa-solid fa-users"></i> Quản lý người dùng</a></li>
                     </ul>
                 </div>
 
                 <div id="content">
                     <div id="header">
-                        <div  className={'button-nav logo'} >#</div>
+                        <div  className={'button-nav logo'} ><i className="fa-solid fa-bars"></i></div>
                         <div className={'button-nav'}><a href="#" >Trang chủ</a></div>
                         <div className={'button-nav'} ><a href="#" >Đăng xuất</a></div>
-                        <div className={'button-nav search'}>Tìm kiếm</div>
+                        <div className={'button-nav search'}><i className="fa-solid fa-magnifying-glass"></i></div>
                     </div>
 
                     <div className="action">
                         <a className={'main-home'}>Trang chủ</a>
-                        <a className={'link-main'} href="#">Trang chủ</a>
                     </div>
 
                     <div className="row mt-3">
@@ -45,7 +44,7 @@ export default function Admin(){
                                         <h6>New orders</h6>
                                     </div>
                                     <div className="col-4 pt-3">
-                                        <img src="img/OIP.jpg" style={{width: '100%'}} alt=""/>
+                                        <img src="img/img1.png" style={{width: '60px', height:"60px"}} alt=""/>
                                     </div>
                                     <div className="col-12 d-flex text-center">
                                         <div className="more">More info</div>
@@ -62,7 +61,7 @@ export default function Admin(){
                                         <h6>Bounce Rate</h6>
                                     </div>
                                     <div className="col-4 pt-3">
-                                        <img src="img/OIP_1.jpg" style={{width: '100%'}} alt=""/>
+                                        <img src="img/img2.png" style={{width: '40px', height:"40px"}} alt=""/>
                                     </div>
                                     <div className="col-12 d-flex text-center">
                                         <div className="more">More info</div>
@@ -79,10 +78,10 @@ export default function Admin(){
                                         <h6>User Registration</h6>
                                     </div>
                                     <div className="col-4 pt-3">
-                                        <img src="img/img.png" style={{width: '100%'}} alt=""/>
+                                        <img src="img/img3.png" style={{width: '50px', height:"50px"}} alt=""/>
                                     </div>
                                     <div className="col-12 d-flex text-center">
-                                        <div className="more">More info</div>
+                                        <div className="more" style={{paddingTop: "50px"}}>More info</div>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +95,7 @@ export default function Admin(){
                                         <h6>Unique Visitors</h6>
                                     </div>
                                     <div className="col-4 pt-3">
-                                        <img src="img/image3.jpg" style={{width: '100%'}} alt=""/>
+                                        <img src="img/img4.png" style={{width: '50px', height:"50px"}} alt=""/>
                                     </div>
                                     <div className="col-12 d-flex text-center">
                                         <div className="more">More info</div>
