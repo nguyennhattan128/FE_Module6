@@ -292,7 +292,7 @@ export default CreateShop;
 
 //Cho vao userSlice cung voi current User
 // const initialState = {
-//     // currentUser: JSON.parse(localStorage.getItem('user')),
+//     //currentUser: JSON.parse(localStorage.getItem('user')),
 //     shop: {}
 // }
 //
