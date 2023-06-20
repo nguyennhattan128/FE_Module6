@@ -12,13 +12,17 @@ import Contact from "./pages/client/Contact";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import ListAdmin from "./pages/admin/ListAdmin";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
-import AddProduct from "./pages/client/AddProduct";
+import AddProduct from "./pages/shopOwner/AddProduct";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
 import EditStaffAccount from "./pages/management/EditStaffAccount";
 import CreateShop from "./pages/client/CreateShop";
 import Staff from "./layouts/staff/Staff";
 import ListStaff from "./pages/staff/ListStaff";
 import EditStaff from "./pages/staff/EditStaff";
+import EditShop from "./pages/shopOwner/EditShop";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import EditProduct from "./pages/shopOwner/EditProduct";
 
 
 function App() {
@@ -31,7 +35,6 @@ function App() {
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
-                <Route path='/add-product' element={<AddProduct/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/contact' element={<Contact/>}/>
@@ -47,8 +50,12 @@ function App() {
             <Route path='staff' element={<Staff/>}>
                 <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
+                <Route path='add-product' element={<AddProduct/>}/>
+                <Route path='edit-product' element={<EditProduct/>}/>
+                <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
         </Routes>
+        <ToastContainer/>
 </>
 )
 }

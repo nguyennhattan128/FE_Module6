@@ -6,6 +6,7 @@ import './login.css';
 import {useNavigate} from "react-router-dom";
 import {login} from "../../service/users/userService";
 import {TextField} from "./TextField";
+import {useDispatch} from "react-redux";
 
 export const Login = () => {
     const validate = Yup.object({
@@ -16,22 +17,14 @@ export const Login = () => {
     })
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const submit = (user) => {
-        login({
-            username: user.username.trim(),
-            password: user.password.trim()
-        }).then((data) => {
-            if (data.token) {
-                localStorage.setItem("token", data.token)
-                navigate('/home')
-            }
-            else {
-                document.getElementById('Notice').innerHTML = data
-                // navigate('')
-            }
-        }).catch((err) => {
-            console.log(err.message())
-            navigate(('/auth/login'))
+        dispatch(login({
+                username: user.username.trim(),
+                password: user.password.trim()
+            })
+        ).then(() => {
+            navigate(('/'))
         })
     }
 
@@ -66,13 +59,17 @@ export const Login = () => {
                                 <div className="auth-form_container">
                                     <div className="auth-form_header">
                                         {/*<h3 className="auth-form_heading">Đăng ký</h3>*/}
-                                        <div className="auth-form_switch-btn" style={{textAlign: "center", animationFillMode: "forwards"} }>Đăng nhập</div>
+                                        <div className="auth-form_switch-btn"
+                                             style={{textAlign: "center", animationFillMode: "forwards"}}>Đăng nhập
+                                        </div>
                                     </div>
                                     <div id="Notice"></div>
                                     <div className="auth-form_form">
                                         <div className="auth-form_group">
-                                            <TextField label="First Name" name="username" type="text" className="auth-form_input" placeholder={"Tên đăng nhập"} />
-                                            <TextField label="password" name="password" type="password" className="auth-form_input" placeholder={"Mật khẩu "} />
+                                            <TextField label="First Name" name="username" type="text"
+                                                       className="auth-form_input" placeholder={"Tên đăng nhập"}/>
+                                            <TextField label="password" name="password" type="password"
+                                                       className="auth-form_input" placeholder={"Mật khẩu "}/>
                                         </div>
                                     </div>
                                     <div className="auth-form_aside">

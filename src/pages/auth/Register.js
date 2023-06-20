@@ -1,10 +1,10 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
-import { TextField } from "./TextField"
+import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import './Register.css';
 import {useNavigate} from "react-router-dom";
 import {register} from "../../service/users/userService";
+import {useDispatch} from "react-redux";
 export const Register = () => {
     const validate = Yup.object({
         username: Yup.string()
@@ -22,14 +22,15 @@ export const Register = () => {
             .required('Hãy xác nhận mật khẩu'),
     })
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const submit = (user) => {
-        register({
+         dispatch(register({
             username: user.username.trim(),
             email: user.email.trim(),
             password: user.password.trim()
-        }).then(()=>{
-            navigate('/client/login');
-        })}
+        }))
+        navigate('/login');
+    }
 
     return (
         <Formik
@@ -67,10 +68,10 @@ export const Register = () => {
                                     </div>
                                     <div className="auth-form_form">
                                         <div className="auth-form_group">
-                                            <TextField label="First Name" name="username" type="text" className="auth-form_input" placeholder={"Tên đăng nhập"} />
-                                            <TextField label="Email" name="email" type="email" className="auth-form_input" placeholder={"Nhập email"} />
-                                            <TextField label="password" name="password" type="password" className="auth-form_input" placeholder={"Mật khẩu "} />
-                                            <TextField label="Confirm Password" name="confirmPassword" type="password" className="auth-form_input" placeholder={"Nhập lại mật khẩu"} />
+                                            <Field label="First Name" name="username" type="text" className="auth-form_input" placeholder={"Tên đăng nhập"} />
+                                            <Field label="Email" name="email" type="email" className="auth-form_input" placeholder={"Nhập email"} />
+                                            <Field label="password" name="password" type="password" className="auth-form_input" placeholder={"Mật khẩu "} />
+                                            <Field label="Confirm Password" name="confirmPassword" type="password" className="auth-form_input" placeholder={"Nhập lại mật khẩu"} />
                                         </div>
                                     </div>
                                     <div className="auth-form_aside">

@@ -5,6 +5,8 @@ import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
+import {createShop} from "../../service/users/sellerService";
+import {getStoreTypes} from "../../service/store/storeTypeService";
 
 
 const SchemaError = Yup.object().shape({
@@ -39,20 +41,13 @@ const CreateShop = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getStoreTypes())
+    }, [])
 
-    // const listStoreType = useSelector(({storeType})=>{
-    //     return storeType.listStoreType
-    // })
-
-
-    let listStoreType = [
-        {id: 1, name: 'Local Store'},
-        {id: 2, name: 'Global Store'},
-        {id: 3, name: 'Shopee Mall'},
-    ]
-
-
-
+    const listStoreType = useSelector(({storeType})=>{
+        return storeType.listStoreType
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -70,6 +65,8 @@ const CreateShop = () => {
             console.log(values)
             navigate('/shop-owner')
             // dispatch(createShop(values)).then(() => {navigate('/admin')})
+            console.log(values);
+            dispatch(createShop(values)).then(() => {navigate('/admin')})
         }
     });
 
@@ -326,11 +323,6 @@ export default CreateShop;
 
 
 
-
-
-//create shop service
-
-//create shop slice
 
 
 
