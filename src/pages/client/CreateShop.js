@@ -222,8 +222,8 @@ export default CreateShop;
 
 
 // async function createStoreForUser(userId, store) {
-//     const user = await userRepository.findOne(userId);
-//     store.user = user;
+//     const client = await userRepository.findOne(userId);
+//     store.client = client;
 //     const savedStore = await storeRepository.save(store);
 //     return savedStore;
 // }
@@ -276,7 +276,7 @@ export default CreateShop;
 // import {createAsyncThunk} from "@reduxjs/toolkit";
 // import axios from "axios";
 // export const createStore = createAsyncThunk(
-//     'user/createShop',
+//     'client/createShop',
 //     async (newShop) => {
 //         try {
 //             const response = await axios.post('http://localhost:3001/store/create-store', newShop);
@@ -290,14 +290,14 @@ export default CreateShop;
 
 
 
-//Cho vao userSlice cung voi current User
+//Cho vao userSlice cung voi current Client
 // const initialState = {
-//     //currentUser: JSON.parse(localStorage.getItem('user')),
+//     // currentUser: JSON.parse(localStorage.getItem('client')),
 //     shop: {}
 // }
 //
 // const useSlice = createSlice({
-//     name: 'user',
+//     name: 'client',
 //     initialState,
 //     extraReducers: builder => {
 //         builder.addCase(createStore.fulfilled, (state, action) => {

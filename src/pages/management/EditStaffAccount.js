@@ -45,8 +45,8 @@ function EditStaffAccount() {
         role: '',
     }
 
-    // const currentUser = useSelector(({user}) => {
-    //     return user.currentUser
+    // const currentUser = useSelector(({client}) => {
+    //     return client.currentUser
     // })
 
     const [file, setFile] = useState('');
@@ -224,15 +224,15 @@ export default EditStaffAccount;
 
 
 // const initialState = {
-//     currentUser: JSON.parse(localStorage.getItem('user')),
+//     currentUser: JSON.parse(localStorage.getItem('client')),
 // }
 // const useSlice = createSlice({
-//     name: 'user',
+//     name: 'client',
 //     initialState,
 //     extraReducers: builder => {
 //         builder.addCase(updateStaffAccount.fulfilled, (state, action) => {
 //             state.currentUser = action.payload;
-//             localStorage.setItem('user', JSON.stringify(action.payload));
+//             localStorage.setItem('client', JSON.stringify(action.payload));
 //         })
 //     }
 // })
