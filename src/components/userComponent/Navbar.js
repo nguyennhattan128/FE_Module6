@@ -25,7 +25,7 @@ export default function Navbar(){
                                     <Link className="nav-link" to={'/shop'}>Shop</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="contact.html">Contact</a>
+                                    <Link className="nav-link" to={'/contact'}>Contact</Link>
                                 </li>
                             </ul>
                         </div>
@@ -37,7 +37,9 @@ export default function Navbar(){
                                     <button className="btn-icon" type="submit"><i className="fa fa-fw fa-search text-dark mr-2" /></button>
                                 </div>
                             <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
-                                <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
+                                <Link to="/cart">
+                                    <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                                </Link>
                                 <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                             </a>
                             <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
