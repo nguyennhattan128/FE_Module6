@@ -13,6 +13,7 @@ import About from "./components/userComponent/About";
 import AddProduct from "./pages/client/AddProduct";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
 import EditStaffAccount from "./pages/management/EditStaffAccount";
+import CreateShop from "./pages/client/CreateShop";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                   <Route path='/about' element={<About/>}/>
                   <Route path='/shop' element={<ViewShop/>}/>
                   <Route path='/add-product' element={<AddProduct/>}/>
+                  <Route path='/create-shop' element={<CreateShop/>}/>
               </Route>
               <Route path={Path.MANAGEMENT} element={<Management/>}>
                   <Route path='admin' element={<Admin/>}/>
