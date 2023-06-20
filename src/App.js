@@ -19,27 +19,6 @@ import CreateShop from "./pages/client/CreateShop";
 
 
 function App() {
-  return (
-      <>
-          <Routes>
-              <Route path={Path.LOGIN} element={<Login/>}/>
-              <Route path={Path.REGISTER} element={<Register/>}/>
-              <Route path={Path.HOME} element={<User/>}>
-                  <Route path='' element={<Main/>}/>
-                  <Route path='/about' element={<About/>}/>
-                  <Route path='/shop' element={<ViewShop/>}/>
-                  <Route path='/add-product' element={<AddProduct/>}/>
-                  <Route path='/create-shop' element={<CreateShop/>}/>
-              </Route>
-              <Route path={Path.MANAGEMENT} element={<Management/>}>
-                  <Route path='admin' element={<Admin/>}/>
-                  <Route path='add-staff' element={<AddStaffAccount/>}/>
-                  <Route path='edit-staff' element={<EditStaffAccount/>}/>
-              </Route>
-              <Route path={'test'} element={<Admin/>}/>
-          </Routes>
-      </>
-  )
     return (
         <>
         <Routes>
@@ -49,11 +28,15 @@ function App() {
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
+                <Route path='/add-product' element={<AddProduct/>}/>
+                <Route path='/create-shop' element={<CreateShop/>}/>
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/contact' element={<Contact/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
+                <Route path='add-staff' element={<AddStaffAccount/>}/>
+                <Route path='edit-staff' element={<EditStaffAccount/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
