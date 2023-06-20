@@ -24,12 +24,15 @@ export const Register = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const submit = (user) => {
+        console.log(user)
          dispatch(register({
             username: user.username.trim(),
             email: user.email.trim(),
             password: user.password.trim()
-        }))
-        navigate('/login');
+        })).then(()=>{
+             navigate('/login');
+         })
+
     }
 
     return (
@@ -45,7 +48,6 @@ export const Register = () => {
                 submit(values)
             }}
         >
-            {formik => (
                 <Form>
                     <div>
                         <div className="nav">
@@ -86,21 +88,10 @@ export const Register = () => {
                                         <button className="btn btn--primary" type="submit">ĐĂNG KÝ</button>
                                     </div>
                                 </div>
-                                {/*<div className="auth-form_socials">*/}
-                                {/*    <a href="" className="btn btn--size-s btn--with-icon">*/}
-                                {/*        <i style={{fontSize:"24px"}} className="fa">&#xf082;</i>*/}
-                                {/*        Kết nối với Facebook*/}
-                                {/*    </a>*/}
-                                {/*    <a href="" className="btn btn--size-s btn--with-icon">*/}
-                                {/*        <i style={{fontSize:"24px"}} className="fa">&#xf1a0;</i>*/}
-                                {/*        Kết nối với Google*/}
-                                {/*    </a>*/}
-                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
                 </Form>
-            )}
         </Formik>
     )
 }

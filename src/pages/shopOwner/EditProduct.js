@@ -7,6 +7,8 @@ import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import React from 'react';
 import Swal from "sweetalert2";
+import {getCategories} from "../../service/product/categoryService";
+import {editProduct, getOneProduct} from "../../service/users/sellerService";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -23,45 +25,25 @@ const SchemaError = Yup.object().shape({
 function EditProduct() {
     const [files, setFiles] = useState([]);
     const navigate = useNavigate();
+    const {productId} = useParams();
+    const [productFetched, setProductFetched] = useState(false);
+    const dispatch = useDispatch();
 
-    let productId = 1
-    // let { id } = useParams();
-    // const [productFetched, setProductFetched] = useState(false);
-    // const dispatch = useDispatch();
-    // const currentProduct = useSelector(({products})=>{
-    //     if(productFetched === true){
-    //         console.log(products.currentProduct);
-    //         return products.currentProduct;
-    //     }
-    //     return null
-    // })
-    // const listCategory = useSelector(({category})=>{
-    //     return category.listCategory
-    // })
-    // useEffect(() => {
-    //     dispatch(getOneProduct(id)).then(()=>{
-    //         setProductFetched(true)
-    //     });
-    //     dispatch(getCategories())
-    // }, [dispatch,id]);
-
-
-    const listCategory = [
-        {id: 1, name: 'clothes'},
-        {id: 2, name: 'foods'},
-    ]
-
-
-    const currentProduct = {
-        id: 1,
-        name: 'banh mi',
-        price: 1000,
-        quantity: 1,
-        category: 1,
-        image: 'https://lh3.googleusercontent.com/ogw/AOLn63HlPxum_ho9s8kw6rv6Ych-hwZ13_m9xX_Os_NM0Q=s64-c-mo',
-        images: ['https://firebasestorage.googleapis.com/v0/b/crud-8adf5.appspot.com/o/files%2Fimages%20(4).jpg?alt=media&token=9e380fbd-aeba-4326-87ef-bd7c07de9cf9', 'https://firebasestorage.googleapis.com/v0/b/crud-8adf5.appspot.com/o/files%2Fimages%20(6).jpg?alt=media&token=1a295e51-f974-4baa-aad9-3b7ca4bc25fa']
-    }
-
+    const currentProduct = useSelector(({store})=>{
+        if(productFetched === true){
+            return store.currentProduct;
+        }
+        return null
+    })
+    const listCategory = useSelector(({category})=>{
+        return category.listCategory
+    })
+    useEffect(() => {
+        dispatch(getOneProduct(productId)).then(()=>{
+            setProductFetched(true)
+        });
+        dispatch(getCategories())
+    }, [dispatch,productId]);
 
 
     const handleFileChange = async (event, setFieldValue, values) =>{
@@ -146,7 +128,7 @@ function EditProduct() {
                         updateValues.image = image;
                         console.log(updateValues)
                         console.log(images)
-                        // dispatch(editProduct(updateValues, images)).then(() => {navigate('/shop-owner');});
+                        dispatch(editProduct({ updateValues, images, productId })).then(() => {navigate('/shop-owner');});
                     }}
                 >
                     {({values, handleChange, setFieldValue})=>(
@@ -320,10 +302,5 @@ export default EditProduct
 
 
 
-
-//get categories
-//get one product
-//update product slice
-//update product service
 
 

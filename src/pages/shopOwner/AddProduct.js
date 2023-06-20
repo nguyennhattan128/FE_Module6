@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import {addProduct} from "../../service/users/sellerService";
 // import {toast} from "react-toastify";
 
 const SchemaError = Yup.object().shape({
@@ -29,19 +30,9 @@ const AddProduct = () => {
     const [isSubmit, setIsSubmit] = useState(true)
 
 
-    // const listCategory = useSelector(({listCategory})=>{
-    //     return category.listCategory
-    // })
-
-
-    let listCategory = [
-        {id: 1,
-            name: 'Clothes'}
-        ,
-        {id: 2,
-            name: 'Foods'}
-    ]
-
+    const listCategory = useSelector(({category})=>{
+        return category.listCategory
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -57,7 +48,7 @@ const AddProduct = () => {
             values.image = values.images[0]
             values.images = values.images.slice(1)
             console.log(values);
-            // dispatch(addProduct(values)).then(() => {navigate('/shop-owner')})
+            dispatch(addProduct(values)).then(() => {navigate('/shop-owner')})
         }
     });
 
@@ -313,79 +304,13 @@ export default AddProduct;
 
 
 
-// get category service
-
-// import axios from "axios";
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-// export const getCategories = createAsyncThunk(
-//     'categories/getAll',
-//     async () => {
-//         try {
-//             const response = await axios.get('http://localhost:3001/categories');
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-//get category slice
 
 
-// const initialState = {
-//     listCategory: []
-// }
-// const categorySlice = createSlice(
-//     {
-//         name: 'Category',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(getCategories.fulfilled, (currentState, action)=>{
-//                 currentState.listCategory = action.payload
-//             })
-//
-//         }
-//     }
-// )
-// export default categorySlice.reducer
 
 
-//add product service
 
-// export const addProduct = createAsyncThunk(
-//     'products/addProduct',
-//     async (values) => {
-//         try {
-//             const newProduct = await axios.post('http://localhost:3001/store/add-product', values);
-//             return newProduct.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
 
-//add product slice
 
-// const initialState = {
-//     listProduct: [],
-//     currentProduct: null
-// }
-// const storeSlice = createSlice(
-//     {
-//         name: 'Product',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(addProduct.fulfilled, (currentState, action)=>{
-//                 currentState.listProduct.push(action.payload)
-//             })
-//         }
-//     }
-// )
-// export default storeSlice.reducer
 
 
 

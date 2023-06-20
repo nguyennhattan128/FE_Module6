@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
 import storage from '../../firebase/storage'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getStoreTypes} from "../../service/store/storeTypeService";
+import {editShop, getOwnShop} from "../../service/users/sellerService";
+import {useNavigate} from "react-router-dom";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -34,40 +37,24 @@ const SchemaError = Yup.object().shape({
 
 
 
-
-
-
 function EditShop() {
-    const currentShop = {
-        name: 'My shop',
-        email: 'shop@gmail.com',
-        avatar: 'https://www.appypie.com/wp-content/uploads/2021/12/online-store-mob.svg',
-        telephone: '0359371623',
-        address: 'Ha Noi, Viet Nam',
-        origin: 'Viet Nam',
-        country: 'Viet Nam',
-        storeType: 1,
-    }
 
-    let listStoreType = [
-        {id: 1, name: 'Local Store'},
-        {id: 2, name: 'Global Store'},
-        {id: 3, name: 'Shopee Mall'},
-    ]
+    const dispatch= useDispatch();
+    const navigate = useNavigate()
 
 
-    // const currentShop = useSelector(({client}) => {
-    //     return client.shop
-    // })
+    const currentShop = useSelector(({store}) => {
+        return store.currentShop
+    })
 
-    // const listStoreType = useSelector(({storeType})=>{
-    //     return storeType.listStoreType
-    // })
+    const listStoreType = useSelector(({storeType})=>{
+        return storeType.listStoreType
+    })
 
-    // useEffect(() => {
-    //     dispatch(getStoreType())
-    //     dispatch(getStore())
-    // }, []);
+    useEffect(() => {
+        dispatch(getStoreTypes())
+        dispatch(getOwnShop())
+    }, []);
 
 
 
@@ -108,7 +95,7 @@ function EditShop() {
                     onSubmit={(values) => {
                         values.avatar = avatar
                         console.log(values)
-                        // dispatch(editShop(values)).then(() => {navigate('/');});
+                        dispatch(editShop(values)).then(() => {navigate('/shop-owner');});
                     }}
                     enableReinitialize={true}
                 >
@@ -240,62 +227,6 @@ export default EditShop;
 
 
 
-
-//getStoreType slice
-// const initialState = {
-//     listStoreType: []
-// }
-// const storeTypeSlice = createSlice(
-//     {
-//         name: 'StoreType',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(getStoreTypes.fulfilled, (currentState, action)=>{
-//                 currentState.listStoreType = action.payload
-//             })
-//         }
-//     }
-// )
-// export default storeTypeSlice.reducer
-
-
-
-//edit shop service
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-// import axios from "axios";
-// export const editStore = createAsyncThunk(
-//     'shopOwner/editShop',
-//     async (editShop) => {
-//         try {
-//             const response = await axios.post('http://localhost:3001/store/edit-shop', editShop);
-//             return editShop
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-
-
-
-//edit shop slice
-// const initialState = {
-//     shop: {}
-// }
-//
-// const shopOwnerSlice = createSlice({
-//     name: 'shopOwner',
-//     initialState,
-//     extraReducers: builder => {
-//         builder.addCase(editStore.fulfilled, (state, action) => {
-//             state.shop = action.payload;
-//         })
-//     }
-// })
-//
-// export default shopOwner.reducer;
 
 
 
