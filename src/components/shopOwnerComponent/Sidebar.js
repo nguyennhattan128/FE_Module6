@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 
 
 export default function Sidebar(){
@@ -18,7 +19,7 @@ export default function Sidebar(){
 
                         <ul className="sub-menu">
                             <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
+                            <li><Link to="/shop-owner/add-product"><i className="fa-solid fa-check"></i> Thêm mới</Link></li>
                             <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
                         </ul>
                     </li>

@@ -6,7 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
-import {toast} from "react-toastify";
+// import {toast} from "react-toastify";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -57,7 +57,7 @@ const AddProduct = () => {
             values.image = values.images[0]
             values.images = values.images.slice(1)
             console.log(values);
-            // dispatch(addProduct(values)).then(() => {navigate('/store')})
+            // dispatch(addProduct(values)).then(() => {navigate('/shop-owner')})
         }
     });
 
@@ -120,10 +120,11 @@ const AddProduct = () => {
             let isValid = totalFile <= 4;
 
             if(!isValid){
-                // Swal.fire('You are only allowed to select up to 4 image files');
-                toast.error('You are only allowed to select up to 4 image files', {
-                    position: 'top-center'})
-
+                Swal.fire('You are only allowed to select up to 4 image files');
+                // toast.error('You are only allowed to select up to 4 image files', {
+                //     position: 'top-center',
+                //     autoClose: 2000
+                // });
             } else {
                 formik.setFieldValue("images", [...formik.values.images, ...imageUrls]);
                 setIsSubmit(false);
@@ -253,16 +254,7 @@ const AddProduct = () => {
                                         </div>
                                     </div>
                                     <div className="form-group col-md-8 mb-3">
-                                        {/*<div>*/}
-                                        {/*    <label htmlFor="name">Select product images</label>*/}
-                                        {/*    <input*/}
-                                        {/*        type="file"*/}
-                                        {/*        name='images'*/}
-                                        {/*        multiple*/}
-                                        {/*        onChange={(e) =>{handleFileChange(e)}}*/}
-                                        {/*        accept="image/jpeg,image/png"*/}
-                                        {/*    />*/}
-                                        {/*</div>*/}
+
                                         <div>
                                             <label htmlFor="name">Product name</label>
                                             <Field type="text" className="form-control mt-1" placeholder="Product Name" name='name'/>
