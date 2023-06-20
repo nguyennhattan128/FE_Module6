@@ -1,25 +1,26 @@
 import React from 'react';
+import "./login.css";
 import { Formik, Form } from 'formik';
-import { TextField } from "./TextField"
+import { TextField } from "./TextField";
 import * as Yup from 'yup';
-import './Register.css';
 import {useNavigate} from "react-router-dom";
 import {register} from "../../service/users/userService";
-export const Register = () => {
+
+export default function Register(){
     const validate = Yup.object({
         username: Yup.string()
-            .min(3, 'Tên người dùng từ ba ký tự trở lên')
-            .max(15, 'Tên người dùng cần nhỏ hơn 15 ký tự')
-            .required('Hãy nhập tên người dùng'),
+            .min(3, 'Username must be minimum 6 digits!')
+            .max(15, 'Username needs to be less than 15 characters')
+            .required("Username Required!"),
         email: Yup.string()
-            .email('Email không hợp lệ')
-            .required('Hãy nhập email'),
+            .email("Email is invalid!")
+            .required("Email Required!"),
         password: Yup.string()
-            .min(6, 'Mật khẩu từ 6 ký tự trở lên')
-            .required('Hãy nhập mật khẩu'),
+            .min(6, "Password must be minimum 6 digits!")
+            .required("Password Required!"),
         confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'Mật khẩu phải trùng khớp')
-            .required('Hãy xác nhận mật khẩu'),
+            .oneOf([Yup.ref('password'), null], "Password must match!")
+            .required("Confirm password is reqired!"),
     })
     const navigate = useNavigate();
     const submit = (user) => {
@@ -30,76 +31,68 @@ export const Register = () => {
         }).then(()=>{
             navigate('/login');
         })}
-
-    return (
-        <Formik
-            initialValues={{
-                username: '',
-                email: '',
-                password: '',
-                confirmPassword: ''
-            }}
-            validationSchema={validate}
-            onSubmit={values => {
-                submit(values)
-            }}
-        >
-            {formik => (
-                <Form>
-                    <div>
-                        <div className="nav">
-                            <ul className="nav-list">
-                                <li className="nav-item-left">Big-Shop</li>
-                                <li className="nav-item-left">Bạn cần giúp đỡ gì ?</li>
-
-                            </ul>
-                            <ul className="nav-list">
-                                <li className="nav-item-right">Đăng ký</li>
-                                <li className="nav-item-right">Đăng nhập</li>
-                            </ul>
-                        </div>
-                        <div className="parent-container">
-                            <div className="auth-form">
-                                <div className="auth-form_container">
-                                    <div className="auth-form_header">
-                                        <h3 className="auth-form_heading">Đăng ký</h3>
-                                        <span className="auth-form_switch-btn">Đăng nhập</span>
-                                    </div>
-                                    <div className="auth-form_form">
-                                        <div className="auth-form_group">
-                                            <TextField label="First Name" name="username" type="text" className="auth-form_input" placeholder={"Tên đăng nhập"} />
-                                            <TextField label="Email" name="email" type="email" className="auth-form_input" placeholder={"Nhập email"} />
-                                            <TextField label="password" name="password" type="password" className="auth-form_input" placeholder={"Mật khẩu "} />
-                                            <TextField label="Confirm Password" name="confirmPassword" type="password" className="auth-form_input" placeholder={"Nhập lại mật khẩu"} />
+    return(
+        <>
+            <Formik
+                initialValues={{
+                    username: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: ''
+                }}
+                validationSchema={validate}
+                onSubmit={values => {
+                    submit(values)
+                }}
+            >
+                {formik => (
+                    <Form>
+                        <section className="vh ground">
+                            <div className="container vh2 py-4">
+                                <div className="row d-flex justify-content-center align-items-center" style={{height:'100vh'}}>
+                                    <div className="col col-xl-10">
+                                        <div className="card card-1" >
+                                            <div className="row g-0 row-cen">
+                                                <div className="col-md-4 col-lg-5 d-none d-md-block">
+                                                    <img src="https://images.unsplash.com/photo-1586278500132-7c85dfbc51d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
+                                                         alt="login form" className="img-fluid" style={{borderRadius: '1rem 0 0 1rem'}} />
+                                                </div>
+                                                <div className="col-md-4 col-lg-7 d-flex align-items-center">
+                                                    <div className="card-body p-4 p-lg-5 text-black">
+                                                        <div className="d-flex align-items-center mb-3 pb-1">
+                                                            <i className="fas fa-cubes fa-2x me-3" style={{color: '#ff6219'}} />
+                                                            <span className="h1 fw-bold mb-0">Logo</span>
+                                                        </div>
+                                                        <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
+                                                        <div className="form-outline mb-1">
+                                                            <TextField label="First Name" name="username" type="text" className="form-control form-control-lg" placeholder={"User name"} />
+                                                        </div>
+                                                        <div className="form-outline mb-1">
+                                                            <TextField label="Email" name="email" type="email" className="form-control form-control-lg" placeholder={"Nhập email"} />
+                                                        </div>
+                                                        <div className="form-outline mb-1">
+                                                            <TextField label="password" name="password" type="password" className="form-control form-control-lg" placeholder={"Password"} />
+                                                        </div>
+                                                        <div className="form-outline mb-1">
+                                                            <TextField label="Confirm Password" name="confirmPassword" type="password" className="form-control form-control-lg" placeholder={"Nhập lại mật khẩu"} />
+                                                            <label className="form-label" htmlFor="form2Example27"></label>
+                                                        </div>
+                                                        <div className="pt-1 mb-4">
+                                                            <button  type="submit" className="btn btn-success" >Login</button>
+                                                        </div>
+                                                        <a className="small text-muted" href="#!">Forgot password?</a>
+                                                        <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <a href="#!" style={{color: '#393f81'}}>Register here</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="auth-form_aside">
-                                        <p className="auth-form_policy-text">
-                                            Bằng việc đăng kí, bạn đã đồng ý với big-shop về
-                                            <a href="" className="auth-form_text-link"> Điều khoản dịch vụ</a>
-                                            <a href="" className="auth-form_text-link"> Chính sách bảo mật</a>
-                                        </p>
-                                    </div>
-                                    <div className="auth-form-control">
-                                        <button className="btn auth-form-control-back" type="reset">TRỞ LẠI</button>
-                                        <button className="btn btn--primary" type="submit">ĐĂNG KÝ</button>
-                                    </div>
                                 </div>
-                                {/*<div className="auth-form_socials">*/}
-                                {/*    <a href="" className="btn btn--size-s btn--with-icon">*/}
-                                {/*        <i style={{fontSize:"24px"}} className="fa">&#xf082;</i>*/}
-                                {/*        Kết nối với Facebook*/}
-                                {/*    </a>*/}
-                                {/*    <a href="" className="btn btn--size-s btn--with-icon">*/}
-                                {/*        <i style={{fontSize:"24px"}} className="fa">&#xf1a0;</i>*/}
-                                {/*        Kết nối với Google*/}
-                                {/*    </a>*/}
-                                {/*</div>*/}
                             </div>
-                        </div>
-                    </div>
-                </Form>
-            )}
-        </Formik>
+                        </section>
+                    </Form>
+                )}
+            </Formik>
+        </>
     )
 }
