@@ -1,15 +1,15 @@
 import {Route, Routes} from "react-router-dom";
 import Main from "./pages/client/Main";
 import Path from "./constant/Path"
-import User from "./layouts/User";
+import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
 import {Register} from "./pages/auth/Register";
 import {Login} from "./pages/auth/Login";
-import ViewShop from "./components/userComponent/ViewShop";
-import About from "./components/userComponent/About";
-import Cart from "./components/userComponent/Cart";
-import Contact from "./components/userComponent/Contact";
-import ListShopOwner from "./pages/shop_owner/ListShopOwner";
+import ViewShop from "./pages/client/ViewShop";
+import About from "./pages/client/About";
+import Cart from "./pages/client/Cart";
+import Contact from "./pages/client/Contact";
+import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import ListAdmin from "./pages/admin/ListAdmin";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
 import AddProduct from "./pages/client/AddProduct";
@@ -24,7 +24,7 @@ function App() {
         <Routes>
             <Route path={Path.LOGIN} element={<Login/>}/>
             <Route path={Path.REGISTER} element={<Register/>}/>
-            <Route path={Path.HOME} element={<User/>}>
+            <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>

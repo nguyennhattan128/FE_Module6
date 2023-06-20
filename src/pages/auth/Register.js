@@ -28,7 +28,7 @@ export const Register = () => {
             email: user.email.trim(),
             password: user.password.trim()
         }).then(()=>{
-            navigate('/user/login');
+            navigate('/client/login');
         })}
 
     return (

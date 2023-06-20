@@ -1,4 +1,4 @@
-import './cssUserComponent/ListProduct.css';
+import './clientCss/ListProduct.css';
 
 export default function ListProduct(){
 

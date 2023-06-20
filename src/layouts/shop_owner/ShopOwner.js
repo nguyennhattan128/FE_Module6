@@ -1,6 +1,6 @@
 import "./ShopOwner.css"
 import Sidebar from "../../components/shopOwnerComponent/Sidebar";
-import Content from "../../pages/shop_owner/Content";
+import Content from "../../pages/shopOwner/Content";
 
 export default function ShopOwner(){
     return(

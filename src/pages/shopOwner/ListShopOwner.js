@@ -1,4 +1,4 @@
-import "../../layouts/shop_owner/ShopOwner.css"
+import "./ListShopOwner.css"
 
 export default function ListShopOwner(){
     return(
