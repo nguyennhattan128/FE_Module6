@@ -1,26 +1,26 @@
 
-.item1 {
+.item-admin1 {
     width: 100%;
     border-radius: 5px;
     background: orange;
     padding: 10px;
     min-height: 150px;
 }
-.item2 {
+.item-admin2 {
     width: 100%;
     border-radius: 5px;
     background: #b6d4fe;
     padding: 10px;
     min-height: 150px;
 }
-.item3 {
+.item-admin3 {
     width: 100%;
     border-radius: 5px;
     background: darkseagreen;
     padding: 10px;
     min-height: 180px;
 }
-.item4 {
+.item-admin4 {
     width: 100%;
     border-radius: 5px;
     background: plum;

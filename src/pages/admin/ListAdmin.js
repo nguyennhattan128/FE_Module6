@@ -4,7 +4,7 @@ export default function ListAdmin() {
         <>
             <div className="row mt-3">
                 <div className="col-3">
-                    <div className="item1">
+                    <div className="item-admin1">
                         <div className="row">
                             <div className="col-8 p-2">
                                 <h2>150</h2>
@@ -21,7 +21,7 @@ export default function ListAdmin() {
                 </div>
 
                 <div className="col-3">
-                    <div className="item2">
+                    <div className="item-admin2">
                         <div className="row">
                             <div className="col-8 p-2">
                                 <h2>53%</h2>
@@ -38,7 +38,7 @@ export default function ListAdmin() {
                 </div>
 
                 <div className="col-3">
-                    <div className="item3">
+                    <div className="item-admin3">
                         <div className="row">
                             <div className="col-8 p-2">
                                 <h2>44</h2>
@@ -55,7 +55,7 @@ export default function ListAdmin() {
                 </div>
 
                 <div className="col-3">
-                    <div className="item4">
+                    <div className="item-admin4">
                         <div className="row">
                             <div className="col-8 p-2">
                                 <h2>65</h2>

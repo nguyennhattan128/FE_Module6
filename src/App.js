@@ -12,6 +12,7 @@ import Contact from "./pages/client/Contact";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import ListAdmin from "./pages/admin/ListAdmin";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
+import ListStaff from "./pages/staff/ListStaff";
 import AddProduct from "./pages/shopOwner/AddProduct";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
 import EditStaffAccount from "./pages/management/EditStaffAccount";
@@ -31,7 +32,7 @@ function App() {
         <Routes>
             <Route path={Path.LOGIN} element={<Login/>}/>
             <Route path={Path.REGISTER} element={<Register/>}/>
-            <Route path={Path.HOME} element={<Client/>}>
+            <Route path={Path.HOME} element={<User/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
@@ -44,6 +45,7 @@ function App() {
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='edit-staff' element={<EditStaffAccount/>}/>
                 <Route path='edit-shop' element={<EditShop/>}/>
+                <Route path='allStaff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>

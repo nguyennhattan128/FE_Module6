@@ -10,7 +10,7 @@ export default function Content(){
             <div id="content">
                 <Header/>
                 <Action/>
-                <Outlet></Outlet>
+                <Outlet/>
                 <Footer/>
             </div>
         </>
