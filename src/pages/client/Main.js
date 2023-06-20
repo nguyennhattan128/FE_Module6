@@ -1,7 +1,7 @@
 
-import Advertisement from "../../components/userComponent/Advertisement";
-import Category from "../../components/userComponent/Category";
-import ListProduct from "../../components/userComponent/ListProduct";
+import Advertisement from "../../components/clientComponent/Advertisement";
+import Category from "../../components/clientComponent/Category";
+import ListProduct from "./ListProduct";
 
 
 export default function Main(){

@@ -10,34 +10,34 @@ export default function ViewShop(){
                         <h1 className="h2 pb-4">Categories</h1>
                         <ul className="list-unstyled templatemo-accordion">
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
                                     Gender
                                     <i className="fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul className="collapse show list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="#">Men</a></li>
-                                    <li><a className="text-decoration-none" href="#">Women</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Men</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Women</a></li>
                                 </ul>
                             </li>
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
                                     Sale
                                     <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul id="collapseTwo" className="collapse list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="#">Sport</a></li>
-                                    <li><a className="text-decoration-none" href="#">Luxury</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sport</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Luxury</a></li>
                                 </ul>
                             </li>
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
                                     Product
                                     <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul id="collapseThree" className="collapse list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="#">Bag</a></li>
-                                    <li><a className="text-decoration-none" href="#">Sweather</a></li>
-                                    <li><a className="text-decoration-none" href="#">Sunglass</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Bag</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sweather</a></li>
+                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sunglass</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -47,13 +47,13 @@ export default function ViewShop(){
                             <div className="col-md-6">
                                 <ul className="list-inline shop-top-menu pb-3 pt-1">
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none mr-3" href="#">All</a>
+                                        <a className="h3 text-dark text-decoration-none mr-3" href="src/components/userComponent#">All</a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none mr-3" href="#">Men's</a>
+                                        <a className="h3 text-dark text-decoration-none mr-3" href="src/components/userComponent#">Men's</a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none" href="#">Women's</a>
+                                        <a className="h3 text-dark text-decoration-none" href="src/components/userComponent#">Women's</a>
                                     </li>
                                 </ul>
                             </div>
@@ -405,13 +405,13 @@ export default function ViewShop(){
                         <div div="row">
                             <ul className="pagination pagination-lg justify-content-end">
                                 <li className="page-item disabled">
-                                    <a className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabIndex={-1}>1</a>
+                                    <a className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="src/components/userComponent#" tabIndex={-1}>1</a>
                                 </li>
                                 <li className="page-item">
-                                    <a className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+                                    <a className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="src/components/userComponent#">2</a>
                                 </li>
                                 <li className="page-item">
-                                    <a className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+                                    <a className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="src/components/userComponent#">3</a>
                                 </li>
                             </ul>
                         </div>
