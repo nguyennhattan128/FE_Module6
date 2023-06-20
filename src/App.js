@@ -43,15 +43,17 @@ function App() {
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='edit-staff' element={<EditStaffAccount/>}/>
+                <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
+                <Route path='add-product' element={<AddProduct/>}/>
+                <Route path='edit-product' element={<EditProduct/>}/>
+                <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
-                <Route path='add-product' element={<AddProduct/>}/>
-                <Route path='edit-product' element={<EditProduct/>}/>
                 <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
         </Routes>
