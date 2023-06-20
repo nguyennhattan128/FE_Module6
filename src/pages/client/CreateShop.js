@@ -5,7 +5,7 @@ import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
-import {createShop} from "../../service/users/sellerService";
+import {createShop} from "../../service/store/storeService";
 import {getStoreTypes} from "../../service/store/storeTypeService";
 
 
