@@ -237,22 +237,6 @@ function EditShop() {
 export default EditShop;
 
 
-//getStoreType service
-
-// import axios from "axios";
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-// export const getStoreTypes = createAsyncThunk(
-//     'storeTypes/getAll',
-//     async () => {
-//         try {
-//             const response = await axios.get('http://localhost:3001/store-type');
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
 
 
 
