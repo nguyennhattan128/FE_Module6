@@ -1,7 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import Main from "./pages/client/Main";
 import Path from "./constant/Path"
-import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
 import {Register} from "./pages/auth/Register";
 import {Login} from "./pages/auth/Login";
@@ -18,12 +17,12 @@ import AddStaffAccount from "./pages/management/AddStaffAccount";
 import EditStaffAccount from "./pages/management/EditStaffAccount";
 import CreateShop from "./pages/client/CreateShop";
 import Staff from "./layouts/staff/Staff";
-import ListStaff from "./pages/staff/ListStaff";
 import EditStaff from "./pages/staff/EditStaff";
 import EditShop from "./pages/shopOwner/EditShop";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import EditProduct from "./pages/shopOwner/EditProduct";
+import Client from "./layouts/client/Client";
 
 
 function App() {
@@ -32,7 +31,7 @@ function App() {
         <Routes>
             <Route path={Path.LOGIN} element={<Login/>}/>
             <Route path={Path.REGISTER} element={<Register/>}/>
-            <Route path={Path.HOME} element={<User/>}>
+            <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
@@ -54,7 +53,6 @@ function App() {
                 <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
-                <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
                 <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
