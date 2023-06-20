@@ -13,19 +13,19 @@ export default function Sidebar(){
                             <a href="src/components/adminComponent#">Nguyễn Văn Nam</a>
                         </div>
                     </li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-house"></i> Main</a></li>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Product Management </a>
                         <ul className="sub-menu">
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Product List</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Add New</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Kind Of Product</a></li>
                         </ul>
                     </li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Quản lý đơn hàng</a></li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-users"></i> Quản lý người dùng</a>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Receipt Management</a></li>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-users"></i> Staff Management</a>
                         <ul className="sub-menu">
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách người dùng</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Staff List</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Add Staff</a></li>
                         </ul>
                     </li>
                 </ul>

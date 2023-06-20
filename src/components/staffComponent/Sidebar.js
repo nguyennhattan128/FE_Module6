@@ -13,17 +13,17 @@ export default function Sidebar(){
                             <a href="src/components/adminComponent#">Dương Văn Dài</a>
                         </div>
                     </li>
-                    <li><a href="/staff"><i className="fa-solid fa-house"></i> Trang chủ</a></li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-pen"></i> Thông tin cá nhân</a></li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Quản lý sản phẩm </a>
+                    <li><a href="/staff"><i className="fa-solid fa-house"></i> Main</a></li>
+                    <li><a href="/staff/edit-staff"><i className="fa-solid fa-pen"></i> Personal Information</a></li>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Product Management</a>
 
                         <ul className="sub-menu">
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Danh sách</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thêm mới</a></li>
-                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Thể loại sản phẩm</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Product List</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Add Product</a></li>
+                            <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Kind Of Product</a></li>
                         </ul>
                     </li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Quản lý đơn hàng</a></li>
+                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Receipt Management</a></li>
                 </ul>
             </div>
         </>

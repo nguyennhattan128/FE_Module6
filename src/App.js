@@ -18,6 +18,7 @@ import EditStaffAccount from "./pages/management/EditStaffAccount";
 import CreateShop from "./pages/client/CreateShop";
 import Staff from "./layouts/staff/Staff";
 import ListStaff from "./pages/staff/ListStaff";
+import EditStaff from "./pages/staff/EditStaff";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='' element={<ListStaff/>}/>
+                <Route path='edit-staff' element={<EditStaff/>}/>
             </Route>
         </Routes>
 </>
