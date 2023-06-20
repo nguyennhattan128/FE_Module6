@@ -327,11 +327,6 @@ export default CreateShop;
 
 
 
-//create shop service
-
-//create shop slice
-
-
 
 
 
