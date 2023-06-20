@@ -1,4 +1,4 @@
-import Navbar from "../components/adminComponent/Navbar";
+import Navbar from "../components/adminComponent/Action";
 import {Outlet} from "react-router-dom";
 import Footer from "../components/adminComponent/Footer";
 
