@@ -17,17 +17,22 @@ export default function Category(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-4 p-5 mt-3">
+                    <div className="col-12 col-md-3 p-5 mt-3">
                         <a href="#"><img src="./assets/img/category_img_01.jpg" className="rounded-circle img-fluid border" /></a>
                         <h5 className="text-center mt-3 mb-3">Watches</h5>
                         <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
                     </div>
-                    <div className="col-12 col-md-4 p-5 mt-3">
+                    <div className="col-12 col-md-3 p-5 mt-3">
                         <a href="#"><img src="./assets/img/category_img_02.jpg" className="rounded-circle img-fluid border" /></a>
                         <h2 className="h5 text-center mt-3 mb-3">Shoes</h2>
                         <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
                     </div>
-                    <div className="col-12 col-md-4 p-5 mt-3">
+                    <div className="col-12 col-md-3 p-5 mt-3">
+                        <a href="#"><img src="./assets/img/category_img_03.jpg" className="rounded-circle img-fluid border" /></a>
+                        <h2 className="h5 text-center mt-3 mb-3">Accessories</h2>
+                        <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
+                    </div>
+                    <div className="col-12 col-md-3 p-5 mt-3">
                         <a href="#"><img src="./assets/img/category_img_03.jpg" className="rounded-circle img-fluid border" /></a>
                         <h2 className="h5 text-center mt-3 mb-3">Accessories</h2>
                         <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
