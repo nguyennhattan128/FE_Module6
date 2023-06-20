@@ -93,10 +93,12 @@ a:hover, a:visited {
 }
 .search {
     float: right;
-    width: 3%;
+    margin-right: 165px;
+
 }
-#header #main-sign-out {}
-#header #main-search {}
+#inputSearch {
+    width: 200px;
+}
 
 .action {
     padding: 1em ;

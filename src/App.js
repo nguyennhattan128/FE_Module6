@@ -16,6 +16,8 @@ import AddProduct from "./pages/client/AddProduct";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
 import EditStaffAccount from "./pages/management/EditStaffAccount";
 import CreateShop from "./pages/client/CreateShop";
+import Staff from "./layouts/staff/Staff";
+import ListStaff from "./pages/staff/ListStaff";
 
 
 function App() {
@@ -40,6 +42,9 @@ function App() {
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
+            </Route>
+            <Route path='staff' element={<Staff/>}>
+                <Route path='' element={<ListStaff/>}/>
             </Route>
         </Routes>
 </>

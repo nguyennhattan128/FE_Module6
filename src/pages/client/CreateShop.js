@@ -67,7 +67,8 @@ const CreateShop = () => {
         },
         validationSchema: SchemaError,
         onSubmit: (values) => {
-            console.log(values);
+            console.log(values)
+            navigate('/shop-owner')
             // dispatch(createShop(values)).then(() => {navigate('/admin')})
         }
     });

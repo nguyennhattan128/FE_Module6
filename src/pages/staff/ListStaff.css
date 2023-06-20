@@ -1,0 +1,26 @@
+.item1 {
+    width: 100%;
+    border-radius: 5px;
+    background: orange;
+    padding: 10px;
+    min-height: 150px;
+}
+.item2 {
+    width: 100%;
+    border-radius: 5px;
+    background: #b6d4fe;
+    padding: 10px;
+    min-height: 150px;
+}
+
+.item3 {
+    width: 100%;
+    border-radius: 5px;
+    background: plum;
+    padding: 10px;
+    min-height: 150px;
+}
+.more {
+    width: 97%;
+    padding-top: 50px;
+}
