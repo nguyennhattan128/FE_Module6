@@ -10,6 +10,7 @@ import ViewShop from "./components/userComponent/ViewShop";
 import About from "./components/userComponent/About";
 import Cart from "./components/userComponent/Cart";
 import Contact from "./components/userComponent/Contact";
+import ProductDetail from "./pages/client/ProductDetail";
 
 
 
@@ -24,6 +25,8 @@ function App() {
                   <Route path='/about' element={<About/>}/>
                   <Route path='/shop' element={<ViewShop/>}/>
                   <Route path='/cart' element={<Cart/>}/>
+                  <Route path='/detail' element={<ProductDetail/>}/>
+
 
                   <Route path='/contact' element={<Contact/>}/>
 
