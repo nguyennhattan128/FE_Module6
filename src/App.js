@@ -12,6 +12,7 @@ import Contact from "./components/userComponent/Contact";
 import ListShopOwner from "./pages/shop_owner/ListShopOwner";
 import ListAdmin from "./pages/admin/ListAdmin";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
+import ListStaff from "./pages/staff/ListStaff";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
+                <Route path='allStaff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
