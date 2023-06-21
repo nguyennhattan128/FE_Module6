@@ -28,17 +28,11 @@ function App() {
                   <Route path='/shop' element={<ViewShop/>}/>
                   <Route path='/cart' element={<Cart/>}/>
                   <Route path='/detail' element={<ProductDetail/>}/>
-
-
                   <Route path='/contact' element={<Contact/>}/>
-
-
               </Route>
               <Route path={Path.MANAGEMENT} element={<Management/>}>
                   <Route path='admin' element={<Admin/>}/>
               </Route>
-
-
 
           </Routes>
       </>
