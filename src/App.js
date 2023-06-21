@@ -21,6 +21,7 @@ import Contact from "./pages/client/Contact";
 import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
 
+
 function App() {
     return (
         <>
@@ -41,6 +42,7 @@ function App() {
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='edit-staff' element={<EditStaffAccount/>}/>
+                <Route path='allStaff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
