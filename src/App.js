@@ -2,8 +2,6 @@ import {Route, Routes} from "react-router-dom";
 import Main from "./pages/client/Main";
 import  Path from "./constant/Path"
 import User from "./layouts/User";
-import Management from "./layouts/Management";
-import Admin from "./components/adminComponent/Admin";
 import ViewShop from "./components/userComponent/ViewShop";
 import About from "./components/userComponent/About";
 import Cart from "./components/userComponent/Cart";
@@ -30,9 +28,7 @@ function App() {
                   <Route path='/detail' element={<ProductDetail/>}/>
                   <Route path='/contact' element={<Contact/>}/>
               </Route>
-              <Route path={Path.MANAGEMENT} element={<Management/>}>
-                  <Route path='admin' element={<Admin/>}/>
-              </Route>
+
 
           </Routes>
       </>
