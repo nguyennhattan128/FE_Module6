@@ -14,3 +14,36 @@ export const createShop = createAsyncThunk(
         }
     }
 );
+
+
+export const getOwnShop = createAsyncThunk(
+    'seller/getOwnShop',
+    async () => {
+        try {
+            const response =  await customAPI().get(`/store/storeDetail`);
+            console.log(response.data)
+            return response.data
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+);
+
+
+
+export const editShop = createAsyncThunk(
+    'seller/editStore',
+    async (editShop) => {
+        try {
+            await customAPI().put(`/store/edit`, editShop);
+            return editShop
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+);
+
+
+

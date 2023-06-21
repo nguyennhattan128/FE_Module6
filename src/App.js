@@ -19,6 +19,7 @@ import Cart from "./pages/client/Cart";
 import Contact from "./pages/client/Contact";
 import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
+import EditShop from "./pages/shopOwner/EditShop";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
+                <Route path='edit-shop' element={<EditShop/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='' element={<ListStaff/>}/>

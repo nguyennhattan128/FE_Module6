@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {createShop} from "../../service/users/sellerService";
+import {createShop, editShop, getOwnShop} from "../../service/users/sellerService";
 
 
 const initialState = {
@@ -14,7 +14,13 @@ const storeSlice = createSlice({
     initialState,
     extraReducers: builder => {
         builder.addCase(createShop.fulfilled, (state, action) => {
-            state.currentStore = action.payload;
+            state.currentShop = action.payload;
+        })
+        builder.addCase(getOwnShop.fulfilled, (state, action) => {
+            state.currentShop = action.payload;
+        })
+        builder.addCase(editShop.fulfilled, (state, action) => {
+            state.currentShop = action.payload;
         })
     }
 });
