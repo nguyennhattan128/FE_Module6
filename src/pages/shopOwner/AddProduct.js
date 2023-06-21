@@ -6,8 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
-import {addProduct, getOwnShop} from "../../service/users/sellerService";
-import {getStoreTypes} from "../../service/store/storeTypeService";
+import {addProduct} from "../../service/users/sellerService";
 import {getCategories} from "../../service/store/categoryService";
 // import {toast} from "react-toastify";
 
@@ -133,9 +132,7 @@ const AddProduct = () => {
             const imageUrls = await Promise.all(uploadPromises);
             let totalFile = [...formik.values.images].length + [...imageUrls].length;
             let isValid = totalFile <= 4;
-
             if(!isValid){
-
                 Swal.fire({
                     title: "You are only allowed to select up to 4 image files",
                     confirmButtonColor: "green",
@@ -144,8 +141,6 @@ const AddProduct = () => {
                         confirmButton: "btn btn-success",
                     },
                 })
-
-
 
                 // toast.error('You are only allowed to select up to 4 image files', {
                 //     position: 'top-center',

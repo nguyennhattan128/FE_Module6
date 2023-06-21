@@ -21,6 +21,7 @@ import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
 import EditShop from "./pages/shopOwner/EditShop";
 import AddProduct from "./pages/shopOwner/AddProduct";
+import EditProduct from "./pages/shopOwner/EditProduct";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
                 <Route path='' element={<ListShopOwner/>}/>
                 <Route path='edit-shop' element={<EditShop/>}/>
                 <Route path='add-product' element={<AddProduct/>}/>
+                <Route path='edit-product/:id' element={<EditProduct/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='' element={<ListStaff/>}/>

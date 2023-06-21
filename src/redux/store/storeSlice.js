@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addProduct, createShop, editShop, getOwnShop} from "../../service/users/sellerService";
+import {addProduct, createShop, editShop, getOneProduct, getOwnShop, editProduct} from "../../service/users/sellerService";
+
 
 
 const initialState = {
@@ -24,6 +25,24 @@ const storeSlice = createSlice({
         })
         builder.addCase(addProduct.fulfilled, (state, action)=>{
             state.listProduct.push(action.payload);
+        })
+        builder.addCase(getOneProduct.fulfilled, (state, action)=>{
+            state.currentProduct = action.payload;
+        })
+        builder.addCase(editProduct.fulfilled, (state, action)=>{
+            const { updateProduct, images, productId } = action.payload;
+            let index = -1;
+            for (let i = 0; i < state.listProduct.length; i++) {
+                if(state.listProduct[i].id === productId){
+                    index = i;
+                }
+            }
+            if (index !== -1) {
+                state.listProduct[index] = {
+                    ...updateProduct,
+                    images: images
+                };
+            }
         })
     }
 });

@@ -60,4 +60,38 @@ export const addProduct = createAsyncThunk(
 );
 
 
+export const getOneProduct = createAsyncThunk(
+    'seller/getOneProduct',
+    async (productId) => {
+        console.log(productId)
+        try {
+            const response = await customAPI().get(`products/getOne/${productId}`);
+            console.log(response.data)
+            return response.data;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+);
+
+
+
+export const editProduct = createAsyncThunk(
+    'seller/editProduct',
+    async ({ updateProduct, images, productId }) => {
+        console.log(updateProduct)
+        console.log(images)
+        console.log(productId)
+        try {
+            await customAPI().put(`seller/editProduct/${productId}`, { updateProduct, images, productId });
+            return {updateProduct, images, productId};
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+);
+
+
 
