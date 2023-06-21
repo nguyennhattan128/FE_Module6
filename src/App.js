@@ -4,7 +4,6 @@ import  Path from "./constant/Path"
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ProductDetail from "./pages/client/ProductDetail";
-import AddProduct from "./pages/client/AddProduct";
 import CreateShop from "./pages/client/CreateShop";
 import ListAdmin from "./pages/admin/ListAdmin";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
@@ -32,7 +31,6 @@ function App() {
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
-                <Route path='/add-product' element={<AddProduct/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/contact' element={<Contact/>}/>

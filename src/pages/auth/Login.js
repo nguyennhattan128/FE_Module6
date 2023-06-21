@@ -22,7 +22,6 @@ export default function Login(){
         }).then((data) => {
             console.log(data)
             if (data.token) {
-
                 localStorage.setItem("user", JSON.stringify(data))
                 navigate('/')
             }

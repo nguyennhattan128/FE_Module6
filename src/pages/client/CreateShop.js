@@ -5,6 +5,9 @@ import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
+import {createShop} from "../../service/users/sellerService";
+import {getStoreTypes} from "../../service/store/storeTypeService";
+import Swal from "sweetalert2";
 
 
 const SchemaError = Yup.object().shape({
@@ -39,20 +42,13 @@ const CreateShop = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getStoreTypes())
+    }, [])
 
-    // const listStoreType = useSelector(({storeType})=>{
-    //     return storeType.listStoreType
-    // })
-
-
-    let listStoreType = [
-        {id: 1, name: 'Local Store'},
-        {id: 2, name: 'Global Store'},
-        {id: 3, name: 'Shopee Mall'},
-    ]
-
-
-
+    const listStoreType = useSelector(({storeType})=>{
+        return storeType.listStoreType
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -63,13 +59,23 @@ const CreateShop = () => {
             address: '',
             origin: '',
             country: '',
-            storeType: '',
+            storeType: ''
         },
         validationSchema: SchemaError,
         onSubmit: (values) => {
-            console.log(values)
-            navigate('/shop-owner')
-            // dispatch(createShop(values)).then(() => {navigate('/admin')})
+            dispatch(createShop(values)).then(() => {
+                Swal.fire({
+                    title: "You have successfully created your store. Please wait for admin's confirmation to start business",
+                    icon: "success",
+                    confirmButtonColor: "green",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        confirmButton: "btn btn-success",
+                    },
+                }).then(()=>{
+                    navigate('/')
+                })
+            })
         }
     });
 
@@ -190,20 +196,20 @@ const CreateShop = () => {
                                                     <ErrorMessage name="storeType"/>
                                                 </p>
                                             </div>
-                                    </div>
+                                        </div>
                                         <div>
                                             <label htmlFor="address">Address</label>
                                             <Field as="textarea" type="text" className="form-control mt-1" name="address"/>
                                             <p style={{color: "red"}}><ErrorMessage name="address"/></p>
                                         </div>
+                                    </div>
                                 </div>
-                                </div>
-                            <div className="row">
-                                <div className="col text-end mt-2" style={{marginRight: 20}}>
-                                    <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
+                                <div className="row">
+                                    <div className="col text-end mt-2" style={{marginRight: 20}}>
+                                        <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </Form>
@@ -213,124 +219,6 @@ const CreateShop = () => {
 };
 
 export default CreateShop;
-
-
-
-
-
-
-
-
-
-// async function createStoreForUser(userId, store) {
-//     const client = await userRepository.findOne(userId);
-//     store.client = client;
-//     const savedStore = await storeRepository.save(store);
-//     return savedStore;
-// }
-
-
-
-//getStoreType service
-// import axios from "axios";
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-// export const getStoreTypes = createAsyncThunk(
-//     'storeTypes/getAll',
-//     async () => {
-//         try {
-//             const response = await axios.get('http://localhost:3001/store-type');
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-
-
-
-//getStoreType slice
-// const initialState = {
-//     listStoreType: []
-// }
-// const storeTypeSlice = createSlice(
-//     {
-//         name: 'StoreType',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(getStoreTypes.fulfilled, (currentState, action)=>{
-//                 currentState.listStoreType = action.payload
-//             })
-//         }
-//     }
-// )
-// export default storeTypeSlice.reducer
-
-
-
-//add shop service
-
-
-
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-// import axios from "axios";
-// export const createStore = createAsyncThunk(
-//     'client/createShop',
-//     async (newShop) => {
-//         try {
-//             const response = await axios.post('http://localhost:3001/store/create-store', newShop);
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-
-
-//Cho vao userSlice cung voi current Client
-// const initialState = {
-//     // currentUser: JSON.parse(localStorage.getItem('client')),
-//     shop: {}
-// }
-//
-// const useSlice = createSlice({
-//     name: 'client',
-//     initialState,
-//     extraReducers: builder => {
-//         builder.addCase(createStore.fulfilled, (state, action) => {
-//             state.shop = action.payload;
-//         })
-//     }
-// })
-//
-// export default useSlice.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//create shop service
-
-//create shop slice
 
 
 
