@@ -46,4 +46,18 @@ export const editShop = createAsyncThunk(
 );
 
 
+export const addProduct = createAsyncThunk(
+    'seller/addProduct',
+    async (values) => {
+        try {
+            const newProduct = await customAPI().post('/seller/createProduct', values);
+            return newProduct.data;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+);
+
+
 
