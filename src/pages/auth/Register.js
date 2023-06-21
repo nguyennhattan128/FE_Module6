@@ -24,7 +24,6 @@ export const Register = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const submit = (user) => {
-        console.log(user)
          dispatch(register({
             username: user.username.trim(),
             email: user.email.trim(),
@@ -32,7 +31,6 @@ export const Register = () => {
         })).then(()=>{
              navigate('/login');
          })
-
     }
 
     return (
