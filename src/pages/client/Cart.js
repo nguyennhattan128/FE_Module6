@@ -46,7 +46,7 @@ export default function Cart(){
                                                         <h6 className="mb-0">€ 44.00</h6>
                                                     </div>
                                                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                        <a href="#!" className="text-muted"><i
+                                                        <a href="src/components/userComponent#!" className="text-muted"><i
                                                             className="fas fa-times"/></a>
                                                     </div>
                                                 </div>
@@ -78,7 +78,7 @@ export default function Cart(){
                                                         <h6 className="mb-0">€ 44.00</h6>
                                                     </div>
                                                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                        <a href="#!" className="text-muted"><i
+                                                        <a href="src/components/userComponent#!" className="text-muted"><i
                                                             className="fas fa-times"/></a>
                                                     </div>
                                                 </div>
@@ -110,13 +110,13 @@ export default function Cart(){
                                                         <h6 className="mb-0">€ 44.00</h6>
                                                     </div>
                                                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                        <a href="#!" className="text-muted"><i
+                                                        <a href="src/components/userComponent#!" className="text-muted"><i
                                                             className="fas fa-times"/></a>
                                                     </div>
                                                 </div>
                                                 <hr className="my-4"/>
                                                 <div className="pt-5">
-                                                    <h6 className="mb-0"><a href="#!" className="text-body"><i
+                                                    <h6 className="mb-0"><a href="src/components/userComponent#!" className="text-body"><i
                                                         className="fas fa-long-arrow-alt-left me-2"/>Back to shop</a>
                                                     </h6>
                                                 </div>

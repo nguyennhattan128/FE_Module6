@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom";
 
 
 export default function Header(){
@@ -10,9 +10,9 @@ export default function Header(){
                     <div className="w-100 d-flex justify-content-between">
                         <div>
                             <i className="fa-solid fa-shop mx-2"></i>
-                            <a className="navbar-sm-brand text-light text-decoration-none me-3" href="#">Become a seller  </a>
+                            <Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/create-shop"}>Become a seller</Link>
                             <i className="fa-solid fa-people-roof mx-2"/>
-                            <a className="navbar-sm-brand text-light text-decoration-none" href="#">Manage</a>
+                            <Link className="navbar-sm-brand text-light text-decoration-none" to={"/admin"}>Manage</Link>
                         </div>
                         <div>
                             <a className="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i className="fab fa-facebook-f fa-sm fa-fw me-2" /></a>

@@ -70,7 +70,7 @@ a:hover, a:visited {
 }
 #content {
     padding: 1em;
-    padding-left: 9em;
+    padding-left: 7em;
 }
 #header .action {
     text-align: center;
@@ -93,9 +93,12 @@ a:hover, a:visited {
 }
 .search {
     float: right;
+    margin-right: 165px;
+
 }
-#header #main-sign-out {}
-#header #main-search {}
+#inputSearch {
+    width: 200px;
+}
 
 .action {
     padding: 1em ;
@@ -105,36 +108,8 @@ a:hover, a:visited {
 
 #footer {
     font-size: 85%;
-    color: #838383;
+    color: #59ab6e;
     padding: 15em 1em;
-}
-.item1 {
-    width: 100%;
-    border-radius: 5px;
-    background: orange;
-    padding: 10px;
-    min-height: 150px;
-}
-.item2 {
-    width: 100%;
-    border-radius: 5px;
-    background: #b6d4fe;
-    padding: 10px;
-    min-height: 150px;
-}
-.item3 {
-    width: 100%;
-    border-radius: 5px;
-    background: darkseagreen;
-    padding: 10px;
-    min-height: 180px;
-}
-.item4 {
-    width: 100%;
-    border-radius: 5px;
-    background: plum;
-    padding: 10px;
-    min-height: 150px;
 }
 .more {
     width: 97%;

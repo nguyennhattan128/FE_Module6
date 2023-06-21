@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import './cssUserComponent/navbar.css'
+import './clientComponentCss/navbar.css'
 
 
 export default function Navbar(){
@@ -9,7 +9,7 @@ export default function Navbar(){
         <>
             <nav className="navbar navbar-expand-lg navbar-light shadow">
                 <div className="container d-flex justify-content-between align-items-center">
-                    <a className="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                    <a className="navbar-brand text-success logo h1 align-self-center" href="/">
                         Zay
                     </a>
                     <div className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
@@ -29,7 +29,7 @@ export default function Navbar(){
                                 </li>
                             </ul>
                         </div>
-                        <div className="navbar align-self-center d-flex mb-3">
+                        <div className="navbar align-self-center d-flex mb-3 mt-2">
                             <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                             </div>
                                 <div className="d-flex">
