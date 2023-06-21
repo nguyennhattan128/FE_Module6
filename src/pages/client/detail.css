@@ -1,0 +1,16 @@
+.bg-light-2{
+    background-color: white !important;
+}
+.pb-5-4{
+    padding-bottom: 1rem!important;
+}
+.table-detail{
+    border-right: 1px solid black;
+}
+.imag-size{
+    height: 6rem;
+    width: 6rem;
+}
+.card-body-1{
+    padding: 20px;
+}

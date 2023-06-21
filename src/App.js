@@ -12,6 +12,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 
 
+import ProductDetail from "./pages/client/ProductDetail";
 
 
 
@@ -26,6 +27,8 @@ function App() {
                   <Route path='/about' element={<About/>}/>
                   <Route path='/shop' element={<ViewShop/>}/>
                   <Route path='/cart' element={<Cart/>}/>
+                  <Route path='/detail' element={<ProductDetail/>}/>
+
 
                   <Route path='/contact' element={<Contact/>}/>
 
