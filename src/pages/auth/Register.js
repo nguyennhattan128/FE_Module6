@@ -3,7 +3,7 @@ import "./login.css";
 import { Formik, Form } from 'formik';
 import { TextField } from "./TextField";
 import * as Yup from 'yup';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {register} from "../../service/users/userService";
 
 export default function Register(){
@@ -61,7 +61,9 @@ export default function Register(){
                                                     <div className="card-body p-4 p-lg-5 text-black">
                                                         <div className="d-flex align-items-center mb-3 pb-1">
                                                             <i className="fas fa-cubes fa-2x me-3" style={{color: '#ff6219'}} />
-                                                            <span className="h1 fw-bold mb-0">Logo</span>
+                                                            <a className="navbar-brand text-success logo h1 align-self-center" href="#">
+                                                                Zay
+                                                            </a>
                                                         </div>
                                                         <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
                                                         <div className="form-outline mb-1">
@@ -81,9 +83,13 @@ export default function Register(){
                                                             <button  type="submit" className="btn btn-success" >Login</button>
                                                         </div>
                                                         <a className="small text-muted" href="#!">Forgot password?</a>
-                                                        <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <a href="#!" style={{color: '#393f81'}}>Register here</a></p>
+                                                        <div className="d-flex justify-content-center">
+                                                            <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Already have an account?</p>
+                                                                <Link style={{color: '#393f81'}} to={'/login'}>Login here</Link>
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
