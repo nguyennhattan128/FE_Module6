@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
 import storeReducer from "./store/storeSlice";
-import staffReducer from "./staffs/StaffSlice";
+import staffReducer from "././staff/StaffSlice";
 import storeTypeReducer from "./store/storeTypeSlice";
 import categoryReducer from "./store/categorySlice";
 
@@ -8,7 +8,7 @@ import categoryReducer from "./store/categorySlice";
 const store = configureStore({
     reducer: {
         store: storeReducer,
-        staffs : staffReducer,
+        staff : staffReducer,
         storeType: storeTypeReducer,
         category: categoryReducer
     }

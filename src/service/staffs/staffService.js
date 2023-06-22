@@ -5,7 +5,7 @@ import CustomAPI from "../customAPI";
 
 
 export const getAllStaffs = createAsyncThunk(
-    'auth/staffs',
+    'auth/staff',
     async () => {
         const response = await CustomAPI().get(`auth/staffs`)
         return response.data

@@ -11,7 +11,6 @@ import EditStaffAccount from "./pages/management/EditStaffAccount";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import Staff from "./layouts/staff/Staff";
-import ListStaff from "./pages/staff/ListStaff";
 import EditStaff from "./pages/staff/EditStaff";
 import About from "./pages/client/About";
 import ViewShop from "./pages/client/ViewShop";
@@ -24,6 +23,7 @@ import AddProduct from "./pages/shopOwner/AddProduct";
 import EditProduct from "./pages/shopOwner/EditProduct";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import OtpInput from "./pages/auth/OtpInput";
+import ListStaff from "./pages/staff/ListStaff";
 
 
 function App() {
@@ -47,6 +47,7 @@ function App() {
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='edit-staff' element={<EditStaffAccount/>}/>
+                <Route path='all-staff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>

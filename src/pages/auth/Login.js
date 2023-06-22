@@ -8,30 +8,31 @@ import {TextField} from "./TextField";
 export default function Login(){
     const validate = Yup.object({
         username: Yup.string()
-            .required("Please enter username !"),
+            .required("Please enter username!"),
         password: Yup.string()
-            .required("Please enter password !")
+            .required("Please enter password!")
     })
 
     const navigate = useNavigate();
     const submit = (user) => {
-        console.log('vao submid')
         login({
             username: user.username.trim(),
             password: user.password.trim()
         }).then((data) => {
             console.log(data)
+            if( typeof data === "string") {
+                document.getElementById("state").textContent = data
+            }
             if (data.token) {
                 localStorage.setItem("user", JSON.stringify(data))
                 navigate('/')
             }
             else {
                 document.getElementById('Notice').innerHTML = data
-                // navigate('')
             }
         }).catch((err) => {
-            console.log(err.message())
-            navigate(('/auth/login'))
+            console.log(err.message)
+
         })
     }
 
@@ -84,6 +85,7 @@ export default function Login(){
                                                     <TextField label="password" name="password" type="password" className="form-control form-control-lg" placeholder={"Password"} />
                                                     <label className="form-label" htmlFor="form2Example27"></label>
                                                 </div>
+                                                <div id="state" style={{color: "red", paddingBottom: "20px"}}></div>
                                                 <div className="pt-1 mb-4">
                                                     <button  type="submit" className="btn btn-success" >Login</button>
                                                 </div>
