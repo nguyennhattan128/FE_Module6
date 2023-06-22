@@ -9,3 +9,10 @@ export const getStaffList = createAsyncThunk(
             return response.data;
         }
 )
+export const searchStaff = createAsyncThunk(
+    'staff/searchStaff',
+    async (name) => {
+        const response = await axios.get(`http://localhost:3001/admin/searchAccount/?name=${name}&username=${name}`);
+        return response.data;
+    }
+)

@@ -1,6 +1,6 @@
 import "./ListStaff.css"
-import {useEffect} from "react";
-import {getStaffList} from "../../service/staff/staffService";
+import {useEffect, useState} from "react";
+import {getStaffList, searchStaff} from "../../service/staff/staffService";
 import {useDispatch, useSelector} from "react-redux";
 
 
@@ -10,6 +10,14 @@ const ListStaff = () => {
     const listStaff = useSelector(({staff})=>{
         return staff.listStaff
     })
+
+    const [name, setName] = useState('');
+    const handleInput = (e) => {
+        setName(e.target.value)
+    }
+    const handleSearch = () => {
+         dispatch(searchStaff(name))
+    }
 
     useEffect(() => {
             dispatch(getStaffList())
@@ -25,8 +33,11 @@ const ListStaff = () => {
                         <h1 className="h1">List of Staff</h1>
                     </div>
                     <div className="col-4 pt-3 d-flex button-search" style={{float:"right"}}>
-                        <input type="text" className="form-control" id="inputSearch" placeholder="Search ..." />
-                        <button className="btn-icon" type="submit"><i className="fa fa-fw fa-search text-dark mr-2" /></button>
+                        <input type="text" className="form-control" id="inputSearch" placeholder="Search ..." value={name}
+                               onChange={handleInput} />
+                        <button className="btn-icon" type="submit" onClick={handleSearch}>
+                            <i className="fa fa-fw fa-search text-dark mr-2" />
+                        </button>
                     </div>
                 </div>
                 <div className="row2">

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getStaffList} from "../../service/staff/staffService";
+import {getStaffList, searchStaff} from "../../service/staff/staffService";
 
 const initialState = {
     listStaff: []
@@ -10,6 +10,9 @@ const staffSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(getStaffList.fulfilled, (state, action) => {
+                state.listStaff = action.payload;
+            })
+            .addCase(searchStaff.fulfilled, (state, action) => {
                 state.listStaff = action.payload;
             })
     }
