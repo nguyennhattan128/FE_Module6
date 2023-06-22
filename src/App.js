@@ -11,7 +11,6 @@ import EditStaffAccount from "./pages/management/EditStaffAccount";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import Staff from "./layouts/staff/Staff";
-import ListStaff from "./pages/staff/ListStaff";
 import EditStaff from "./pages/staff/EditStaff";
 import About from "./pages/client/About";
 import ViewShop from "./pages/client/ViewShop";
@@ -22,6 +21,7 @@ import Admin from "./layouts/admin/Admin";
 import EditShop from "./pages/shopOwner/EditShop";
 import AddProduct from "./pages/shopOwner/AddProduct";
 import EditProduct from "./pages/shopOwner/EditProduct";
+import ListStaff from "./pages/staff/ListStaff";
 
 
 function App() {
