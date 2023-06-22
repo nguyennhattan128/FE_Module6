@@ -22,6 +22,8 @@ import Admin from "./layouts/admin/Admin";
 import EditShop from "./pages/shopOwner/EditShop";
 import AddProduct from "./pages/shopOwner/AddProduct";
 import EditProduct from "./pages/shopOwner/EditProduct";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import OtpInput from "./pages/auth/OtpInput";
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Routes>
             <Route path={Path.LOGIN} element={<Login/>}/>
             <Route path={Path.REGISTER} element={<Register/>}/>
+            <Route path='/forgot-password' element={<ForgotPassword/>}/>
+            <Route path='/verify' element={<OtpInput/>}/>
             <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>

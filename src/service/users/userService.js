@@ -1,4 +1,6 @@
 import axios from "axios";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+import customAPI from "../customAPI";
 const API_URL = "http://localhost:3001"
 
 
@@ -31,3 +33,11 @@ export const allStaff = async () => {
         console.log(err.message)
     }
 }
+
+
+
+
+
+
+
+

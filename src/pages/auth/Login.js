@@ -35,6 +35,14 @@ export default function Login(){
         })
     }
 
+
+
+
+
+
+
+
+
     return(
         <>
             <Formik
@@ -79,7 +87,7 @@ export default function Login(){
                                                 <div className="pt-1 mb-4">
                                                     <button  type="submit" className="btn btn-success" >Login</button>
                                                 </div>
-                                                <a className="small text-muted" href="#!">Forgot password?</a>
+                                                <Link to="/forgot-password" className="small text-muted">Forgot password?</Link>
                                                 <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <Link style={{color: '#393f81'}} to={'/register'}>Register here</Link></p>
 
                                         </div>
