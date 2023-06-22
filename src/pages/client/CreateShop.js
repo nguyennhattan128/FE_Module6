@@ -47,6 +47,7 @@ const CreateShop = () => {
     }, [])
 
     const listStoreType = useSelector(({storeType})=>{
+        console.log(storeType.listStoreType)
         return storeType.listStoreType
     })
 

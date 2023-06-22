@@ -6,6 +6,7 @@ export const getStoreTypes = createAsyncThunk(
     async () => {
         try {
             const response = await customAPI().get(`/store/storeType`);
+            console.log(response.data)
             return response.data;
         } catch (error) {
             console.error(error);

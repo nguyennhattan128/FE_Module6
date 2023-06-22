@@ -96,7 +96,7 @@ function EditShop() {
                             address: currentShop.address,
                             origin: currentShop.origin,
                             country: currentShop.country,
-                            storeType: currentShop.storeType.id,
+                            storeType: currentShop.storeType,
                             status: currentShop.status
                         }}
                         validationSchema={SchemaError}
@@ -203,7 +203,7 @@ function EditShop() {
                                                                     <option
                                                                         key={item.id}
                                                                         value={item.id}
-                                                                        selected={item.id === currentShop.storeType.id}
+                                                                        selected={item.id === currentShop.storeType}
                                                                     >
                                                                         {item.name}
                                                                     </option>
