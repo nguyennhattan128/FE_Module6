@@ -24,8 +24,8 @@ export default function Sidebar(){
                     <li><a href="src/components/adminComponent#"><i className="fa-solid fa-layer-group"></i> Receipt Management</a></li>
                     <li><a href="src/components/adminComponent#"><i className="fa-solid fa-users"></i> Staff Management</a>
                         <ul className="sub-menu">
-                            <li><a href="admin/all-staff"><i className="fa-solid fa-check"></i> Staff List</a></li>
-                            <li><a href="admin/add-staff"><i className="fa-solid fa-check"></i> Add Staff</a></li>
+                            <li><a href="/admin/all-staff"><i className="fa-solid fa-check"></i> Staff List</a></li>
+                            <li><a href="/admin/add-staff"><i className="fa-solid fa-check"></i> Add Staff</a></li>
                         </ul>
                     </li>
                 </ul>

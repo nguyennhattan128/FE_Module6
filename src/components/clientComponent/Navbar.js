@@ -51,12 +51,11 @@ export default function Navbar() {
                                     className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                             </a>
                             <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
-
                                 <div className="dropdown">
                                     <i className=" fa-solid fa-user text-dark mr-3"/>
                                     <span
                                         className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                                    <div className="dropdown-content">
+                                    <div className="dropdown-content" style={{width: "180px"}}>
                                         {
                                             user ? <>
                                                 <Link to={'/'}>My account</Link>
@@ -65,6 +64,14 @@ export default function Navbar() {
                                                 <Link to={'/login'} onClick={() => {
                                                     logOut()
                                                 }}>Log out</Link>
+                                                <br/>
+                                                <br/>
+                                                {
+                                                    user.role === "admin" ? <> <Link to={'/admin'}>Admin</Link></> :<></>
+                                                }
+                                                {
+                                                    user.role === "staff" ? <> <Link to={'/staff'}>Staff</Link></> :<></>
+                                                }
                                             </> : <>
                                                 <Link to={'/Register'}>Register</Link>
                                                 <br/>

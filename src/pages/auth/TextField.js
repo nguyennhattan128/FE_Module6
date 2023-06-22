@@ -2,8 +2,6 @@ import React from 'react';
 import { ErrorMessage, useField } from 'formik';
 
 export const TextField = ({ label, ...props }) => {
-    console.log('vao textFiel')
-    console.log('props:',props)
     const [field, meta] = useField(props);
     console.log('meta:',meta)
     return (
@@ -14,7 +12,7 @@ export const TextField = ({ label, ...props }) => {
                 {...field} {...props}
                 autoComplete="off"
             />
-            <ErrorMessage component="div" name={field.name} className="error" />
+            <label style={{color: "red", marginTop: "10px"}}><ErrorMessage component="div" name={field.name} className="error" /></label>
         </div>
     )
 }

@@ -25,5 +25,6 @@
 }
 .dropdown-content a {
     list-style: none;
+    width: 150px;
     text-decoration:none;
 }

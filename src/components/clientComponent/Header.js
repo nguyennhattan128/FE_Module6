@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function Header(){
 
     let user = JSON.parse(localStorage.getItem("user"));
-    let idStore = user.idStore;
+    let idStore = user ? user.idStore : undefined;
     console.log(idStore)
     return(
         <>
@@ -12,14 +12,18 @@ export default function Header(){
                 <div className="container text-light">
                     <div className="w-100 d-flex justify-content-between">
                         <div>
-                            <i className="fa-solid fa-shop mx-2"></i>
                             {
-                                (idStore !== null) ? <Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/shop-owner"}>My Shop</Link>
-                                : <Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/create-shop"}>Become a seller</Link>
+                                user ? <>
+                                    {
+                                        user.role === "client" ? <><i className="fa-solid fa-shop mx-2"></i><Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/create-shop"}>Become a seller</Link></> : <></>
+                                    }
+                                    {
+                                        user.role === "seller" ? <><i className="fa-solid fa-shop mx-2"></i><Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/shop-owner"}>My shop</Link></> : <></>
+                                    }
+                                </> : <></>
                             }
 
-                            <i className="fa-solid fa-people-roof mx-2"/>
-                            <Link className="navbar-sm-brand text-light text-decoration-none" to={"/admin"}>Manage</Link>
+
                         </div>
                         <div>
                             <a className="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i className="fab fa-facebook-f fa-sm fa-fw me-2" /></a>
