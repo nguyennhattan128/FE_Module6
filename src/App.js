@@ -43,6 +43,7 @@ function App() {
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='edit-staff' element={<EditStaffAccount/>}/>
+                <Route path='all-staff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
@@ -51,7 +52,6 @@ function App() {
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
-                <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
             </Route>
         </Routes>

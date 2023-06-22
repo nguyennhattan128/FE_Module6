@@ -19,13 +19,17 @@ const ListStaff = () => {
 
     return (
         <>
-            <section className="container py-5">
-                <div className="row text-center pt-3">
-                    <div className="col-lg-6 m-auto">
+            <section className="container">
+                <div className={"row1"}>
+                    <div className="col-8  pt-3" style={{float:"left"}}>
                         <h1 className="h1">List of Staff</h1>
                     </div>
+                    <div className="col-4 pt-3 d-flex button-search" style={{float:"right"}}>
+                        <input type="text" className="form-control" id="inputSearch" placeholder="Search ..." />
+                        <button className="btn-icon" type="submit"><i className="fa fa-fw fa-search text-dark mr-2" /></button>
+                    </div>
                 </div>
-                <div className="row">
+                <div className="row2">
                     <table>
                         <tr style={{backgroundColor: "beige", border: "grey", textAlign: "center"}}>
                             <th>Avatar</th>
