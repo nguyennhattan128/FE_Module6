@@ -1,17 +1,16 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAllStaffs} from "../../service/staffs/staffService"
+import {getStaffList} from "../../service/staff/staffService";
 
 const initialState = {
-    currentUser: JSON.parse(localStorage.getItem('user'))
+    listStaff: []
 }
-
 const staffSlice = createSlice({
     name: 'user',
     initialState,
     extraReducers: builder => {
         builder
-            .addCase(getAllStaffs.fulfilled, (state, action) => {
-                state.currentUser = action.payload;
+            .addCase(getStaffList.fulfilled, (state, action) => {
+                state.listStaff = action.payload;
             })
     }
 })

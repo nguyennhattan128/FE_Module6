@@ -20,14 +20,3 @@ export const login = async(user) => {
     }
 }
 
-export const allStaff = async () => {
-    try {
-        const req = {headers:{authorization : `Bearer ${localStorage.getItem('token')}`}};
-        console.log('123')
-        console.log(req)
-        const res = await axios.get(`${API_URL}/auth/admin/showAllAccount`, req)
-        return res.data;
-    } catch (err) {
-        console.log(err.message)
-    }
-}

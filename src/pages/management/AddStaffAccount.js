@@ -200,7 +200,7 @@ export default AddStaffAccount;
 //
 //
 // export const addStaff = createAsyncThunk(
-//     'staffs/addStaff',
+//     'staff/addStaff',
 //     async (values) => {
 //         try {
 //             const response = await axios.post('http://localhost:3001/admin/add-staff', values);
