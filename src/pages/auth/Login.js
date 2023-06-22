@@ -1,14 +1,11 @@
 import React from 'react';
 import {Formik, Form} from 'formik';
-import {TextFieldLogin} from "../../components/auth/TextFieldLogin";
 import * as Yup from 'yup';
-import './login.css';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {login} from "../../service/users/userService";
 import {TextField} from "./TextField";
-import {useDispatch} from "react-redux";
 
-export const Login = () => {
+export default function Login(){
     const validate = Yup.object({
         username: Yup.string()
             .required("Please enter username !"),
@@ -17,77 +14,85 @@ export const Login = () => {
     })
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const submit = (user) => {
-        dispatch(login({
-                username: user.username.trim(),
-                password: user.password.trim()
-            })
-        ).then(() => {
-            navigate(('/'))
+        console.log('vao submid')
+        login({
+            username: user.username.trim(),
+            password: user.password.trim()
+        }).then((data) => {
+            console.log(data)
+            if (data.token) {
+                localStorage.setItem("user", JSON.stringify(data))
+                navigate('/')
+            }
+            else {
+                document.getElementById('Notice').innerHTML = data
+                // navigate('')
+            }
+        }).catch((err) => {
+            console.log(err.message())
+            navigate(('/auth/login'))
         })
     }
 
-    return (
-        <Formik
-            initialValues={{
-                username: '',
-                password: ''
-            }}
-            validationSchema={validate}
-            onSubmit={values => {
-                submit(values)
-            }
-            }
-        >
-            {formik => (
-                <Form>
-                    <div>
-                        <div className="nav">
-                            <ul className="nav-list">
-                                <li className="nav-item-left">Big-Shop</li>
-                                <li className="nav-item-left">Bạn cần giúp đỡ gì ?</li>
+    return(
+        <>
+            <Formik
+                initialValues={{
+                    username: '',
+                    password: ''
+                }}
+                validationSchema={validate}
+                onSubmit={values => {
+                    submit(values)
+                }
+                }
+            >
+                {formik => (
+                    <Form>
+            <section className="vh ground">
+                <div className="container vh2 py-4">
+                    <div className="row d-flex justify-content-center align-items-center" style={{height:'100vh'}}>
+                        <div className="col col-xl-10">
+                            <div className="card card-1" >
+                                <div className="row g-0 row-cen">
+                                    <div className="col-md-4 col-lg-5 d-none d-md-block">
+                                        <img src="https://images.unsplash.com/photo-1586278500132-7c85dfbc51d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
+                                             alt="login form" className="img-fluid" style={{borderRadius: '1rem 0 0 1rem'}} />
+                                    </div>
+                                    <div className="col-md-4 col-lg-7 d-flex align-items-center">
+                                        <div className="card-body p-4 p-lg-5 text-black">
+                                                <div className="d-flex align-items-center mb-3 pb-1">
+                                                    <i className="fas fa-cubes fa-2x me-3" style={{color: '#ff6219'}} />
+                                                    <a className="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                                                        Zay
+                                                    </a>
+                                                </div>
+                                                <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
+                                                <div className="form-outline mb-1">
+                                                    <TextField label="First Name" name="username" type="text" className="form-control form-control-lg" placeholder={"User name"} />
+                                                </div>
+                                                <div className="form-outline mb-1">
+                                                    <TextField label="password" name="password" type="password" className="form-control form-control-lg" placeholder={"Password"} />
+                                                    <label className="form-label" htmlFor="form2Example27"></label>
+                                                </div>
+                                                <div className="pt-1 mb-4">
+                                                    <button  type="submit" className="btn btn-success" >Login</button>
+                                                </div>
+                                                <a className="small text-muted" href="#!">Forgot password?</a>
+                                                <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <Link style={{color: '#393f81'}} to={'/register'}>Register here</Link></p>
 
-                            </ul>
-                            <ul className="nav-list">
-                                <li className="nav-item-right">Đăng ký</li>
-                                <li className="nav-item-right">Đăng nhập</li>
-                            </ul>
-                        </div>
-                        <div className="parent-container">
-                            <div className="auth-form">
-                                <div className="auth-form_container">
-                                    <div className="auth-form_header">
-                                        {/*<h3 className="auth-form_heading">Đăng ký</h3>*/}
-                                        <div className="auth-form_switch-btn"
-                                             style={{textAlign: "center", animationFillMode: "forwards"}}>Đăng nhập
                                         </div>
-                                    </div>
-                                    <div id="Notice"></div>
-                                    <div className="auth-form_form">
-                                        <div className="auth-form_group">
-                                            <TextField label="First Name" name="username" type="text"
-                                                       className="auth-form_input" placeholder={"Tên đăng nhập"}/>
-                                            <TextField label="password" name="password" type="password"
-                                                       className="auth-form_input" placeholder={"Mật khẩu "}/>
-                                        </div>
-                                    </div>
-                                    <div className="auth-form_aside">
-                                        <p className="auth-form_policy-text">
-                                            Nếu bạn quên mật khẩu chọn
-                                            <a href="" className="auth-form_text-link"> Quên mật khẩu</a>
-                                        </p>
-                                    </div>
-                                    <div className="auth-form-control">
-                                        <button className="btn auth-form-control-back" type="reset">TRỞ LẠI</button>
-                                        <button className="btn btn--primary" type="submit">ĐĂNG NHẬP</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </Form>
-            )}
-        </Formik>
+                </div>
+            </section>
+                    </Form>
+                )}
+            </Formik>
+        </>
     )
 }

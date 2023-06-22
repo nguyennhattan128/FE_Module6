@@ -7,6 +7,8 @@ import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import React from 'react';
 import Swal from "sweetalert2";
+import {getCategories} from "../../service/store/categoryService";
+import {editProduct, getOneProduct} from "../../service/users/sellerService";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -23,45 +25,38 @@ const SchemaError = Yup.object().shape({
 function EditProduct() {
     const [files, setFiles] = useState([]);
     const navigate = useNavigate();
+    const { id: productId } = useParams();
+    console.log(productId);
+    const [productFetched, setProductFetched] = useState(false);
+    const [categoryFetched, setCategoryFetched] = useState(false);
 
-    let productId = 1
-    // let { id } = useParams();
-    // const [productFetched, setProductFetched] = useState(false);
-    // const dispatch = useDispatch();
-    // const currentProduct = useSelector(({products})=>{
-    //     if(productFetched === true){
-    //         console.log(products.currentProduct);
-    //         return products.currentProduct;
-    //     }
-    //     return null
-    // })
-    // const listCategory = useSelector(({category})=>{
-    //     return category.listCategory
-    // })
-    // useEffect(() => {
-    //     dispatch(getOneProduct(id)).then(()=>{
-    //         setProductFetched(true)
-    //     });
-    //     dispatch(getCategories())
-    // }, [dispatch,id]);
+    const dispatch = useDispatch();
 
+    const currentProduct = useSelector(({store})=>{
+        if(productFetched === true){
+            console.log(store.currentProduct)
+            return store.currentProduct;
+        }
+        return null
+    })
 
-    const listCategory = [
-        {id: 1, name: 'clothes'},
-        {id: 2, name: 'foods'},
-    ]
+    const listCategory = useSelector(({category})=>{
+        if(categoryFetched){
+            console.log(category.listCategory)
+            return category.listCategory
+        }
+        return []
+    })
 
 
-    const currentProduct = {
-        id: 1,
-        name: 'banh mi',
-        price: 1000,
-        quantity: 1,
-        category: 1,
-        image: 'https://lh3.googleusercontent.com/ogw/AOLn63HlPxum_ho9s8kw6rv6Ych-hwZ13_m9xX_Os_NM0Q=s64-c-mo',
-        images: ['https://firebasestorage.googleapis.com/v0/b/crud-8adf5.appspot.com/o/files%2Fimages%20(4).jpg?alt=media&token=9e380fbd-aeba-4326-87ef-bd7c07de9cf9', 'https://firebasestorage.googleapis.com/v0/b/crud-8adf5.appspot.com/o/files%2Fimages%20(6).jpg?alt=media&token=1a295e51-f974-4baa-aad9-3b7ca4bc25fa']
-    }
-
+    useEffect(() => {
+        dispatch(getOneProduct(productId)).then(()=>{
+            setProductFetched(true)
+        });
+        dispatch(getCategories()).then(()=>{
+            setCategoryFetched(true)
+        })
+    }, [dispatch,productId]);
 
 
     const handleFileChange = async (event, setFieldValue, values) =>{
@@ -102,7 +97,14 @@ function EditProduct() {
             let imageListLength = values.listImage.length + imageUrls.length
             let issValid = imageListLength <= 4;
             if(!issValid){
-                Swal.fire('You are only allowed to select up to 4 image files');
+                Swal.fire({
+                    title: "You are only allowed to select up to 4 image files",
+                    confirmButtonColor: "green",
+                    confirmButtonText: "OK",
+                    customClass: {
+                        confirmButton: "btn btn-success",
+                    },
+                })
             }else{
                 setFieldValue("listImage", [...values.listImage, ...imageUrls]);
                 setFiles([]);
@@ -136,8 +138,8 @@ function EditProduct() {
                         name: currentProduct.name,
                         price: currentProduct.price,
                         quantity: currentProduct.quantity,
-                        category: currentProduct.category,
-                        listImage: [currentProduct.image, ...currentProduct.images]
+                        category: currentProduct.category.id,
+                        listImage: [currentProduct.image, ...(Array.isArray(currentProduct.images) ? currentProduct.images : [])]
                     }}
                     validationSchema={SchemaError}
                     onSubmit={(values) => {
@@ -146,7 +148,22 @@ function EditProduct() {
                         updateValues.image = image;
                         console.log(updateValues)
                         console.log(images)
-                        // dispatch(editProduct(updateValues, images)).then(() => {navigate('/shop-owner');});
+                        dispatch(editProduct({
+                            updateProduct: updateValues,
+                            images: images,
+                            productId: productId
+                        })).then(()=>{
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Product has been updated successfully',
+                                showConfirmButton: false,
+                                timer: 1000
+                            })
+                        })
+                        setTimeout(() => {
+                            navigate('/shop-owner');
+                        }, 3000);
                     }}
                 >
                     {({values, handleChange, setFieldValue})=>(
@@ -288,7 +305,7 @@ function EditProduct() {
                                                         <option
                                                             key={item.id}
                                                             value={item.id}
-                                                            selected={item.id === values.category}
+                                                            selected={item.id === values.category.id}
                                                         >
                                                             {item.name}
                                                         </option>
@@ -317,13 +334,3 @@ function EditProduct() {
 }
 
 export default EditProduct
-
-
-
-
-//get categories
-//get one product
-//update product slice
-//update product service
-
-

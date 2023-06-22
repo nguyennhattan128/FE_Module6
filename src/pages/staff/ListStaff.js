@@ -1,5 +1,5 @@
-import "./ListStaff.css";
-import {allStaff} from "../../service/staff/staffService";
+import "./ListStaff.css"
+import {allStaff} from "../../service/users/userService";
 import {useEffect, useState} from "react";
 
 
@@ -9,7 +9,6 @@ export default function ListStaff(){
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        console.log(111)
         try {
             allStaff()
                 .then((data) => {
@@ -32,6 +31,7 @@ export default function ListStaff(){
     if (error) {
         return <div>{error}</div>
     }
+
 
     return(
         <>

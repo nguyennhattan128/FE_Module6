@@ -1,15 +1,10 @@
 import axios from "axios";
-
-const getUserToken = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    return user ? user.token : null;
+const customAPI = () => {
+    return axios.create({
+        baseURL: 'http://localhost:3001/',
+        headers: {
+            Authorization : `Bearer ${localStorage.getItem('user')?JSON.parse(localStorage.getItem('user')).token:""}`
+        }
+    });
 }
-
-const customAPI = () => axios.create({
-    baseURL: 'http://localhost:3001/',
-    headers: {
-        Authorization: `Bearer ${getUserToken()}`
-    }
-});
-
 export default customAPI;
