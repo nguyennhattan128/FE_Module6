@@ -21,6 +21,9 @@ export default function Login(){
             password: user.password.trim()
         }).then((data) => {
             console.log(data)
+            if( typeof data === "string") {
+                document.getElementById("state").textContent = data
+            }
             if (data.token) {
                 localStorage.setItem("user", JSON.stringify(data))
                 navigate('/')
@@ -30,8 +33,8 @@ export default function Login(){
                 // navigate('')
             }
         }).catch((err) => {
-            console.log(err.message())
-            navigate(('/auth/login'))
+            console.log(err.message)
+            // navigate(('/login'))
         })
     }
 
@@ -76,6 +79,8 @@ export default function Login(){
                                                     <TextField label="password" name="password" type="password" className="form-control form-control-lg" placeholder={"Password"} />
                                                     <label className="form-label" htmlFor="form2Example27"></label>
                                                 </div>
+                                            <div id="state" style={{color: "red"}}></div>
+                                            <br/>
                                                 <div className="pt-1 mb-4">
                                                     <button  type="submit" className="btn btn-success" >Login</button>
                                                 </div>
