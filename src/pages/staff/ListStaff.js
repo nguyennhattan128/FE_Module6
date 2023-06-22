@@ -1,4 +1,4 @@
-import "./ListStaff.css"
+import "./staffCss/staffCss.css"
 import {useEffect, useState} from "react";
 import {getStaffList, searchStaff} from "../../service/staff/staffService";
 import {useDispatch, useSelector} from "react-redux";
@@ -10,13 +10,14 @@ const ListStaff = () => {
     const listStaff = useSelector(({staff})=>{
         return staff.listStaff
     })
+    console.log("list:",listStaff)
 
     const [name, setName] = useState('');
     const handleInput = (e) => {
         setName(e.target.value)
     }
     const handleSearch = () => {
-         dispatch(searchStaff(name))
+        dispatch(searchStaff(name))
     }
 
     useEffect(() => {
@@ -27,59 +28,71 @@ const ListStaff = () => {
 
     return (
         <>
-            <section className="container">
-                <div className={"row1"}>
-                    <div className="col-8  pt-3" style={{float:"left"}}>
-                        <h1 className="h1">List of Staff</h1>
-                    </div>
-                    <div className="col-4 pt-3 d-flex button-search" style={{float:"right"}}>
-                        <input type="text" className="form-control" id="inputSearch" placeholder="Search ..." value={name}
-                               onChange={handleInput} />
-                        <button className="btn-icon" type="submit" onClick={handleSearch}>
-                            <i className="fa fa-fw fa-search text-dark mr-2" />
-                        </button>
-                    </div>
-                </div>
-                <div className="row2">
-                    <table>
-                        <tr style={{backgroundColor: "beige", border: "grey", textAlign: "center"}}>
-                            <th>Avatar</th>
-                            <th>UserName</th>
-                            <th>Email</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Age</th>
-                            <th>PhoneNumber</th>
-                            <th>Salary</th>
-                            <th>...</th>
-                        </tr>
-                        {listStaff.map((staff) => {
-                            return (
-                                <tr className="col-12 col-md-3 p-5 mt-3" key={staff.id}
-                                    style={{backgroundColor: "aquamarine", border: "black", color: "black"}}>
-                                    <td><img src={staff.image} className="rounded-circle img-fluid border"
-                                             style={{width: "50px", height: "50px"}}/></td>
-                                    <td><h5 className="text-center mt-3 mb-3"
-                                            style={{backgroundColor: "pink"}}>{staff.username}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3"
-                                            style={{fontSize: "15px"}}>{staff.email}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3">{staff.name}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3">{staff.address}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3">{staff.age}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3">{staff.phoneNumber}</h5></td>
-                                    <td><h5 className="text-center mt-3 mb-3">{staff.salary}</h5></td>
-                                    <td><p className="text-center"><a className="btn btn-success" style={{
-                                        margin: "auto",
-                                        display: "inline-block ",
-                                        textAlign: "center"
-                                    }}>Manager</a></p></td>
-                                </tr>
-                            )
-                        })}
-                    </table>
+            <div className="row mt-3">
+                {listStaff.map ((item)=>
+                    <div className="col-4">
+                        <div className="card mb-4">
+                            <div className="card-header py-3">
+                                <div className={"row"}>
+                                    <div className={"col-md-2 align-items-center"}>
 
-                </div>
-            </section>
+                                        {item.image && item.image !== 'null'?
+                                            <img
+                                                src={item.image}
+                                                className="image-staff"
+                                                alt="Townhouses and Skyscrapers"
+                                            /> :
+                                            <img
+                                                src="https://bloganchoi.com/wp-content/uploads/2022/02/avatar-trang-y-nghia.jpeg"
+                                                className="image-staff"
+                                                alt="Townhouses and Skyscrapers"
+                                            />}
+                                    </div>
+                                    <div className={"col-md-7"}>
+                                        <p className={"name-staff"}>{item.username}</p>
+                                        <p className={"position-staff"}>{item.role}</p>
+                                    </div>
+                                    <div className={"col-md-3 icon-staff"}>
+                                        <div className="dropdown">
+                                            <button><i className="fa-solid fa-caret-down icon-staff"></i></button>
+                                            <div className="dropdown-content link-staff ">
+                                                <a href="#">Edit</a>
+                                                <a href="#">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body">
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Email
+                                        <span>{item.email}</span>
+                                    </li>
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Phone Number
+                                        <span>{item.phoneNumber}</span>
+                                    </li>
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Address
+                                        <span>{item.address}</span>
+                                    </li>
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Age
+                                        <span>{item.age}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className={'button-position'}>
+                                <button type="button" className="button4">
+                                    View more
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+            </div>
         </>
     )
 }
