@@ -67,20 +67,20 @@ export default function Register(){
                                                         </div>
                                                         <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
                                                         <div className="form-outline mb-1">
-                                                            <TextField label="First Name" name="username" type="text" className="form-control form-control-lg" placeholder={"User name"} />
+                                                            <TextField label="First Name" name="username" type="text" className="form-control form-control-lg" placeholder={"Username"} />
                                                         </div>
                                                         <div className="form-outline mb-1">
-                                                            <TextField label="Email" name="email" type="email" className="form-control form-control-lg" placeholder={"Nhập email"} />
+                                                            <TextField label="Email" name="email" type="email" className="form-control form-control-lg" placeholder={"Email"} />
                                                         </div>
                                                         <div className="form-outline mb-1">
                                                             <TextField label="password" name="password" type="password" className="form-control form-control-lg" placeholder={"Password"} />
                                                         </div>
                                                         <div className="form-outline mb-1">
-                                                            <TextField label="Confirm Password" name="confirmPassword" type="password" className="form-control form-control-lg" placeholder={"Nhập lại mật khẩu"} />
+                                                            <TextField label="Confirm Password" name="confirmPassword" type="password" className="form-control form-control-lg" placeholder={"Repeat Password"} />
                                                             <label className="form-label" htmlFor="form2Example27"></label>
                                                         </div>
                                                         <div className="pt-1 mb-4">
-                                                            <button  type="submit" className="btn btn-success" >Login</button>
+                                                            <button  type="submit" className="btn btn-success" >Register</button>
                                                         </div>
                                                         <a className="small text-muted" href="#!">Forgot password?</a>
                                                         <div className="d-flex justify-content-center">

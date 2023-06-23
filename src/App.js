@@ -6,7 +6,7 @@ import Register from "./pages/auth/Register";
 import ProductDetail from "./pages/client/ProductDetail";
 import CreateShop from "./pages/client/CreateShop";
 import ListAdmin from "./pages/admin/ListAdmin";
-import AddStaffAccount from "./pages/management/AddStaffAccount";
+import AddStaffAccount from "./pages/admin/AddStaffAccount";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import Staff from "./layouts/staff/Staff";

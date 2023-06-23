@@ -1,6 +1,6 @@
-import Header from "../../components/admin/Header";
-import Footer from "../../components/admin/Footer";
-import Action from "../../components/admin/Action";
+import Header from "../../components/adminComponent/Header";
+import Footer from "../../components/adminComponent/Footer";
+import Action from "../../components/adminComponent/Action";
 import {Outlet} from "react-router-dom";
 
 
@@ -9,7 +9,6 @@ export default function Content(){
         <>
             <div id="content">
                 <Header/>
-                <Action/>
                 <Outlet/>
                 <Footer/>
             </div>

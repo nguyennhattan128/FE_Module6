@@ -4,12 +4,12 @@ export default function Sidebar(){
 
     return(
         <>
-            <div id="menu">
+            <div id="menu"style={{position:"fixed", zIndex:"1000"}}>
                 <ul>
                     <li><a href="src/components/adminComponent#"><i className="fa-solid fa-user"></i> Admin</a></li>
                     <li>
                         <div className={'d-flex'}>
-                            <img src="./img/brand_04.png" alt="" className={'img-admin'}/>
+                            <img style={{borderRadius:"50%"}} src="https://th.bing.com/th/id/OIP.XTwQxTeTOffeUV2k9_hr5AHaEo?w=296&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" className={'img-admin'}/>
                             <a href="src/components/adminComponent#">Nguyễn Văn Nam</a>
                         </div>
                     </li>

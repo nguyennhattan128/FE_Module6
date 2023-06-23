@@ -64,10 +64,14 @@ const ListStaff = () => {
                                     </div>
                                     <div className={"col-md-3 icon-staff"}>
                                         <div className="dropdown">
-                                            <button><i className="fa-solid fa-caret-down icon-staff"></i></button>
-                                            <div className="dropdown-content link-staff ">
-                                                <a href="#">Edit</a>
-                                                <a href="#">Delete</a>
+                                            <button style={{border: "none", backgroundColor: "white"}}><i className="fa-solid fa-caret-down icon-staff"></i></button>
+                                            <div className="dropdown-content link-staff" style={{width:"180px", height: "auto"}}>
+                                                <div style={{textAlign: "center", height: "50%"}}>
+                                                    <a href="#">Edit</a>
+                                                </div>
+                                                <div style={{textAlign:"center"}}>
+                                                    <a href="#">Delete</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
