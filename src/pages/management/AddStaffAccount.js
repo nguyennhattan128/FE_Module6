@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
+import {addStaff} from "../../service/staff/staffService";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 
 const SchemaError = Yup.object().shape({
+
     name: Yup.string()
         .min(2, "Too short")
         .required("Please fill out this field"),
@@ -34,13 +36,15 @@ const SchemaError = Yup.object().shape({
     role: Yup.string()
         .required("Please fill out this field"),
 });
+
 const AddStaffAccount = () => {
-
+    const [error, setError] = useState({
+        message: "sai roi",
+        success: true
+    });
     const [file, setFile] = useState('');
-    const navigate = useNavigate();
     const dispatch = useDispatch();
-
-
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -57,8 +61,18 @@ const AddStaffAccount = () => {
         },
         validationSchema: SchemaError,
         onSubmit: (values) => {
-            console.log(values);
-            // dispatch(addStaffAccount(values)).then(() => {navigate('/admin')})
+            dispatch(addStaff(values)).then((data) => {
+                console.log(data.payload.success,data.payload.data)
+               if(data.payload.success === false){
+                   setError({
+                       message: data.payload.data,
+                       success: false
+                   })
+                   console.log(error)
+               }else {
+                   navigate('/admin')
+               }
+                })
         }
     });
 
@@ -175,8 +189,10 @@ const AddStaffAccount = () => {
 
                                     </div>
                                 </div>
+
                                 <div className="row">
                                     <div className="col text-end mt-2">
+                                        {error.success === false ? <div style={{color:"red"}}> {error.message} </div> : <></>}
                                         <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
                                     </div>
                                 </div>
@@ -190,48 +206,6 @@ const AddStaffAccount = () => {
 
 export default AddStaffAccount;
 
-
-
-
-//add staff
-
-// import axios from "axios";
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-//
-//
-// export const addStaff = createAsyncThunk(
-//     'staff/addStaff',
-//     async (values) => {
-//         try {
-//             const response = await axios.post('http://localhost:3001/admin/add-staff', values);
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-
-
-//add staff slice
-// const initialState = {
-//     listStaff: []
-// }
-//
-// const adminSlice = createSlice(
-//     {
-//         name: 'admin',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(addStaff.fulfilled, (currentState, action)=>{
-//                 currentState.listStaff.push(action.payload)
-//             })
-//         }
-//     }
-// )
-// export default adminSlice.reducer
 
 
 

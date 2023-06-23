@@ -16,3 +16,14 @@ export const searchStaff = createAsyncThunk(
         return response.data;
     }
 )
+
+
+export const addStaff = createAsyncThunk(
+    'staff/addStaff',
+    async (staff) => {
+        const response = await customAPI().post(`admin/add-staff`,staff)
+        return response.data;
+    }
+)
+
+
