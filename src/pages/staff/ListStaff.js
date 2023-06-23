@@ -10,7 +10,6 @@ const ListStaff = () => {
     const listStaff = useSelector(({staff}) => {
         return staff.listStaff
     })
-    console.log("list:", listStaff)
 
     const [name, setName] = useState('');
     const handleInput = (e) => {

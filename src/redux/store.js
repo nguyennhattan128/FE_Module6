@@ -3,6 +3,7 @@ import storeReducer from "./store/storeSlice";
 import staffReducer from "././staff/StaffSlice";
 import storeTypeReducer from "./store/storeTypeSlice";
 import categoryReducer from "./store/categorySlice";
+import productReducer from "./product/ProductSlice";
 
 
 const store = configureStore({
@@ -10,7 +11,8 @@ const store = configureStore({
         store: storeReducer,
         staff : staffReducer,
         storeType: storeTypeReducer,
-        category: categoryReducer
+        category: categoryReducer,
+        product: productReducer
     }
 })
 

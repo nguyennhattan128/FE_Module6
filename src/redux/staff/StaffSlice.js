@@ -5,7 +5,7 @@ const initialState = {
     listStaff: []
 }
 const staffSlice = createSlice({
-    name: 'user',
+    name: 'staff',
     initialState,
     extraReducers: builder => {
         builder
