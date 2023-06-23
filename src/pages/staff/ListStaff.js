@@ -7,10 +7,9 @@ import {useDispatch, useSelector} from "react-redux";
 const ListStaff = () => {
     const dispatch = useDispatch();
 
-    const listStaff = useSelector(({staff})=>{
+    const listStaff = useSelector(({staff}) => {
         return staff.listStaff
     })
-    console.log("list:",listStaff)
 
     const [name, setName] = useState('');
     const handleInput = (e) => {
@@ -28,15 +27,26 @@ const ListStaff = () => {
 
     return (
         <>
+            <div className={"row text-center mt-3"}>
+                <div className={"col-8"}>
+                    <h2>Staff List</h2>
+                </div>
+                <div className="d-flex col-4" style={{float: "right"}}>
+                    <input type="text" className="form-control" id="inputMobileSearch"
+                           placeholder="Search ..." onChange={(e) => {handleInput(e)}}/>
+                    <button className="btn-icon"><i
+                        className="fa fa-fw fa-search text-dark mr-2" onClick={() => {handleSearch()}}/></button>
+                </div>
+            </div>
             <div className="row mt-3">
-                {listStaff.map ((item)=>
+                {listStaff.map((item) =>
                     <div className="col-4">
                         <div className="card mb-4">
                             <div className="card-header py-3">
                                 <div className={"row"}>
                                     <div className={"col-md-2 align-items-center"}>
 
-                                        {item.image && item.image !== 'null'?
+                                        {item.image && item.image !== 'null' ?
                                             <img
                                                 src={item.image}
                                                 className="image-staff"

@@ -22,6 +22,7 @@ import EditShop from "./pages/shopOwner/EditShop";
 import AddProduct from "./pages/shopOwner/AddProduct";
 import EditProduct from "./pages/shopOwner/EditProduct";
 import ListStaff from "./pages/staff/ListStaff";
+import ShowProduct from "./pages/shopOwner/ShowProduct";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
+                <Route path='show-product' element={<ShowProduct/>}/>
                 <Route path='edit-shop' element={<EditShop/>}/>
                 <Route path='add-product' element={<AddProduct/>}/>
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
