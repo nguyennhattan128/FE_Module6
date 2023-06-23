@@ -23,7 +23,7 @@ export default function ShowProduct() {
     return (
         <>
             <div className="container mt-5 px-2">
-                <div className="mb-2 d-flex justify-content-between align-items-center">
+                <div className="mb-2 d-flex justify-content-between align-items-center" style={{marginTop: "-20px"}}>
                     <div className="position-relative d-flex">
                         <span className="position-absolute search"></span>
                         <input className="form-control w-100" placeholder="Search by name..." onChange={(e) => {handleInput(e)}}/>
@@ -35,11 +35,11 @@ export default function ShowProduct() {
                         <i className="fa fa-ellipsis-h ms-3"  style={{paddingTop:'10px'}}/>
                     </div>
                 </div>
-                <div className="table-responsive">
+                <div className="table-responsive" style={{marginTop: "20px"}}>
                     <table className="table table-responsive table-borderless">
                         <thead>
                         <tr className="bg-light">
-                            <th scope="col" width="10%"><input className="form-check-input" type="checkbox"/></th>
+                            <th scope="col" width="10%">#</th>
                             <th scope="col" width="10%">Name</th>
                             <th scope="col" width="10%">Category</th>
                             <th scope="col" width="10%">Image</th>
@@ -49,10 +49,9 @@ export default function ShowProduct() {
                         </tr>
                         </thead>
                         <tbody>
-                        {products!==undefined && products.map((item) => (
+                        {products!==undefined && products.map((item, index) => (
                             <tr key={item.id}>
-                                {console.log(item)}
-                                <th scope="row"><input className="form-check-input" type="checkbox"/></th>
+                                <th scope="row" style={{fontWeight: 400, fontSize: "18px"}}>{index + 1}</th>
                                 <td>{item.name}</td>
                                 <td>{item.category.name}</td>
                                 <td><img src={item.image} style={{width: '100px'}}/></td>

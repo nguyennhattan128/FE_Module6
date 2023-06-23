@@ -97,12 +97,13 @@ const AddStaffAccount = () => {
 
     return (
         <>
-            <FormikProvider value={formik}>
-                <Form>
-                    <div className="container py-5">
-                        <div className="row py-5">
-                               <div className="row">
-                                   <div
+            <div style={{marginTop: "-30px"}}>
+                <FormikProvider value={formik}>
+                    <Form>
+                        <div className="container py-5">
+                            <div className="row py-5">
+                                <div className="row">
+                                    <div
                                         style={{
                                             display: 'flex',
                                             justifyContent: 'center',
@@ -110,26 +111,25 @@ const AddStaffAccount = () => {
                                             color: 'green',
                                             fontWeight: 'bold',
                                             marginBottom: 20
-                                   }}>
-                                       <h3>
-                                               ADD STAFF ACCOUNT
-                                       </h3>
-                                   </div>
+                                        }}>
+                                        <h3>
+                                            ADD STAFF ACCOUNT
+                                        </h3>
+                                    </div>
                                 </div>
 
                                 <div className="row">
                                     <div className="form-group col-md-4 mb-3">
                                         <div className="product-images">
                                             <div className="product-main-img"/>
-                                            <p style={{marginLeft: 50}}>Click here to choose an image</p>
+                                            <p style={{marginLeft: 25}}>Click here to choose an image</p>
                                             <img style={{
                                                 width: 300,
                                                 height: 300,
-                                                marginTop: 30,
-                                                marginLeft: 50,
+                                                marginTop: 5,
                                                 borderRadius: 5,
                                                 border: "1px solid #ddd",
-                                                padding: 5,
+
                                             }}
 
                                                  onClick={(e)=>{
@@ -145,61 +145,51 @@ const AddStaffAccount = () => {
                                     </div>
                                     <div className="form-group col-md-4 mb-3">
                                         <div>
-                                            <label htmlFor="username">Username</label>
                                             <Field type="text" className="form-control mt-1" name="username" placeHolder='Username'/>
-                                            <p style={{color: "red"}}><ErrorMessage name="username"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="username"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="username">Full name</label>
                                             <Field type="text" className="form-control mt-1" name="name"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="name"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="name"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="email">Email</label>
                                             <Field type="email" className="form-control mt-1" name="email"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="email"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="email"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="age">Age</label>
                                             <Field type="number" className="form-control mt-1" name="age"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="age"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="age"/></p>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-4 mb-3">
                                         <div>
-                                            <label htmlFor="password">Password</label>
                                             <Field type="text" className="form-control mt-1" name="password"  value = {formik.values.password}/>
-                                            <p style={{color: "red"}}><ErrorMessage name="password"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="password"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="phoneNumber">Phone number</label>
                                             <Field type="text" className="form-control mt-1" name="phoneNumber"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="phoneNumber"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="phoneNumber"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="salary">Salary</label>
                                             <Field type="number" className="form-control mt-1" name="salary"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="salary"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="salary"/></p>
                                         </div>
                                         <div>
-                                            <label htmlFor="address">Address</label>
                                             <Field as="textarea" type="text" className="form-control mt-1" name="address"/>
-                                            <p style={{color: "red"}}><ErrorMessage name="address"/></p>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="address"/></p>
                                         </div>
-
+                                        <div style={{textAlign: "right", marginTop: "20px"}}>
+                                            {error.success === false ? <div style={{color:"red"}}> {error.message} </div> : <></>}
+                                            <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="row">
-                                    <div className="col text-end mt-2">
-                                        {error.success === false ? <div style={{color:"red"}}> {error.message} </div> : <></>}
-                                        <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
-                                    </div>
-                                </div>
+                            </div>
                         </div>
-                    </div>
-                </Form>
-            </FormikProvider>
+                    </Form>
+                </FormikProvider>
+            </div>
         </>
     );
 };

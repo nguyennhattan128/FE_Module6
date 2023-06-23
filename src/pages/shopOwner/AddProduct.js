@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
@@ -32,8 +32,8 @@ const AddProduct = () => {
     const [isSubmit, setIsSubmit] = useState(true)
 
 
-    const listCategory = useSelector(({category})=>{
-        if(fetched){
+    const listCategory = useSelector(({category}) => {
+        if (fetched) {
             console.log(category.listCategory)
             return category.listCategory
         }
@@ -41,7 +41,7 @@ const AddProduct = () => {
     })
 
     useEffect(() => {
-        dispatch(getCategories()).then(()=>{
+        dispatch(getCategories()).then(() => {
             setFetched(true)
         })
     }, []);
@@ -61,7 +61,7 @@ const AddProduct = () => {
             values.image = values.images[0]
             values.images = values.images.slice(1)
             console.log(values);
-            await dispatch(addProduct(values)).then(()=>{
+            await dispatch(addProduct(values)).then(() => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -83,7 +83,7 @@ const AddProduct = () => {
     }
 
 
-    const handleDeleteMainImage = async (event, index) =>{
+    const handleDeleteMainImage = async (event, index) => {
         let newImages = [...formik.values.images]
         newImages.splice(0, 1)
         formik.setFieldValue('images', newImages)
@@ -103,7 +103,6 @@ const AddProduct = () => {
             handleUpload();
         }
     }, [files]);
-
 
 
     const handleUpload = async () => {
@@ -132,7 +131,7 @@ const AddProduct = () => {
             const imageUrls = await Promise.all(uploadPromises);
             let totalFile = [...formik.values.images].length + [...imageUrls].length;
             let isValid = totalFile <= 4;
-            if(!isValid){
+            if (!isValid) {
                 Swal.fire({
                     title: "You are only allowed to select up to 4 image files",
                     confirmButtonColor: "green",
@@ -157,173 +156,183 @@ const AddProduct = () => {
     };
 
 
-
-
-
     return (
         <>
-            <FormikProvider value={formik}>
-                <Form>
-                    <div className="container py-5">
-                        <div className="row py-5">
-                            <div className="row">
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        color: 'green',
-                                        fontWeight: 'bold',
-                                        marginBottom: 20
-                                    }}>
-                                    <h3>
-                                        ADD NEW PRODUCT
-                                    </h3>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="form-group col-md-4 mb-3">
-                                    <div className="product-images">
-                                        {formik.values.images[0] ? (
-                                            <div>
-                                                <img
-                                                    src={formik.values.images[0]}
-                                                    alt=""
-                                                    style={{
-                                                        width: 300,
-                                                        height: 300,
-                                                        border: "1px solid #ddd",
-                                                        borderRadius: 5,
-                                                        padding: 5,
-                                                    }}
-                                                />
-                                                <button
-                                                    className="delete-icon"
-                                                    style={{
-                                                        borderRadius: "50%",
-                                                        border: "none",
-                                                        width: "25px",
-                                                        height: "25px",
-                                                        cursor: "pointer",
-                                                        position: "relative",
-                                                        color: "green",
-                                                        backgroundColor: "lightgreen",
-                                                        top: -120,
-                                                        right: 40,
-                                                        lineHeight: "23px",
-                                                        fontWeight: "bold",
-                                                    }}
-                                                    onClick={(e) => handleDeleteMainImage(e)}>x</button>
-                                            </div>
-                                        ) : (
-                                            <div>
-                                                <img
-                                                    src='https://img.freepik.com/icones-gratuites/photo_318-198172.jpg'
-                                                    alt="product image"
-                                                    style={{
-                                                        width: 300,
-                                                        height: 300,
-                                                        border: "1px solid #ddd",
-                                                        borderRadius: 5,
-                                                        padding: 5,
-                                                        cursor: "pointer"
-                                                    }}
-                                                    onClick={(e)=>{
-                                                        const input = document.createElement("input");
-                                                        input.type = "file";
-                                                        input.multiple = true;
-                                                        input.accept = "image/jpeg,image/png";
-                                                        input.addEventListener('change', handleFileChange);
-                                                        input.click();
-                                                    }}
-                                                />
-                                            </div>
-                                        )}
+            <div style={{marginTop: "-50px"}}>
+                <FormikProvider value={formik}>
+                    <Form>
+                        <div className="container py-5">
+                            <div className="row py-5">
+                                <div className="row">
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            color: 'green',
+                                            fontWeight: 'bold',
+                                            marginBottom: 20
+                                        }}>
+                                        <h3>
+                                            ADD NEW PRODUCT
+                                        </h3>
                                     </div>
-                                    <div className="product-gallery" style={{ display: "flex"}}>
-                                        {formik.values.images.slice(1).map((url, index) => (
-                                            <div style={{position: 'relative', width: 120, height: 120}}>
-                                                <img
-                                                    key={index}
-                                                    style={{ width: 100, height: 100, borderRadius: 5, marginTop: 20,  border: '1px solid #ddd', padding:5}}
-                                                    src={url}
-                                                    alt=""
-
-                                                />
-                                                <button className="delete-icon"
+                                </div>
+                                <div className="row">
+                                    <div className="form-group col-md-4 mb-3">
+                                        <div className="product-images">
+                                            {formik.values.images[0] ? (
+                                                <div>
+                                                    <img
+                                                        src={formik.values.images[0]}
+                                                        alt=""
+                                                        style={{
+                                                            width: 300,
+                                                            height: 300,
+                                                            border: "1px solid #ddd",
+                                                            borderRadius: 5,
+                                                            padding: 5,
+                                                        }}
+                                                    />
+                                                    <button
+                                                        className="delete-icon"
                                                         style={{
                                                             borderRadius: "50%",
                                                             border: "none",
                                                             width: "25px",
                                                             height: "25px",
                                                             cursor: "pointer",
-                                                            position: "absolute",
-                                                            top: 25,
-                                                            right:25,
-                                                            color: 'green',
-                                                            lineHeight: '23px',
-                                                            backgroundColor: 'lightgreen',
-                                                            ':hover': {
-                                                                backgroundColor: 'red',
-                                                                color: 'red',
-                                                            },
+                                                            position: "relative",
+                                                            color: "green",
+                                                            backgroundColor: "lightgreen",
+                                                            top: -295,
+                                                            right: -7,
+                                                            lineHeight: "23px",
+                                                            fontWeight: "bold",
                                                         }}
-                                                        onClick={(e) => handleDeleteSubImage(e, index)}
-                                                >x</button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="form-group col-md-8 mb-3">
+                                                        onClick={(e) => handleDeleteMainImage(e)}>x
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                    <img
+                                                        src='https://img.freepik.com/icones-gratuites/photo_318-198172.jpg'
+                                                        alt="product image"
+                                                        style={{
+                                                            width: 300,
+                                                            height: 300,
+                                                            border: "1px solid #ddd",
+                                                            borderRadius: 5,
+                                                            padding: 5,
+                                                            cursor: "pointer"
+                                                        }}
+                                                        onClick={(e) => {
+                                                            const input = document.createElement("input");
+                                                            input.type = "file";
+                                                            input.multiple = true;
+                                                            input.accept = "image/jpeg,image/png";
+                                                            input.addEventListener('change', handleFileChange);
+                                                            input.click();
+                                                        }}
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="product-gallery" style={{display: "flex"}}>
+                                            {formik.values.images.slice(1).map((url, index) => (
+                                                <div style={{position: 'relative', width: 120, height: 120}}>
+                                                    <img
+                                                        key={index}
+                                                        style={{
+                                                            width: 100,
+                                                            height: 100,
+                                                            borderRadius: 5,
+                                                            marginTop: 20,
+                                                            border: '1px solid #ddd',
+                                                            padding: 5
+                                                        }}
+                                                        src={url}
+                                                        alt=""
 
-                                    <div>
-                                        <label htmlFor="name">Product name</label>
-                                        <Field type="text" className="form-control mt-1" placeholder="Product Name" name='name'/>
-                                        <p style={{color: "red"}}><ErrorMessage name="name"/></p>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="price">Price</label>
-                                        <Field type="text" className="form-control mt-1" placeholder="Price" name='price'/>
-                                        <p style={{color: "red"}}><ErrorMessage name="price"/></p>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="quantity">Quantity</label>
-                                        <Field type="text" className="form-control mt-1" placeholder="Quantity" name='quantity'/>
-                                        <p style={{color: "red"}}><ErrorMessage name="quantity"/></p>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="category">Category</label>
-                                        <Field as="select" className="form-control mt-1" name="category"
-                                               style={{
-                                                   fontFamily: "Roboto",
-                                                   fontSize: "1.1rem",
-                                                   color: "#777777"}}>
-                                            <option value="">Select a category</option>
-                                            {listCategory && listCategory.map((item) => (
-                                                <option
-                                                    key={item.id}
-                                                    value={item.id}
-                                                >
-                                                    {item.name}
-                                                </option>
+                                                    />
+                                                    <button className="delete-icon"
+                                                            style={{
+                                                                borderRadius: "50%",
+                                                                border: "none",
+                                                                width: "25px",
+                                                                height: "25px",
+                                                                cursor: "pointer",
+                                                                position: "absolute",
+                                                                top: 25,
+                                                                right: 10,
+                                                                color: 'green',
+                                                                lineHeight: '23px',
+                                                                backgroundColor: 'lightgreen',
+                                                                ':hover': {
+                                                                    backgroundColor: 'red',
+                                                                    color: 'red',
+                                                                },
+                                                            }}
+                                                            onClick={(e) => handleDeleteSubImage(e, index)}
+                                                    >x
+                                                    </button>
+                                                </div>
                                             ))}
-                                        </Field>
-                                        <p style={{color: "red"}}>
-                                            <ErrorMessage name="category"/>
-                                        </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col text-end mt-2" >
-                                        <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT
-                                        </button>
+                                    <div className="form-group col-md-8 mb-3">
+
+                                        <div>
+
+                                            <Field type="text" className="form-control mt-1" placeholder="Product Name"
+                                                   name='name'/>
+                                            <p style={{color: "red", marginTop: "10px", fontSize: "16px"}}><ErrorMessage
+                                                name="name"/></p>
+                                        </div>
+                                        <div>
+                                            <Field type="text" className="form-control mt-1" placeholder="Price"
+                                                   name='price'/>
+                                            <p style={{color: "red", marginTop: "10px",}}><ErrorMessage name="price"/>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <Field type="text" className="form-control mt-1" placeholder="Quantity"
+                                                   name='quantity'/>
+                                            <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="quantity"/>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <Field as="select" className="form-control mt-1" name="category"
+                                                   style={{
+                                                       fontFamily: "Roboto",
+                                                       fontSize: "1.1rem",
+                                                       color: "#777777"
+                                                   }}>
+                                                <option value="">Select a category</option>
+                                                {listCategory && listCategory.map((item) => (
+                                                    <option
+                                                        key={item.id}
+                                                        value={item.id}
+                                                    >
+                                                        {item.name}
+                                                    </option>
+                                                ))}
+                                            </Field>
+                                            <p style={{color: "red", marginTop: "10px"}}>
+                                                <ErrorMessage name="category"/>
+                                            </p>
+                                            <div style={{textAlign: "right", marginTop: "50px"}}>
+                                                <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Form>
-            </FormikProvider>
+                    </Form>
+                </FormikProvider>
+            </div>
         </>
     );
 };

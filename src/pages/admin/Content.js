@@ -9,7 +9,6 @@ export default function Content(){
         <>
             <div id="content">
                 <Header/>
-                <Action/>
                 <Outlet/>
                 <Footer/>
             </div>
