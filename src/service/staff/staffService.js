@@ -21,7 +21,6 @@ export const searchStaff = createAsyncThunk(
 export const addStaff = createAsyncThunk(
     'staff/addStaff',
     async (staff) => {
-        console.log('staff:',staff)
         const response = await customAPI().post(`admin/add-staff`,staff)
         return response.data;
     }

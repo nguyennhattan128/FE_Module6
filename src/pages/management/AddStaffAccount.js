@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const SchemaError = Yup.object().shape({
+
     name: Yup.string()
         .min(2, "Too short")
         .required("Please fill out this field"),
@@ -37,7 +38,10 @@ const SchemaError = Yup.object().shape({
 });
 
 const AddStaffAccount = () => {
-
+    const [error, setError] = useState({
+        message: "sai roi",
+        success: true
+    });
     const [file, setFile] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -57,8 +61,18 @@ const AddStaffAccount = () => {
         },
         validationSchema: SchemaError,
         onSubmit: (values) => {
-            console.log(values);
-            dispatch(addStaff(values)).then(() => {navigate('/admin')})
+            dispatch(addStaff(values)).then((data) => {
+                console.log(data.payload.success,data.payload.data)
+               if(data.payload.success === false){
+                   setError({
+                       message: data.payload.data,
+                       success: false
+                   })
+                   console.log(error)
+               }else {
+                   navigate('/admin')
+               }
+                })
         }
     });
 
@@ -175,8 +189,10 @@ const AddStaffAccount = () => {
 
                                     </div>
                                 </div>
+
                                 <div className="row">
                                     <div className="col text-end mt-2">
+                                        {error.success === false ? <div style={{color:"red"}}> {error.message} </div> : <></>}
                                         <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
                                     </div>
                                 </div>
