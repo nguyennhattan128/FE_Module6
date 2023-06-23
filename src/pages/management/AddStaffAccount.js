@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import {ErrorMessage, Field, Form, FormikProvider, useFormik} from "formik";
 import {ref, getDownloadURL, uploadBytes} from "firebase/storage";
 import storage from "../../firebase/storage";
 import * as Yup from "yup";
+import {addStaff} from "../../service/staff/staffService";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 
 const SchemaError = Yup.object().shape({
@@ -34,13 +35,12 @@ const SchemaError = Yup.object().shape({
     role: Yup.string()
         .required("Please fill out this field"),
 });
+
 const AddStaffAccount = () => {
 
     const [file, setFile] = useState('');
-    const navigate = useNavigate();
     const dispatch = useDispatch();
-
-
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -58,7 +58,7 @@ const AddStaffAccount = () => {
         validationSchema: SchemaError,
         onSubmit: (values) => {
             console.log(values);
-            // dispatch(addStaffAccount(values)).then(() => {navigate('/admin')})
+            dispatch(addStaff(values)).then(() => {navigate('/admin')})
         }
     });
 
@@ -190,48 +190,6 @@ const AddStaffAccount = () => {
 
 export default AddStaffAccount;
 
-
-
-
-//add staff
-
-// import axios from "axios";
-// import {createAsyncThunk} from "@reduxjs/toolkit";
-//
-//
-// export const addStaff = createAsyncThunk(
-//     'staff/addStaff',
-//     async (values) => {
-//         try {
-//             const response = await axios.post('http://localhost:3001/admin/add-staff', values);
-//             return response.data;
-//         } catch (error) {
-//             console.error(error);
-//             throw error;
-//         }
-//     }
-// );
-
-
-
-//add staff slice
-// const initialState = {
-//     listStaff: []
-// }
-//
-// const adminSlice = createSlice(
-//     {
-//         name: 'admin',
-//         initialState,
-//         reducers: {},
-//         extraReducers: builder => {
-//             builder.addCase(addStaff.fulfilled, (currentState, action)=>{
-//                 currentState.listStaff.push(action.payload)
-//             })
-//         }
-//     }
-// )
-// export default adminSlice.reducer
 
 
 
