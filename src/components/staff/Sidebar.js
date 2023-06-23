@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 
 
 export default function Sidebar(){
@@ -14,9 +15,8 @@ export default function Sidebar(){
                         </div>
                     </li>
                     <li><a href="/staff"><i className="fa-solid fa-house"></i> Main</a></li>
-                    <li><a href="/staff/edit-staff"><i className="fa-solid fa-pen"></i> Personal Information</a></li>
+                    <li><Link to={"/staff/edit-staff"}><i className="fa-solid fa-pen"></i> Personal Information</Link></li>
                     <li><a href="src/components/adminComponent#"><i className="fa-solid fa-list-check"></i> Product Management</a>
-
                         <ul className="sub-menu">
                             <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Product List</a></li>
                             <li><a href="src/components/adminComponent#"><i className="fa-solid fa-check"></i> Add Product</a></li>

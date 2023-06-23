@@ -1,5 +1,5 @@
 import "./ShopOwner.css"
-import Sidebar from "../../components/shopOwnerComponent/Sidebar";
+import Sidebar from "../../components/shopOwner/Sidebar";
 import Content from "../../pages/shopOwner/Content";
 
 export default function ShopOwner(){

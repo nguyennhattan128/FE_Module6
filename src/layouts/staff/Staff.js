@@ -1,5 +1,5 @@
 import "./Staff.css"
-import Sidebar from "../../components/staffComponent/Sidebar";
+import Sidebar from "../../components/staff/Sidebar";
 import Content from "../../pages/staff/Content";
 
 export default function Staff(){

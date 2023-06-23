@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {login} from "../../service/users/userService";
+import {updateUserInformation} from "../../service/users/userService";
+
 
 const initialState = {
     currentUser: JSON.parse(localStorage.getItem('user'))
@@ -9,7 +10,8 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     extraReducers: builder => {
-        builder.addCase(login.fulfilled, (state, action) => {
+        //Hàm update thông tin các nhân này dành cho tất cả các role: user, staff
+        builder.addCase(updateUserInformation.fulfilled, (state, action) => {
             state.currentUser = action.payload;
             localStorage.setItem('user', JSON.stringify(action.payload));
         })
@@ -17,3 +19,8 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer;
+
+
+
+
+

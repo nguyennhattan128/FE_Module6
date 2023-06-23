@@ -1,5 +1,5 @@
 import "./Admin.css"
-import Sidebar from "../../components/adminComponent/Sidebar";
+import Sidebar from "../../components/admin/Sidebar";
 import Content from "../../pages/admin/Content";
 
 export default function Admin(){

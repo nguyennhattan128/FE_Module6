@@ -7,7 +7,6 @@ import ProductDetail from "./pages/client/ProductDetail";
 import CreateShop from "./pages/client/CreateShop";
 import ListAdmin from "./pages/admin/ListAdmin";
 import AddStaffAccount from "./pages/management/AddStaffAccount";
-import EditStaffAccount from "./pages/management/EditStaffAccount";
 import ShopOwner from "./layouts/shop_owner/ShopOwner";
 import ListShopOwner from "./pages/shopOwner/ListShopOwner";
 import Staff from "./layouts/staff/Staff";
@@ -21,6 +20,8 @@ import Admin from "./layouts/admin/Admin";
 import EditShop from "./pages/shopOwner/EditShop";
 import AddProduct from "./pages/shopOwner/AddProduct";
 import EditProduct from "./pages/shopOwner/EditProduct";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import OtpInput from "./pages/auth/OtpInput";
 import ListStaff from "./pages/staff/ListStaff";
 import ShowProduct from "./pages/shopOwner/ShowProduct";
 
@@ -31,6 +32,8 @@ function App() {
         <Routes>
             <Route path={Path.LOGIN} element={<Login/>}/>
             <Route path={Path.REGISTER} element={<Register/>}/>
+            <Route path='/forgot-password' element={<ForgotPassword/>}/>
+            <Route path='/verify' element={<OtpInput/>}/>
             <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
@@ -43,7 +46,6 @@ function App() {
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
-                <Route path='edit-staff' element={<EditStaffAccount/>}/>
                 <Route path='all-staff' element={<ListStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
@@ -54,6 +56,7 @@ function App() {
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
+                <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
             </Route>
         </Routes>

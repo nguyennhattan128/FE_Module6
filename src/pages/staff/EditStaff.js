@@ -3,7 +3,10 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
 import storage from '../../firebase/storage'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {updateUserInformation} from "../../service/users/userService";
+import {useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SchemaError = Yup.object().shape({
     name: Yup.string()
@@ -11,9 +14,6 @@ const SchemaError = Yup.object().shape({
         .required("Please fill out this field"),
     username: Yup.string()
         .min(2, "Too short")
-        .required("Please fill out this field"),
-    password: Yup.string()
-        .min(8, "Password must be at least 8 characters")
         .required("Please fill out this field"),
     age: Yup.number()
         .min(18, "You could not change your age to under 18")
@@ -26,24 +26,10 @@ const SchemaError = Yup.object().shape({
 });
 
 function EditStaff() {
-    const currentUser = {
-        username: 'trang',
-        name: 'Vi Quynh Trang',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhbG0nZsnR6U_wF4z653xXuHXThpROLnsBPw&usqp=CAU',
-        email: 'vitrang29@gmail.com',
-        password: '12345678',
-        age: 20,
-        phoneNumber: '0359371623',
-        address: 'address',
-        salary: 10000,
-        store: null,
-        role: '',
-    }
-
-    // const currentUser = useSelector(({client}) => {
-    //     return client.currentUser
-    // })
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+    console.log(currentUser)
     const [file, setFile] = useState('');
     const [image, setImage] = useState(currentUser.image);
 
@@ -63,35 +49,47 @@ function EditStaff() {
             });
         });
     };
+
+
     return (
         <>
-            <div style={{marginTop: "-35%"}}>
                 <Formik
                     initialValues={{
+                        id: currentUser.id,
                         username: currentUser.username,
-                        name: currentUser.name,
                         email: currentUser.email,
-                        password: currentUser.password,
-                        age: currentUser.age,
-                        phoneNumber: currentUser.phoneNumber,
+                        role: currentUser.role,
+                        name: currentUser.name,
                         address: currentUser.address,
+                        image: image,
+                        age: currentUser.age,
                         salary: currentUser.salary,
-                        store: null,
-                        role: currentUser.role
+                        idStore: currentUser.idStore,
+                        phoneNumber: currentUser.phoneNumber,
+                        token: currentUser.token
                     }}
                     validationSchema={SchemaError}
                     onSubmit={(values) => {
-                        values.image = image
-                        console.log(values)
-                        // dispatch(updateAccount(values)).then(() => {navigate('/staff');});
+                        values.image = image;
+                        dispatch(updateUserInformation(values)).then(()=>{
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your account has been updated successfully',
+                                showConfirmButton: false,
+                                timer: 1000
+                            })
+                        })
+                        setTimeout(() => {
+                            navigate('/');
+                        }, 2000);
+
                     }}
                     enableReinitialize={true}
                 >
                     {({values, handleChange}) => (
                         <Form>
-                            <div className="container py-5" style={{
-                                marginTop: 300
-                            }}>
+                            <div className="container py-5">
                                 <div className="row py-5">
                                     <div className="row">
                                         <div
@@ -110,7 +108,7 @@ function EditStaff() {
                                     </div>
 
                                     <div className="row">
-                                        <div className="form-group col-md-4 mb-3">
+                                        <div className="form-group col-md-4 mb-3" style={{marginRight: -30}}>
                                             <div className="product-images">
                                                 <div className="product-main-img"/>
                                                 <p style={{marginLeft: 50}}>Click here to choose an image</p>
@@ -118,7 +116,6 @@ function EditStaff() {
                                                     width: 300,
                                                     height: 300,
                                                     marginTop: 3,
-                                                    marginLeft: 10,
                                                     borderRadius: 5,
                                                     border: "1px solid #ddd",
                                                     padding: 5,
@@ -132,10 +129,10 @@ function EditStaff() {
                                                          input.click();
                                                      }}
 
-                                                     src={image} alt="" />
+                                                     src={image?values.image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfHKr4J28Bd2GLN_c-P4FtX99NIFVS6rTurA&usqp=CAU'} alt="" />
                                             </div>
                                         </div>
-                                        <div className="form-group col-md-4 mb-3">
+                                        <div className="form-group col-md-4 mb-3" >
                                             <div>
                                                 <label htmlFor="username">Username</label>
                                                 <Field type="text" className="form-control mt-1" name="username" value={values.username} onChange={handleChange}/>
@@ -158,11 +155,6 @@ function EditStaff() {
                                         </div>
                                         <div className="form-group col-md-4 mb-3">
                                             <div>
-                                                <label htmlFor="password">Password</label>
-                                                <Field type="text" className="form-control mt-1" name="password"  value={values.password} onChange={handleChange}/>
-                                                <p style={{color: "red"}}><ErrorMessage name="password"/></p>
-                                            </div>
-                                            <div>
                                                 <label htmlFor="phoneNumber">Phone number</label>
                                                 <Field type="text" className="form-control mt-1" name="phoneNumber" value={values.phoneNumber} onChange={handleChange}/>
                                                 <p style={{color: "red"}}><ErrorMessage name="phoneNumber"/></p>
@@ -179,7 +171,10 @@ function EditStaff() {
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col text-end mt-2">
+                                        <div className="col text-end mt-2"
+                                             style={{
+                                                 marginLeft: -30,
+                                                 marginBottom: -40}}>
                                             <button type="submit" className="btn btn-success btn-lg px-3">SUBMIT</button>
                                         </div>
                                     </div>
@@ -188,51 +183,14 @@ function EditStaff() {
                         </Form>
                     )}
                 </Formik>
-            </div>
         </>
     );
 }
 
 export default EditStaff;
 
-//edit account service
-
-// import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-//
-// export const updateStaffAccount = createAsyncThunk(
-//     'staff/updateStaffAccount',
-//     async (updateUser) => {
-//         try {
-//             const res = await axios.put('http://localhost:3001/staff/update-account', updateUser);
-//             return updateUser;
-//         } catch (error) {
-//             console.log(error)
-//             throw error;
-//         }
-//     }
-// );
 
 
-//edit account service
-
-
-
-// const initialState = {
-//     currentUser: JSON.parse(localStorage.getItem('client')),
-// }
-// const useSlice = createSlice({
-//     name: 'client',
-//     initialState,
-//     extraReducers: builder => {
-//         builder.addCase(updateStaffAccount.fulfilled, (state, action) => {
-//             state.currentUser = action.payload;
-//             localStorage.setItem('client', JSON.stringify(action.payload));
-//         })
-//     }
-// })
-//
-// export default useSlice.reducer;
 
 
 
