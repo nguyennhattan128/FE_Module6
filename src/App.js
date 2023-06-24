@@ -24,6 +24,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import OtpInput from "./pages/auth/OtpInput";
 import ListStaff from "./pages/staff/ListStaff";
 import ShowProduct from "./pages/shopOwner/ShowProduct";
+import Pagination from "./pagination/Pagination";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='all-staff' element={<ListStaff/>}/>
+                <Route path='pagination-staff' element={<Pagination/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>

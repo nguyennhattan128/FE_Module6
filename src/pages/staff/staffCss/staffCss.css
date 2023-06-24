@@ -68,3 +68,8 @@
 .button-position{
     text-align: right;
 }
+.pagination{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}

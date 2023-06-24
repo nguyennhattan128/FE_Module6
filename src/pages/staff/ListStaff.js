@@ -1,15 +1,27 @@
 import "./staffCss/staffCss.css"
 import {useEffect, useState} from "react";
-import {getStaffList, searchStaff} from "../../service/staff/staffService";
+import { getStaffPagination, searchStaff} from "../../service/staff/staffService";
 import {useDispatch, useSelector} from "react-redux";
+import Pagination from "../../pagination/Pagination";
 
 
 const ListStaff = () => {
+
     const dispatch = useDispatch();
+    let [filters,setFilters] = useState({
+        page:1,
+        page_size: 4
+    })
 
     const listStaff = useSelector(({staff}) => {
         return staff.listStaff
     })
+    const total = useSelector(({staff}) => {
+        return staff.total
+    })
+
+
+    console.log('listStaff:', listStaff)
 
     const [name, setName] = useState('');
     const handleInput = (e) => {
@@ -18,11 +30,18 @@ const ListStaff = () => {
     const handleSearch = () => {
         dispatch(searchStaff(name))
     }
-
+    const handlePageChange = (currentPage) => {
+        setFilters({
+            ...filters,
+            page: currentPage
+        })
+    }
+    const page_size = filters.page_size;
+    const page = filters.page
     useEffect(() => {
-            dispatch(getStaffList())
+            dispatch(getStaffPagination(filters))
         }
-        , [])
+        , [page,page_size])
 
 
     return (
@@ -107,6 +126,10 @@ const ListStaff = () => {
                 )}
 
             </div>
+            <div className={"pagination"}>
+                <Pagination page={page} page_size={page_size} total={total} onPageChange={handlePageChange}/>
+            </div>
+
         </>
     )
 }
