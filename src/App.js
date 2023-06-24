@@ -13,7 +13,7 @@ import Staff from "./layouts/staff/Staff";
 import EditStaff from "./pages/staff/EditStaff";
 import About from "./pages/client/About";
 import ViewShop from "./pages/client/ViewShop";
-import Cart from "./pages/client/Cart";
+import Order from "./pages/client/Order";
 import Contact from "./pages/client/Contact";
 import Client from "./layouts/client/Client";
 import Admin from "./layouts/admin/Admin";
@@ -39,7 +39,7 @@ function App() {
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop' element={<ViewShop/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
-                <Route path='/cart' element={<Cart/>}/>
+                <Route path='/cart' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/detail' element={<ProductDetail/>}/>
             </Route>

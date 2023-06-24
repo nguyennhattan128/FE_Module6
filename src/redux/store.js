@@ -4,7 +4,8 @@ import staffReducer from "././staff/StaffSlice";
 import storeTypeReducer from "./store/storeTypeSlice";
 import categoryReducer from "./store/categorySlice";
 import productReducer from "./product/ProductSlice";
-import userReducer from "./user/userSlice"
+import userReducer from "./user/userSlice";
+import orderReducer from "./order/OrderSlice"
 
 
 const store = configureStore({
@@ -15,7 +16,8 @@ const store = configureStore({
         category: categoryReducer,
         //Dùng cho các role chung
         user: userReducer,
-        product: productReducer
+        product: productReducer,
+        order: orderReducer,
     }
 })
 
