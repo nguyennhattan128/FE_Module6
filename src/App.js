@@ -56,7 +56,6 @@ function App() {
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
-                <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
             </Route>
         </Routes>

@@ -149,33 +149,34 @@ const AddStaffAccount = () => {
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="username"/></p>
                                         </div>
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="name"/>
+                                            <Field type="text" className="form-control mt-1" name="name" placeHolder='Name'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="name"/></p>
                                         </div>
                                         <div>
-                                            <Field type="email" className="form-control mt-1" name="email"/>
+                                            <Field type="email" className="form-control mt-1" name="email" placeHolder='Email'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="email"/></p>
                                         </div>
                                         <div>
-                                            <Field type="number" className="form-control mt-1" name="age"/>
+                                            <Field type="number" className="form-control mt-1" name="age" placeHolder='Age'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="age"/></p>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-4 mb-3">
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="password"  value = {formik.values.password}/>
+                                            <Field type="text" className="form-control mt-1" name="password"  value = {formik.values.password}
+                                                   placeHolder='Password'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="password"/></p>
                                         </div>
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="phoneNumber"/>
+                                            <Field type="text" className="form-control mt-1" name="phoneNumber" placeHolder='Phone Number'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="phoneNumber"/></p>
                                         </div>
                                         <div>
-                                            <Field type="number" className="form-control mt-1" name="salary"/>
+                                            <Field type="number" className="form-control mt-1" name="salary" placeHolder='Salary'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="salary"/></p>
                                         </div>
                                         <div>
-                                            <Field as="textarea" type="text" className="form-control mt-1" name="address"/>
+                                            <Field as="textarea" type="text" className="form-control mt-1" name="address" placeHolder='Address'/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="address"/></p>
                                         </div>
                                         <div style={{textAlign: "right", marginTop: "20px"}}>

@@ -4,8 +4,7 @@ import {Link} from "react-router-dom";
 export default function Header(){
 
     let user = JSON.parse(localStorage.getItem("user"));
-    let idStore = user ? user.idStore : undefined;
-    console.log(idStore)
+
     return(
         <>
             <nav className="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
