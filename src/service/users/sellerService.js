@@ -80,9 +80,6 @@ export const getOneProduct = createAsyncThunk(
 export const editProduct = createAsyncThunk(
     'seller/editProduct',
     async ({ updateProduct, images, productId }) => {
-        console.log(updateProduct)
-        console.log(images)
-        console.log(productId)
         try {
             await customAPI().put(`seller/editProduct/${productId}`, { updateProduct, images, productId });
             return {updateProduct, images, productId};
