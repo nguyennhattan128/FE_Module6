@@ -10,34 +10,34 @@ export default function ViewShop(){
                         <h1 className="h2 pb-4">Categories</h1>
                         <ul className="list-unstyled templatemo-accordion">
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none">
                                     Gender
                                     <i className="fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul className="collapse show list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Men</a></li>
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Women</a></li>
+                                    <li><a className="text-decoration-none">Men</a></li>
+                                    <li><a className="text-decoration-none">Women</a></li>
                                 </ul>
                             </li>
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none">
                                     Sale
                                     <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul id="collapseTwo" className="collapse list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sport</a></li>
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Luxury</a></li>
+                                    <li><a className="text-decoration-none">Sport</a></li>
+                                    <li><a className="text-decoration-none">Luxury</a></li>
                                 </ul>
                             </li>
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="src/components/userComponent#">
+                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none">
                                     Product
                                     <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1" />
                                 </a>
                                 <ul id="collapseThree" className="collapse list-unstyled pl-3">
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Bag</a></li>
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sweather</a></li>
-                                    <li><a className="text-decoration-none" href="src/components/userComponent#">Sunglass</a></li>
+                                    <li><a className="text-decoration-none">Bag</a></li>
+                                    <li><a className="text-decoration-none">Sweather</a></li>
+                                    <li><a className="text-decoration-none">Sunglass</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -47,13 +47,13 @@ export default function ViewShop(){
                             <div className="col-md-6">
                                 <ul className="list-inline shop-top-menu pb-3 pt-1">
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none mr-3" href="src/components/userComponent#">All</a>
+                                        <a className="h3 text-dark text-decoration-none mr-3">All</a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none mr-3" href="src/components/userComponent#">Men's</a>
+                                        <a className="h3 text-dark text-decoration-none mr-3">Men's</a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a className="h3 text-dark text-decoration-none" href="src/components/userComponent#">Women's</a>
+                                        <a className="h3 text-dark text-decoration-none">Women's</a>
                                     </li>
                                 </ul>
                             </div>
@@ -74,14 +74,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -111,14 +111,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_02.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -148,14 +148,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_03.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -185,14 +185,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_04.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -222,14 +222,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_05.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -259,14 +259,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_06.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -296,14 +296,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_07.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -333,14 +333,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -370,14 +370,14 @@ export default function ViewShop(){
                                         <img className="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg" />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled">
-                                                <li><a className="btn btn-success text-white" href="shop-single.html"><i className="far fa-heart" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="far fa-eye" /></a></li>
-                                                <li><a className="btn btn-success text-white mt-2" href="shop-single.html"><i className="fas fa-cart-plus" /></a></li>
+                                                <li><a className="btn btn-success text-white"><i className="far fa-heart" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="far fa-eye" /></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"><i className="fas fa-cart-plus" /></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <a href="shop-single.html" className="h3 text-decoration-none">Oupidatat non</a>
+                                        <a className="h3 text-decoration-none">Oupidatat non</a>
                                         <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>M/L/X/XL</li>
                                             <li className="pt-2">
@@ -405,13 +405,13 @@ export default function ViewShop(){
                         <div div="row">
                             <ul className="pagination pagination-lg justify-content-end">
                                 <li className="page-item disabled">
-                                    <a className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="src/components/userComponent#" tabIndex={-1}>1</a>
+                                    <a className="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0"  tabIndex={-1}>1</a>
                                 </li>
                                 <li className="page-item">
-                                    <a className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="src/components/userComponent#">2</a>
+                                    <a className="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" >2</a>
                                 </li>
                                 <li className="page-item">
-                                    <a className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="src/components/userComponent#">3</a>
+                                    <a className="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" >3</a>
                                 </li>
                             </ul>
                         </div>
