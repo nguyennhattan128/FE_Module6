@@ -1,12 +1,33 @@
 import "./detail.css"
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getCategories} from "../../service/store/categoryService";
+import {useParams} from "react-router-dom";
 
 
 export default function ProductDetail(){
 
+
+    const {idProduct} = useParams();
+    const dispatch = useDispatch();
+
+
+    const currentProduct = useSelector(({product}) => {
+            return product.currentProduct
+    })
+
+    useEffect(() => {
+        dispatch(getOneProduct())
+    }, []);
+
+
+
+
+
+
     return(
         <>
             <div>
-                {/* Open Content */}
                 <section className="bg-light">
                     <div className="container pb-5 pb-5-4">
                         <div className="row">
@@ -15,19 +36,10 @@ export default function ProductDetail(){
                                     <img className="card-img img-fluid" src="assets/img/product_single_10.jpg" alt="Card image cap" id="product-detail" />
                                 </div>
                                 <div className="row">
-                                    {/*Start Controls*/}
-                                    <div className="col-1 align-self-center">
-                                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                                            <i className="text-dark fas fa-chevron-left" />
-                                            <span className="sr-only">Previous</span>
-                                        </a>
-                                    </div>
-                                    {/*End Controls*/}
-                                    {/*Start Carousel Wrapper*/}
-                                    <div id="multi-item-example" className="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                                        {/*Start Slides*/}
+                                    <div id="multi-item-example" className="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel" style={{width: '100%'}}>
+
                                         <div className="carousel-inner product-links-wap" role="listbox">
-                                            {/*First slide*/}
+
                                             <div className="carousel-item active">
                                                 <div className="row">
                                                     <div className="col-4">
@@ -37,7 +49,7 @@ export default function ProductDetail(){
                                                     </div>
                                                     <div className="col-4">
                                                         <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2" />
+                                                            <img className="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2"  />
                                                         </a>
                                                     </div>
                                                     <div className="col-4">
@@ -47,64 +59,20 @@ export default function ProductDetail(){
                                                     </div>
                                                 </div>
                                             </div>
-                                            {/*/.First slide*/}
-                                            {/*Second slide*/}
-                                            <div className="carousel-item">
-                                                <div className="row">
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_04.jpg" alt="Product Image 4" />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5" />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/*/.Second slide*/}
-                                            {/*Third slide*/}
-                                            <div className="carousel-item">
-                                                <div className="row">
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_07.jpg" alt="Product Image 7" />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8" />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/*/.Third slide*/}
+
+
+
+
+
                                         </div>
-                                        {/*End Slides*/}
+
                                     </div>
-                                    {/*End Carousel Wrapper*/}
-                                    {/*Start Controls*/}
-                                    <div className="col-1 align-self-center">
-                                        <a href="#multi-item-example" role="button" data-bs-slide="next">
-                                            <i className="text-dark fas fa-chevron-right" />
-                                            <span className="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                    {/*End Controls*/}
+
+
+
                                 </div>
                             </div>
-                            {/* col end */}
+
                             <div className="col-lg-7 mt-5">
                                 <div className="card">
                                     <div className="card-body">
@@ -182,150 +150,9 @@ export default function ProductDetail(){
                         </div>
                     </div>
                 </section>
-                {/* Close Content */}
-                <section className="bg-light">
-                    <div className="container pb-5 pb-5-4">
-                        <div className="row">
-                            <div className="col-lg-12 ">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <div className="row card-body-1">
-                                            <div className="col-lg-5 table-detail d-flex">
-                                                <img
-                                                    src="https://mdbcdn.b-cdn.net/img/new/standard/city/047.webp"
-                                                    className="img-fluid rounded-circle imag-size"
-                                                    alt="Townhouses and Skyscrapers"
-                                                />
-                                                <button type="button" className="btn btn-success">Go shop</button>
-                                            </div>
-                                            <div className="col-lg-7 ">
-                                                <p>Mô tả về shop</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="bg-light">
-                    <div className="container pb-5 pb-5-4">
-                        <div className="row">
 
-                            {/* col end */}
-                            <div className="col-lg-12 ">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <div className="container py-3">
-                                            <div className="row text-center py-3">
-                                                <div className="col-lg-6 m-auto">
-                                                    <h1 className="h1">More items to explore</h1>
-                                                    <p>
 
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_01.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$240.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Lorem ipsum dolor sit amet
-                                                            </p>
-                                                            <p className="text-muted">bought (24)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_02.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$480.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
-                                                            </p>
-                                                            <p className="text-muted">bought (48)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$360.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                                                            </p>
-                                                            <p className="text-muted">bought (74)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$360.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                                                            </p>
-                                                            <p className="text-muted">bought (74)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
 
             </div>
         </>

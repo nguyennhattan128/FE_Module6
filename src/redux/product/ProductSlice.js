@@ -3,7 +3,8 @@ import {getAllProduct, searchProduct} from "../../service/product/ProductService
 
 
 const initialState = {
-    listProduct: []
+    listProduct: [],
+    currentProduct: {}
 }
 const productSlice = createSlice({
     name: 'product',
@@ -15,6 +16,7 @@ const productSlice = createSlice({
         builder.addCase(searchProduct.fulfilled,(state, action) => {
             state.listProduct = action.payload;
         })
+
 
     }
 })
