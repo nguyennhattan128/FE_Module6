@@ -149,34 +149,33 @@ const AddStaffAccount = () => {
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="username"/></p>
                                         </div>
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="name" placeHolder='Name'/>
+                                            <Field type="text" className="form-control mt-1" name="name"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="name"/></p>
                                         </div>
                                         <div>
-                                            <Field type="email" className="form-control mt-1" name="email" placeHolder='Email'/>
+                                            <Field type="email" className="form-control mt-1" name="email"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="email"/></p>
                                         </div>
                                         <div>
-                                            <Field type="number" className="form-control mt-1" name="age" placeHolder='Age'/>
+                                            <Field type="number" className="form-control mt-1" name="age"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="age"/></p>
                                         </div>
                                     </div>
                                     <div className="form-group col-md-4 mb-3">
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="password"  value = {formik.values.password}
-                                                   placeHolder='Password'/>
+                                            <Field type="text" className="form-control mt-1" name="password"  value = {formik.values.password}/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="password"/></p>
                                         </div>
                                         <div>
-                                            <Field type="text" className="form-control mt-1" name="phoneNumber" placeHolder='Phone Number'/>
+                                            <Field type="text" className="form-control mt-1" name="phoneNumber"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="phoneNumber"/></p>
                                         </div>
                                         <div>
-                                            <Field type="number" className="form-control mt-1" name="salary" placeHolder='Salary'/>
+                                            <Field type="number" className="form-control mt-1" name="salary"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="salary"/></p>
                                         </div>
                                         <div>
-                                            <Field as="textarea" type="text" className="form-control mt-1" name="address" placeHolder='Address'/>
+                                            <Field as="textarea" type="text" className="form-control mt-1" name="address"/>
                                             <p style={{color: "red", marginTop: "10px"}}><ErrorMessage name="address"/></p>
                                         </div>
                                         <div style={{textAlign: "right", marginTop: "20px"}}>
