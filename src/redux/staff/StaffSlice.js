@@ -18,9 +18,6 @@ const staffSlice = createSlice({
                 state.listStaff = action.payload;
             })
             .addCase(getStaffPagination.fulfilled,(state, action) => {
-                console.log('state:',state)
-                console.log('state.listStaff',state.listStaff)
-                console.log('action:',action.payload)
                 state.listStaff = action.payload.paginationStaff
                 state.total = action.payload.total
             })
