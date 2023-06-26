@@ -1,0 +1,27 @@
+.shop-sidebar{
+    border-bottom: 1px solid #413f3f ;
+}
+.shop-text{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.shop-btn{
+    width: 150px;
+    margin-right: 10px;
+}
+.sort-by{
+    text-align: center;
+}
+.div-content{
+    display: none;
+}
+.card:hover .div-content {
+    display: block !important;
+}
+.pagination{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}

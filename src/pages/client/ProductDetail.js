@@ -1,4 +1,6 @@
 import "./detail.css"
+import {Link} from "react-router-dom";
+import "./clientCss/productDetail.css"
 
 
 export default function ProductDetail(){
@@ -227,10 +229,23 @@ export default function ProductDetail(){
                                             </div>
                                             <div className="row">
                                                 <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
+                                                    <div className="card h-100 card-1">
+                                                        <Link className="nav-link" to={'/detail'}>
                                                             <img src="./assets/img/feature_prod_01.jpg" className="card-img-top" alt="..." />
-                                                        </a>
+                                                            <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                                                <ul className="list-unstyled div-content-2">
+                                                <span>
+                                                    <li><a className="btn btn-success text-white" href="shop-single.html"><i
+                                                        className="far fa-heart"></i></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"
+                                                       href="shop-single.html"><i className="far fa-eye"></i></a></li>
+                                                <li><a className="btn btn-success text-white mt-2"
+                                                       href="shop-single.html"><i className="fas fa-cart-plus"></i></a>
+                                                </li>
+                                                </span>
+                                                                </ul>
+                                                            </div>
+                                                        </Link>
                                                         <div className="card-body">
                                                             <ul className="list-unstyled d-flex justify-content-between">
                                                                 <li>
@@ -246,75 +261,6 @@ export default function ProductDetail(){
                                                                 Lorem ipsum dolor sit amet
                                                             </p>
                                                             <p className="text-muted">bought (24)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_02.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                    <i className="text-muted fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$480.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
-                                                            </p>
-                                                            <p className="text-muted">bought (48)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$360.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                                                            </p>
-                                                            <p className="text-muted">bought (74)</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-12 col-md-3 mb-4">
-                                                    <div className="card h-100">
-                                                        <a href="shop-single.html">
-                                                            <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
-                                                        </a>
-                                                        <div className="card-body">
-                                                            <ul className="list-unstyled d-flex justify-content-between">
-                                                                <li>
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                    <i className="text-warning fa fa-star" />
-                                                                </li>
-                                                                <li className="text-muted text-right">$360.00</li>
-                                                            </ul>
-                                                            <p className="card-text">
-                                                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                                                            </p>
-                                                            <p className="text-muted">bought (74)</p>
                                                         </div>
                                                     </div>
                                                 </div>

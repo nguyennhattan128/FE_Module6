@@ -16,3 +16,11 @@ export const searchProduct = createAsyncThunk(
         return response.data;
     }
 )
+
+export const productInShop = createAsyncThunk(
+    'product/productInShop',
+    async ({page,page_size})=>{
+        const response = await customAPI().get(`/products/shop-product/?page=${page}&page_size=${page_size}`);
+        return response.data.data;
+            }
+)
