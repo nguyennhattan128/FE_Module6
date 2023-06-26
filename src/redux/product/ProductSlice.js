@@ -18,7 +18,7 @@ const productSlice = createSlice({
         })
         builder.addCase(productInShop.fulfilled,(state, action) => {
             state.total = action.payload.total;
-            state.listProduct = action.payload.products;
+            state.listProduct = action.payload.newProducts;
         })
 
     }

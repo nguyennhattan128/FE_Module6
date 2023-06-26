@@ -198,7 +198,7 @@ export default function ProductDetail(){
                                                     className="img-fluid rounded-circle imag-size"
                                                     alt="Townhouses and Skyscrapers"
                                                 />
-                                                <button type="button" className="btn btn-success">Go shop</button>
+                                                <Link type="button" to={"/shop/"+1} className="btn btn-success">Go shop</Link>
                                             </div>
                                             <div className="col-lg-7 ">
                                                 <p>Mô tả về shop</p>

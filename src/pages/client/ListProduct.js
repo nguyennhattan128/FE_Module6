@@ -18,7 +18,7 @@ export default function ListProduct(){
                     <div className="row">
                         <div className="col-12 col-md-3 mb-4">
                             <div className="card h-100">
-                                <Link className="nav-link" to={'/detail'}>
+                                <Link className="nav-link" to={'/detail/'+1}>
                                     <a href="shop-single.html">
                                         <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
