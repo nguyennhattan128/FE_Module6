@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllProduct, searchProduct} from "../../service/product/ProductService";
-import {searchStaff} from "../../service/staff/staffService";
 
 export default function ShowProduct() {
     const dispatch = useDispatch();
