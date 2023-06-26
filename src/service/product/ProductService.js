@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import customAPI from "../customAPI";
+import {useParams} from "react-router-dom";
 
 
 export const getAllProduct = createAsyncThunk(
@@ -19,8 +20,11 @@ export const searchProduct = createAsyncThunk(
 
 export const productInShop = createAsyncThunk(
     'product/productInShop',
-    async ({page,page_size})=>{
-        const response = await customAPI().get(`/products/shop-product/?page=${page}&page_size=${page_size}`);
+    async (arg)=>{
+        let filter = arg.filters
+        let {page,page_size} = filter
+        let idStore = arg.idStore
+        const response = await customAPI().get(`/store/shop-product/?page=${page}&page_size=${page_size}&idStore=${idStore}`);
         return response.data.data;
             }
 )

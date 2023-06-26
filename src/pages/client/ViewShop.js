@@ -3,28 +3,36 @@ import {useState,useEffect,} from "react";
 import {useSelector,useDispatch} from "react-redux";
 import {productInShop} from "../../service/product/ProductService";
 import Pagination from "../../pagination/Pagination";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 export default function ViewShop(){
     const dispatch = useDispatch();
+    const param = useParams()
+    const idStore = param.idStore
+    console.log(idStore)
 
     const[filters,setFilters] = useState({
-        page: 0,
+        page: 1,
         page_size: 4
     })
+    const idUser = JSON.parse(localStorage.getItem('user'))? JSON.parse(localStorage.getItem('user')).idUser : undefined
     const listProducts = useSelector(({product}) => {
         return product.listProduct
     })
+    console.log("listProducts:",listProducts)
     const total = useSelector(({product}) => {
         return product.total
     })
     const handlePageChange = (currentPage) => {
-        setFilters(currentPage)
+        setFilters({
+            ...filters,
+            page: currentPage
+        })
     }
 
     const page_size = filters.page_size;
     const page = filters.page
     useEffect(() => {
-        dispatch(productInShop(filters))
+        dispatch(productInShop({filters,idStore}))
     },[page_size,page])
 
     return(
@@ -89,12 +97,13 @@ export default function ViewShop(){
 
                         <div className="row">
                             {/*product*/}
-                            <div className="col-12 col-md-3 mb-4 card-hover">
-                                <div className="card h-100">
-                                    <Link className="nav-link" to={'/detail'}><a href="#">
-                                        <img src="./assets/img/feature_prod_01.jpg" className="card-img-top" alt="..." />
-                                        <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            <ul className="list-unstyled div-content">
+                            {listProducts.map((item) =>
+                                <div className="col-12 col-md-3 mb-4 card-hover" key={item.id}>
+                                    <div className="card h-100">
+                                        <Link className="nav-link" to={'/detail/'+item.id}>
+                                            <img src={item.image} className="card-img-top" alt="..." />
+                                            <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                                <ul className="list-unstyled div-content">
                                                 <span>
                                                     <li><a className="btn btn-success text-white" href="shop-single.html"><i
                                                         className="far fa-heart"></i></a></li>
@@ -104,29 +113,27 @@ export default function ViewShop(){
                                                        href="shop-single.html"><i className="fas fa-cart-plus"></i></a>
                                                 </li>
                                                 </span>
+                                                </ul>
+                                            </div>
+                                        </Link>
 
+                                        <div className="card-body">
+                                            <ul className="list-unstyled d-flex justify-content-between">
+                                                <li>
+                                                    <i className="text-warning fa fa-star" />
+                                                    Quantities : {item.quantity}
+                                                </li>
+                                                <li className="text-muted text-right">{item.price}</li>
                                             </ul>
+                                            <p className="card-text shop-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                            </p>
+                                            <p className="text-muted">bought (24)</p>
                                         </div>
-                                    </a></Link>
-
-                                    <div className="card-body">
-                                        <ul className="list-unstyled d-flex justify-content-between">
-                                            <li>
-                                                <i className="text-warning fa fa-star" />
-                                                <i className="text-warning fa fa-star" />
-                                                <i className="text-warning fa fa-star" />
-                                                <i className="text-muted fa fa-star" />
-                                                <i className="text-muted fa fa-star" />
-                                            </li>
-                                            <li className="text-muted text-right">$240.00</li>
-                                        </ul>
-                                        <p className="card-text shop-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
-                                        </p>
-                                        <p className="text-muted">bought (24)</p>
                                     </div>
                                 </div>
-                            </div>
+                            )}
+
                         </div>
 
                     </div>

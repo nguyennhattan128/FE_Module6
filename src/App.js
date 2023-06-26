@@ -38,7 +38,7 @@ function App() {
             <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
-                <Route path='/shop' element={<ViewShop/>}/>
+                <Route path='/shop/:idStore' element={<ViewShop/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
                 <Route path='/cart' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
