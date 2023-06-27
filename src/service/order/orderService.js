@@ -2,11 +2,11 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import customAPI from "../customAPI";
 
 
-export const getOrder = createAsyncThunk(
-    'order/getOrder',
+export const getOrderDetails = createAsyncThunk(
+    'order/getOrderDetails',
     async () => {
-        const response = await customAPI().get(`/order`);
-        return response.data.data;
+        const response = await customAPI().get(`/order-detail`);
+        return response.data;
     }
 )
 
@@ -53,16 +53,16 @@ export const decreaseOrder = createAsyncThunk(
 )
 export const buyProduct = createAsyncThunk(
     'order/buyProduct',
-    async ( {data} ) => {
-        const response = await customAPI().post(`order/buy-product`,  data);
+    async (data ) => {
+        const response = await customAPI().post(`client/buy-product`, data);
         return response.data;
     }
 )
 
 export const addToOrder = createAsyncThunk(
     'order/addToOrder',
-    async ( {data} ) => {
-        const response = await customAPI().post(`order/addToOrder`,  data);
+    async ( data ) => {
+        const response = await customAPI().post(`client/buy-product`,  data);
         return response.data;
     }
 )

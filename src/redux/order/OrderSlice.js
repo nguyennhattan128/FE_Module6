@@ -1,23 +1,23 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
+    addToOrder,
+    buyProduct,
     changeOrderDetailQuantity,
     changeOrderDetailQuantityByInput, decreaseOrder,
-    deleteOrderDetail,
-    getOrder, increaseOrder
+    deleteOrderDetail, getOrderDetails,
+    increaseOrder
 } from "../../service/order/orderService";
 
 
 
 const initialState = {
-    currentOrder: {}
+    currentOrder: {},
+    orderDetails:[]
 }
 const orderSlice = createSlice({
     name: 'order',
     initialState,
     extraReducers: builder => {
-        builder.addCase(getOrder.fulfilled,(state, action) => {
-            state.currentOrder = action.payload;
-        })
         builder.addCase(changeOrderDetailQuantity.fulfilled,(state, action) => {
             state.currentOrder = action.payload;
         })
@@ -33,8 +33,15 @@ const orderSlice = createSlice({
         builder.addCase(decreaseOrder.fulfilled,(state, action) => {
             state.currentOrder = action.payload;
         })
-
-
+        builder.addCase(buyProduct.fulfilled,(state, action) => {
+            state.orderDetails = action.payload;
+        })
+        builder.addCase(addToOrder.fulfilled,(state, action) => {
+            state.orderDetails = action.payload;
+        })
+        builder.addCase(getOrderDetails.fulfilled,(state, action) => {
+            state.orderDetails = action.payload;
+        })
     }
 })
 
