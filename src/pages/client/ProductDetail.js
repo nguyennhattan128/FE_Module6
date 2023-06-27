@@ -1,31 +1,85 @@
 import "./detail.css"
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {getCategories} from "../../service/store/categoryService";
-import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getProductDetail} from "../../service/product/ProductService";
+import {addToOrder, buyProduct} from "../../service/order/orderService";
+import {useNavigate, useParams} from "react-router-dom";
+import customAPI from "../../service/customAPI";
 
 
-export default function ProductDetail(){
-
-
-    const {idProduct} = useParams();
+export default function ProductDetail() {
+    const {id} = useParams();
     const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(1);
+    const [fetchProduct, setFetchProduct] = useState(false)
+    const navigate = useNavigate();
 
 
-    const currentProduct = useSelector(({product}) => {
-            return product.currentProduct
-    })
+    // const currentProduct = useSelector(({product}) => {
+    //     if (fetchProduct){
+    //         console.log(product.currentProduct)
+    //         return product.currentProduct
+    //     }
+    // })
+
+    const [currentProduct, setCurrentProduct] = useState(null)
 
     useEffect(() => {
-        dispatch(getOneProduct())
+        console.log(1111)
+        console.log(id)
+        // dispatch(getProductDetail(id)).then(()=>{
+        //     setFetchProduct(true)
+        // })
+
+        customAPI().get(`/products/product-detail/${id}`)
+            .then(res => {
+                console.log('axios get product:', res);
+                setCurrentProduct(res.data)
+            })
+
     }, []);
 
 
+    const handleIncreaseQuantity = () => {
+        let updateQuantity = quantity + 1;
+        setQuantity(updateQuantity);
+    }
+
+    const handleDecreaseQuantity = () => {
+        let updateQuantity = quantity - 1;
+        if (updateQuantity <= 0) {
+            updateQuantity = 0;
+        }
+        setQuantity(updateQuantity);
+    }
+
+    const buyProductInProductDetail = () => {
+        let productFound = {
+            productId: currentProduct.id,
+            quantity: quantity,
+            price: currentProduct.price
+        }
+        console.log(productFound, 111)
+        // dispatch(buyProduct(productFound)).then(()=>{
+        //     navigate('/')
+        // })
+    }
 
 
+    const addToOrderInProductDetail = () => {
+        let productFound = {
+            productId: currentProduct.id,
+            quantity: quantity,
+            price: currentProduct.price
+        }
 
+        console.log(productFound, 222)
+        dispatch(addToOrder(productFound)).then(()=>{
+            navigate('/')
+        })
+    }
 
-    return(
+    return (
         <>
             <div>
                 <section className="bg-light">
@@ -33,114 +87,99 @@ export default function ProductDetail(){
                         <div className="row">
                             <div className="col-lg-5 mt-5">
                                 <div className="card mb-3">
-                                    <img className="card-img img-fluid" src="assets/img/product_single_10.jpg" alt="Card image cap" id="product-detail" />
+                                    <img className="card-img img-fluid"
+                                         src={currentProduct ? currentProduct.image : null} alt="Card image cap"
+                                         id="product-detail"/>
                                 </div>
                                 <div className="row">
-                                    <div id="multi-item-example" className="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel" style={{width: '100%'}}>
-
+                                    <div id="multi-item-example" className="col-10 carousel slide carousel-multi-item"
+                                         data-bs-ride="carousel" style={{width: '100%'}}>
                                         <div className="carousel-inner product-links-wap" role="listbox">
-
                                             <div className="carousel-item active">
                                                 <div className="row">
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1" />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2"  />
-                                                        </a>
-                                                    </div>
-                                                    <div className="col-4">
-                                                        <a href="#">
-                                                            <img className="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3" />
-                                                        </a>
-                                                    </div>
+
+                                                    {currentProduct ? currentProduct.images.map((url) => (
+                                                        <div className="col-4">
+                                                            <a href="#">
+                                                                <img className="card-img img-fluid" src={url}
+                                                                     alt="Product Image 1"/>
+                                                            </a>
+                                                        </div>
+                                                    )) : <></>}
                                                 </div>
                                             </div>
-
-
-
-
-
                                         </div>
-
                                     </div>
-
-
-
                                 </div>
                             </div>
 
                             <div className="col-lg-7 mt-5">
                                 <div className="card">
                                     <div className="card-body">
-                                        <h1 className="h2">Active Wear</h1>
-                                        <p className="h3 py-2">$25.00</p>
-                                        <p className="py-2">
-                                            <i className="fa fa-star text-warning" />
-                                            <i className="fa fa-star text-warning" />
-                                            <i className="fa fa-star text-warning" />
-                                            <i className="fa fa-star text-warning" />
-                                            <i className="fa fa-star text-secondary" />
-                                            <span className="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
-                                        </p>
+                                        <h1 className="h2">{currentProduct ? currentProduct.name : null}</h1>
+                                        <p className="h3 py-2">{currentProduct ? currentProduct.price : null}</p>
                                         <ul className="list-inline">
                                             <li className="list-inline-item">
-                                                <h6>Brand:</h6>
+                                                <h6>Category:</h6>
                                             </li>
                                             <li className="list-inline-item">
-                                                <p className="text-muted"><strong>Easy Wear</strong></p>
+                                                <p className="text-muted">
+                                                    <strong>{currentProduct ? currentProduct.category.name : null}</strong>
+                                                </p>
                                             </li>
                                         </ul>
                                         <h6>Description:</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
-                                        <ul className="list-inline">
-                                            <li className="list-inline-item">
-                                                <h6>Avaliable Color :</h6>
-                                            </li>
-                                            <li className="list-inline-item">
-                                                <p className="text-muted"><strong>White / Black</strong></p>
-                                            </li>
-                                        </ul>
-                                        <h6>Specification:</h6>
-                                        <ul className="list-unstyled pb-3">
-                                            <li>Lorem ipsum dolor sit</li>
-                                            <li>Amet, consectetur</li>
-                                        </ul>
+                                        <p>{currentProduct ? currentProduct.description : null}</p>
+
+
                                         <form action method="GET">
-                                            <input type="hidden" name="product-title" defaultValue="Activewear" />
+                                            <input type="hidden" name="product-title" defaultValue="Activewear"/>
                                             <div className="row">
-                                                <div className="col-auto">
-                                                    <ul className="list-inline pb-3">
-                                                        <li className="list-inline-item">Size :
-                                                            <input type="hidden" name="product-size" id="product-size" defaultValue="S" />
-                                                        </li>
-                                                        <li className="list-inline-item"><span className="btn btn-success btn-size">S</span></li>
-                                                        <li className="list-inline-item"><span className="btn btn-success btn-size">M</span></li>
-                                                        <li className="list-inline-item"><span className="btn btn-success btn-size">L</span></li>
-                                                        <li className="list-inline-item"><span className="btn btn-success btn-size">XL</span></li>
-                                                    </ul>
-                                                </div>
+
                                                 <div className="col-auto">
                                                     <ul className="list-inline pb-3">
                                                         <li className="list-inline-item text-right">
                                                             Quantity
-                                                            <input type="hidden" name="product-quanity" id="product-quanity" defaultValue={1} />
                                                         </li>
-                                                        <li className="list-inline-item"><span className="btn btn-success" id="btn-minus">-</span></li>
-                                                        <li className="list-inline-item"><span className="badge bg-secondary" id="var-value">1</span></li>
-                                                        <li className="list-inline-item"><span className="btn btn-success" id="btn-plus">+</span></li>
+                                                        <li className="list-inline-item"><span
+                                                            className="btn btn-success" id="btn-minus" onclick={() => {
+                                                            handleDecreaseQuantity()
+                                                        }}>-</span></li>
+                                                        <li className="list-inline-item"><span
+                                                            className="badge bg-secondary"
+                                                            id="var-value">{quantity}</span></li>
+                                                        <li className="list-inline-item"><span
+                                                            className="btn btn-success" id="btn-plus" onClick={() => {
+                                                            handleIncreaseQuantity()
+                                                        }}>+</span></li>
                                                     </ul>
                                                 </div>
                                             </div>
+
+
                                             <div className="row pb-3">
                                                 <div className="col d-grid">
-                                                    <button type="submit" className="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
+                                                    <button type="submit" className="btn btn-success btn-lg"
+                                                            name="submit" value="buy" onClick={() => {
+                                                        buyProductInProductDetail()
+                                                    }}>Buy
+                                                    </button>
                                                 </div>
                                                 <div className="col d-grid">
-                                                    <button type="submit" className="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                                    <button type="submit" className="btn btn-success btn-lg"
+                                                            name="submit" value="addtocard" onClick={() => {
+                                                        addToOrderInProductDetail()
+                                                    }}>Add To Cart
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+                                            <div className="row pb-3">
+                                                <div className="col d-grid">
+                                                    <button className="btn btn-success btn-lg" name="submit"
+                                                            value="buy">Go to shop ->
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>
@@ -150,8 +189,6 @@ export default function ProductDetail(){
                         </div>
                     </div>
                 </section>
-
-
 
 
             </div>

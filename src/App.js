@@ -41,7 +41,7 @@ function App() {
                 <Route path='/create-shop' element={<CreateShop/>}/>
                 <Route path='/cart' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
-                <Route path='/detail' element={<ProductDetail/>}/>
+                <Route path='/detail/:id' element={<ProductDetail/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
