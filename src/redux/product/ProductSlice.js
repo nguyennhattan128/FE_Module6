@@ -21,7 +21,6 @@ const productSlice = createSlice({
             state.listProduct = action.payload.newProducts;
         })
         builder.addCase(showProductByName.fulfilled,(state, action) => {
-            console.log("action:",action)
             state.total = action.payload.total;
             state.listProduct = action.payload.listProducts;
         })
