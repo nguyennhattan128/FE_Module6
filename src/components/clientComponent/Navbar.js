@@ -56,7 +56,7 @@ export default function Navbar() {
                                     className="fa fa-fw fa-search text-dark mr-2"/></button>
                             </div>
                             <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
-                                <Link to="/cart">
+                                <Link to="/order">
                                     <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                                 </Link>
                                 <span

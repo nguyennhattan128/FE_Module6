@@ -13,7 +13,9 @@ export default function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const [fetchProduct, setFetchProduct] = useState(false)
     const navigate = useNavigate();
-    const [currentProduct, setCurrentProduct] = useState()
+    const [currentProduct, setCurrentProduct] = useState();
+
+    console.log(currentProduct,11)
 
     useEffect(() => {
         customAPI().get(`/products/product-detail/${id}`)
@@ -162,8 +164,8 @@ export default function ProductDetail() {
 
                                             <div className="row pb-3">
                                                 <div className="col d-grid">
-                                                    <button className="btn btn-success btn-lg" name="submit"
-                                                            value="buy">Go to shop ->
+                                                    <button className="btn btn-success btn-lg" type={"button"}
+                                                            onClick={()=>{navigate(`/shop/${currentProduct.store.id}`)}}>Go to shop ->
                                                     </button>
                                                 </div>
                                             </div>
