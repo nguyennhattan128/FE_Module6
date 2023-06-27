@@ -47,7 +47,6 @@ const CreateShop = () => {
     }, [])
 
     const listStoreType = useSelector(({storeType})=>{
-        console.log(storeType.listStoreType)
         return storeType.listStoreType
     })
 
@@ -66,7 +65,7 @@ const CreateShop = () => {
         onSubmit: (values) => {
             dispatch(createShop(values)).then(() => {
                 Swal.fire({
-                    title: "You have successfully created your store. Please wait for admin's confirmation to start business",
+                    title: "Please wait for admin's confirmation to start business",
                     icon: "success",
                     confirmButtonColor: "green",
                     confirmButtonText: "OK",
@@ -74,7 +73,7 @@ const CreateShop = () => {
                         confirmButton: "btn btn-success",
                     },
                 }).then(()=>{
-                    navigate('/')
+                    navigate('/shop-owner')
                 })
             })
         }

@@ -9,6 +9,14 @@ export const getStaffList = createAsyncThunk(
             return response.data;
         }
 )
+export const getStaffPagination = createAsyncThunk(
+    'staff/getStaffPagination',
+    async ({page,page_size}) => {
+        const response = await customAPI().get(`admin/pagination-staffs/?page=${page}&page_size=${page_size}`);
+        return response.data.data;
+    }
+)
+
 export const searchStaff = createAsyncThunk(
     'staff/searchStaff',
     async (name) => {
@@ -25,5 +33,6 @@ export const addStaff = createAsyncThunk(
         return response.data;
     }
 )
+
 
 

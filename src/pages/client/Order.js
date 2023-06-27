@@ -1,184 +1,39 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    changeOrderDetailQuantity, changeOrderDetailQuantityByInput,
-    deleteOrderDetail,
-    getOrder,
-} from "../../service/order/orderService";
-import Swal from "sweetalert2";
-import {Link, useNavigate} from "react-router-dom";
+import {getOrderDetails,} from "../../service/order/orderService";
+import {Link} from "react-router-dom";
 import './Order.css'
-
+import {boolean} from "yup";
 
 export default function Order(){
 
     const dispatch = useDispatch();
-    const navigate = useNavigate()
-    const [fetchOrder, setFetchOrder] = useState(false);
-    const [listOrderDetails, setListOrderDetails] = useState([]);
 
-
-
-
-    const currentOrder = useSelector(({ order }) => {
-        if (fetchOrder) {
-            if (order.currentOrder && order.currentOrder.orderDetails.length === 0) {
-                Swal.fire({
-                    title: "Your shopping cart is empty, go back to continue shopping",
-                    confirmButtonColor: "green",
-                    confirmButtonText: "OK",
-                    customClass: {
-                        confirmButton: "btn btn-success",
-                    },
-                }).then(()=>{
-                    navigate('/')
-                });
-            }
-            return order.currentOrder;
+    const orderDetails = useSelector(({order}) => {
+        return order.orderDetails
+    })
+    const changeQuantity = (id,price,status,quantity) => {
+        let product = {
+            id: id,
+            price:price,
+            status:status,
+            quantity: quantity
         }
-        return {};
-    });
-
-
-
-
-    useEffect(() => {
-        dispatch(getOrder()).then(() => {
-            setFetchOrder(true)
-        })
-    }, [])
-
-
-    useEffect(() => {
-        if (currentOrder && currentOrder.orderDetails) {
-            setListOrderDetails(currentOrder.orderDetails);
-        }
-    }, [currentOrder]);
-
-
-
-    const handleIncreaseQuantity = (orderId, orderDetailId, productId) =>{
-        let updateOrderDetails = listOrderDetails.map((orderDetail)=>{
-            if(orderDetail.id === orderDetailId){
-                let newQuantity = parseInt(orderDetail.quantity) + 1;
-                dispatch(changeOrderDetailQuantity({
-                    orderId: orderId,
-                    orderDetailId: orderDetailId,
-                    quantity: newQuantity,
-                    price: orderDetail.price,
-                    productId: productId
-                }))
-                return {...orderDetail, quantity: newQuantity};
-            }
-            return orderDetail
-        })
-        setListOrderDetails(updateOrderDetails);
-    }
-
-    const handleDecreaseQuantity = (orderId , orderDetailId, productId) =>{
-        let updateOrderDetails = listOrderDetails.map((orderDetail)=>{
-            if(orderDetail.id === orderDetailId){
-                if(orderDetail.quantity < 2 ){
-                    handleDeleteOrderDetail(orderDetailId, productId)
-                }if(orderDetail.quantity < 1){
-                    return {...orderDetail, quantity: 0}
-                }
-                let newQuantity = parseInt(orderDetail.quantity) - 1
-                dispatch(changeOrderDetailQuantity({
-                    orderId: orderId,
-                    orderDetailId: orderDetailId,
-                    quantity: newQuantity,
-                    price: orderDetail.price,
-                    productId: productId
-                }))
-                return {...orderDetail, quantity: newQuantity}
-            }
-
-            return orderDetail
-        })
-        setListOrderDetails(updateOrderDetails);
+        dispatch()
+    };
+    const handleChange = (id) => {
+        dispatch()
     }
 
 
-    const handleChangeInputQuantity = (e, orderId, orderDetailId, productId) =>{
-        let updateOrderDetails = listOrderDetails.map((orderDetail)=>{
-            let updateQuantity = e.target.value
-            if(orderDetail.id === orderDetailId) {
-                if (updateQuantity <= 1) {
-                    updateQuantity = 1
-                    dispatch(changeOrderDetailQuantityByInput(
-                        {
-                            orderId: orderId,
-                            orderDetailId: orderDetailId,
-                            quantity: updateQuantity,
-                            price: orderDetail.price,
-                            productId: productId
-                        }
-                    ))
-                }
-                dispatch(changeOrderDetailQuantityByInput(
-                    {
-                        orderId: orderId,
-                        orderDetailId: orderDetailId,
-                        quantity: updateQuantity,
-                        price: orderDetail.price,
-                        productId: productId
-                    }
-                ))
-                return {...orderDetail, quantity: updateQuantity};
-            }
-            return orderDetail;
-        })
-        setListOrderDetails(updateOrderDetails);
-    }
-
-
-    const handleDeleteOrderDetail = (orderDetailId, productId) =>{
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success btn-md custom-confirm-button',
-                cancelButton: 'btn btn-danger btn-md'
-            },
-            buttonsStyling: false
-        })
-        swalWithBootstrapButtons.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'Deleted!',
-                    'This item has been removed from your cart',
-                    'success'
-                ).then(()=>{
-                    dispatch(deleteOrderDetail({
-                        orderDetailId: orderDetailId,
-                        productId: productId
-                    }))
-                })
-            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'This item is still in your cart :)',
-                    'error'
-                )
-            }
-        })
-    }
-
-
-
-
+   useEffect(() => {
+       dispatch(getOrderDetails())
+   },[])
 
 
 
     return(
-        <>{currentOrder && currentOrder.orderDetails?(
+        <>{orderDetails ? (
             <section className="h-100 h-custom" style={{backgroundColor: '#7ac98f'}}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -190,15 +45,18 @@ export default function Order(){
                                             <div className="p-5">
                                                 <div className="d-flex justify-content-between align-items-center mb-5">
                                                     <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                                    <h6 className="mb-0 text-muted">{currentOrder.orderDetails ? (currentOrder.orderDetails.length === 1 ? '1 item' : `${currentOrder.orderDetails.length} items`) : 0}
+                                                    <h6 className="mb-0 text-muted">{orderDetails ? (orderDetails.length === 1 ? '1 item' : `${orderDetails.length} items`) : 0}
                                                     </h6>
                                                 </div>
                                                 <hr className="my-4"/>
 
 
-                                                {currentOrder && listOrderDetails && listOrderDetails.map((item)=>(
+                                                {orderDetails && orderDetails.map((item)=>(
                                                     <div key={item.id}>
                                                         <div className="row mb-4 d-flex justify-content-between align-items-center">
+                                                            <div className="col-md-1 col-lg-1 col-xl-1">
+                                                                <input type="checkbox" checked={true} onChange={(e)=>{handleChange(item.id)}}/>
+                                                            </div>
                                                             <div className="col-md-2 col-lg-2 col-xl-2">
                                                                 <img
                                                                     src={item.product.image}
@@ -208,18 +66,16 @@ export default function Order(){
                                                                 width: 100
                                                             }}>
                                                                 <h6 className="text-muted">{item.product.category.name}</h6>
-                                                                <h6 className="text-black mb-0">{item.product.name}</h6>
+                                                                <h6 className="text-black mb-0">{item.product.name ? item.product.name:null}</h6>
                                                             </div>
 
                                                             <div className="col-md-3 col-lg-3 col-xl-2 d-flex" >
-                                                                <button className="btn btn-link px-2"
-                                                                        onClick={()=>{handleDecreaseQuantity(currentOrder.id, item.id, item.product.id)}}>
+                                                                <button className="btn btn-link px-2" onClick={() => {changeQuantity(item.product.id,item.price,item.status,-1)}}>
                                                                     <i className="fas fa-minus"/>
                                                                 </button>
                                                                 <input name="quantity"
-                                                                       // value = {listOrderDetails.find(orderDetail =>orderDetail.id === item.id)?.quantity || ''}
                                                                        value={item.quantity}
-                                                                       onChange = {(e)=>{handleChangeInputQuantity(e, currentOrder.id, item.id, item.product.id)}}
+                                                                       onChange = {(e)=> {}}
                                                                        type="number" className="form-control form-control-sm" style={{
                                                                     width: 60,
                                                                     textAlign: "center",
@@ -227,8 +83,7 @@ export default function Order(){
                                                                     marginRight: 5,
                                                                     marginBottom: 0
                                                                 }}></input>
-                                                                <button className="btn btn-link px-2" onClick={()=>{handleIncreaseQuantity(currentOrder.id, item.id, item.product.id)}}
-                                                                       >
+                                                                <button className="btn btn-link px-2"  onClick={() => {changeQuantity(item.product.id,item.price,item.status,1)}}>
                                                                     <i className="fas fa-plus"/>
                                                                 </button>
                                                             </div>
@@ -247,9 +102,7 @@ export default function Order(){
                                                                 <h6 className="mb-0">€ {item.product.price * item.quantity}</h6>
                                                             </div>
                                                             <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                                <a  className="text-muted"  onClick={()=>{
-                                                                   handleDeleteOrderDetail(item.id, item.product.id)
-                                                                }}><i
+                                                                <a  className="text-muted"><i
                                                                     className="fas fa-times"/></a>
                                                             </div>
                                                         </div>
@@ -268,8 +121,8 @@ export default function Order(){
                                                 <h3 className="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                                 <hr className="my-4"/>
                                                 <div className="d-flex justify-content-between mb-4">
-                                                    <h5 className="text-uppercase">{currentOrder.orderDetails ? (currentOrder.orderDetails.length === 1 ? 'Item 1' : `Items ${currentOrder.orderDetails.length} `) : 0}</h5>
-                                                    <h5>€ {currentOrder.totalMoney}</h5>
+                                                    <h5 className="text-uppercase">{orderDetails ? (orderDetails.length === 1 ? 'Item 1' : `Items ${orderDetails.length} `) : 0}</h5>
+                                                    <h5>€ </h5>
                                                 </div>
                                                 <h5 className="text-uppercase mb-3">Shipping</h5>
                                                 <div className="mb-4 pb-2">
@@ -292,7 +145,7 @@ export default function Order(){
                                                 <hr className="my-4"/>
                                                 <div className="d-flex justify-content-between mb-5">
                                                     <h5 className="text-uppercase">Total price</h5>
-                                                    <h5>€ {currentOrder.totalMoney}</h5>
+                                                    <h5>€ {orderDetails.totalMoney}</h5>
                                                 </div>
                                                 <button type="button" className="btn btn-dark btn-block btn-lg"
                                                         data-mdb-ripple-color="dark">Register

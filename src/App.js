@@ -24,6 +24,8 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import OtpInput from "./pages/auth/OtpInput";
 import ListStaff from "./pages/staff/ListStaff";
 import ShowProduct from "./pages/shopOwner/ShowProduct";
+import Pagination from "./pagination/Pagination";
+import ViewSearchMain from "./pages/client/ViewSearchMain";
 
 
 function App() {
@@ -37,16 +39,18 @@ function App() {
             <Route path={Path.HOME} element={<Client/>}>
                 <Route path='' element={<Main/>}/>
                 <Route path='/about' element={<About/>}/>
-                <Route path='/shop' element={<ViewShop/>}/>
+                <Route path='/shop/:idStore' element={<ViewShop/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
-                <Route path='/cart' element={<Order/>}/>
+                <Route path='/order' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/detail/:id' element={<ProductDetail/>}/>
+                <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='all-staff' element={<ListStaff/>}/>
+                <Route path='pagination-staff' element={<Pagination/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>
@@ -56,7 +60,6 @@ function App() {
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
-                <Route path='' element={<ListStaff/>}/>
                 <Route path='edit-staff' element={<EditStaff/>}/>
             </Route>
         </Routes>

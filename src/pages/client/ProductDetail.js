@@ -13,30 +13,16 @@ export default function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const [fetchProduct, setFetchProduct] = useState(false)
     const navigate = useNavigate();
+    const [currentProduct, setCurrentProduct] = useState();
 
-
-    // const currentProduct = useSelector(({product}) => {
-    //     if (fetchProduct){
-    //         console.log(product.currentProduct)
-    //         return product.currentProduct
-    //     }
-    // })
-
-    const [currentProduct, setCurrentProduct] = useState(null)
+    console.log(currentProduct,11)
 
     useEffect(() => {
-        console.log(1111)
-        console.log(id)
-        // dispatch(getProductDetail(id)).then(()=>{
-        //     setFetchProduct(true)
-        // })
-
         customAPI().get(`/products/product-detail/${id}`)
             .then(res => {
                 console.log('axios get product:', res);
                 setCurrentProduct(res.data)
             })
-
     }, []);
 
 
@@ -48,33 +34,35 @@ export default function ProductDetail() {
     const handleDecreaseQuantity = () => {
         let updateQuantity = quantity - 1;
         if (updateQuantity <= 0) {
-            updateQuantity = 0;
+            setQuantity(0);
         }
-        setQuantity(updateQuantity);
+        else {
+            setQuantity(updateQuantity);
+        }
     }
 
     const buyProductInProductDetail = () => {
         let productFound = {
-            productId: currentProduct.id,
+            id: currentProduct.id,
             quantity: quantity,
-            price: currentProduct.price
+            price: currentProduct.price,
+            status: true
         }
-        console.log(productFound, 111)
-        // dispatch(buyProduct(productFound)).then(()=>{
-        //     navigate('/')
-        // })
+        dispatch(buyProduct(productFound)).then(()=>{
+            navigate('/order')
+        })
     }
 
 
-    const addToOrderInProductDetail = () => {
+    const addToOrderInProductDetail = (currenProduct) => {
         let productFound = {
-            productId: currentProduct.id,
+            id: currentProduct.id,
             quantity: quantity,
-            price: currentProduct.price
+            price: currentProduct.price,
+            status: false
         }
-        console.log(productFound, 222)
         dispatch(addToOrder(productFound)).then(()=>{
-            navigate('/')
+            navigate('/order')
         })
     }
 
@@ -141,9 +129,9 @@ export default function ProductDetail() {
                                                             Quantity
                                                         </li>
                                                         <li className="list-inline-item"><span
-                                                            className="btn btn-success" id="btn-minus" onclick={() => {
+                                                            className="btn btn-success" id="btn-minus" onClick={() => {
                                                             handleDecreaseQuantity()
-                                                        }}>-</span></li>
+                                                            }}>-</span></li>
                                                         <li className="list-inline-item"><span
                                                             className="badge bg-secondary"
                                                             id="var-value">{quantity}</span></li>
@@ -158,15 +146,15 @@ export default function ProductDetail() {
 
                                             <div className="row pb-3">
                                                 <div className="col d-grid">
-                                                    <button type="submit" className="btn btn-success btn-lg"
-                                                            name="submit" value="buy" onClick={() => {
+                                                    <button type="button" className="btn btn-success btn-lg"
+                                                            name="submit" onClick={() => {
                                                         buyProductInProductDetail()
                                                     }}>Buy
                                                     </button>
                                                 </div>
                                                 <div className="col d-grid">
-                                                    <button type="submit" className="btn btn-success btn-lg"
-                                                            name="submit" value="addtocard" onClick={() => {
+                                                    <button type="button" className="btn btn-success btn-lg"
+                                                            name="submit" onClick={() => {
                                                         addToOrderInProductDetail()
                                                     }}>Add To Cart
                                                     </button>
@@ -176,8 +164,8 @@ export default function ProductDetail() {
 
                                             <div className="row pb-3">
                                                 <div className="col d-grid">
-                                                    <button className="btn btn-success btn-lg" name="submit"
-                                                            value="buy">Go to shop ->
+                                                    <button className="btn btn-success btn-lg" type={"button"}
+                                                            onClick={()=>{navigate(`/shop/${currentProduct.store.id}`)}}>Go to shop ->
                                                     </button>
                                                 </div>
                                             </div>

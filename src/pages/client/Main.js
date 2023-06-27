@@ -1,6 +1,6 @@
 
 import Advertisement from "../../components/clientComponent/Advertisement";
-import Category from "../../components/clientComponent/Category";
+import Category from "./Category";
 import ListProduct from "./ListProduct";
 
 

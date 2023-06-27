@@ -1,7 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getStaffList, searchStaff} from "../../service/staff/staffService";
+import {getStaffList, getStaffPagination, searchStaff} from "../../service/staff/staffService";
+import listStaff from "../../pages/staff/ListStaff";
 
 const initialState = {
+    total: 0,
     listStaff: []
 }
 const staffSlice = createSlice({
@@ -14,6 +16,10 @@ const staffSlice = createSlice({
             })
             .addCase(searchStaff.fulfilled, (state, action) => {
                 state.listStaff = action.payload;
+            })
+            .addCase(getStaffPagination.fulfilled,(state, action) => {
+                state.listStaff = action.payload.paginationStaff
+                state.total = action.payload.total
             })
     }
 })

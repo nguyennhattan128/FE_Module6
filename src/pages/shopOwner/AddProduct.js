@@ -141,10 +141,6 @@ const AddProduct = () => {
                     },
                 })
 
-                // toast.error('You are only allowed to select up to 4 image files', {
-                //     position: 'top-center',
-                //     autoClose: 2000
-                // });
             } else {
                 formik.setFieldValue("images", [...formik.values.images, ...imageUrls]);
                 setIsSubmit(false);

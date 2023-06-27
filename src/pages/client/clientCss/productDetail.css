@@ -1,0 +1,11 @@
+.div-content-2{
+    display: none;
+}
+.card-1:hover .div-content-2 {
+    display: block !important;
+}
+.pagination{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}

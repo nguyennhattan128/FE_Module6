@@ -1,39 +1,40 @@
-import "./clientCss/viewShop.css"
+import {Link,useParams} from "react-router-dom";
+import Pagination from "../../pagination/Pagination";
 import {useState,useEffect,} from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {productInShop} from "../../service/product/ProductService";
-import Pagination from "../../pagination/Pagination";
-import {Link, useParams} from "react-router-dom";
-export default function ViewShop(){
-    const dispatch = useDispatch();
-    const param = useParams()
-    const idStore = param.idStore
+import {productInShop, showProductByName} from "../../service/product/ProductService";
+import "./clientCss/viewShop.css"
 
+
+export default function ViewSearchMain() {
+    const dispatch = useDispatch();
     const[filters,setFilters] = useState({
         page: 1,
         page_size: 4
     })
-    const idUser = JSON.parse(localStorage.getItem('user'))? JSON.parse(localStorage.getItem('user')).idUser : undefined
+    const param = useParams()
+    const nameProduct = param.name
+
     const listProducts = useSelector(({product}) => {
         return product.listProduct
     })
     const total = useSelector(({product}) => {
         return product.total
     })
+
     const handlePageChange = (currentPage) => {
         setFilters({
             ...filters,
             page: currentPage
         })
     }
-
     const page_size = filters.page_size;
     const page = filters.page
     useEffect(() => {
-        dispatch(productInShop({filters,idStore}))
-    },[page_size,page])
+        dispatch(showProductByName({filters,nameProduct}))
+    },[page_size,page,nameProduct])
 
-    return(
+    return (
         <>
             <div className="container py-5">
                 <div className="row ">
@@ -78,20 +79,20 @@ export default function ViewShop(){
                             <div className="col-md-2 sort-by">
                                 Sorted by
                             </div>
-                                <div className="col-md-7 pb-4">
-                                    <button type="button" className="btn btn-success shop-btn">Latest</button>
-                                    <button type="button" className="btn btn-success shop-btn">Best seller</button>
-                                </div>
-                                <div className="col-md-3 pb-4">
-                                    <div className="d-flex">
-                                        <input type="text" className="form-control" id="inputMobileSearch"
-                                               placeholder="Search ..."/>
-                                        <button className="btn-icon" type="submit"><i
-                                            className="fa fa-fw fa-search text-dark mr-2"/></button>
-                                    </div>
-                                </div>
-                                <div/>
+                            <div className="col-md-7 pb-4">
+                                <button type="button" className="btn btn-success shop-btn">Latest</button>
+                                <button type="button" className="btn btn-success shop-btn">Best seller</button>
                             </div>
+                            <div className="col-md-3 pb-4">
+                                <div className="d-flex">
+                                    <input type="text" className="form-control" id="inputMobileSearch"
+                                           placeholder="Search ..."/>
+                                    <button className="btn-icon" type="submit"><i
+                                        className="fa fa-fw fa-search text-dark mr-2"/></button>
+                                </div>
+                            </div>
+                            <div/>
+                        </div>
 
                         <div className="row">
                             {/*product*/}
@@ -140,7 +141,6 @@ export default function ViewShop(){
             <div className={"pagination"}>
                 <Pagination page={page} page_size={page_size} total={total} onPageChange={handlePageChange} />
             </div>
-
         </>
     )
 }
