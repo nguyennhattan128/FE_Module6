@@ -11,7 +11,8 @@ export default function Header(){
                         user ? <>
                                 {user.role === "admin" ? <> <div className={'button-nav'}><Link to={"/admin"}>Main</Link></div></> : <></> }
                                 {user.role === "staff" ? <> <div className={'button-nav'}><Link to={"/staff"}>Main</Link></div></> : <></> }
-                                {user.role === "seller" || "client" ? <> <div className={'button-nav'}><Link to={"/shop-owner"}>Main</Link></div></> : <></> }
+                                {user.role === "seller" ? <> <div className={'button-nav'}><Link to={"/shop-owner"}>Main</Link></div></> : <></> }
+                                {user.role === "client" ? <> <div className={'button-nav'}><Link to={"/shop-owner"}>Main</Link></div></> : <></> }
                             </>
                             : <></>
                     }

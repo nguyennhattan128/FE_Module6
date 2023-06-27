@@ -15,8 +15,6 @@ export default function ProductDetail() {
     const navigate = useNavigate();
     const [currentProduct, setCurrentProduct] = useState();
 
-    console.log(currentProduct,11)
-
     useEffect(() => {
         customAPI().get(`/products/product-detail/${id}`)
             .then(res => {

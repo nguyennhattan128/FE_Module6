@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 
 
 export default function Sidebar(){
+    let user = JSON.parse(localStorage.getItem("user"))
 
     return(
         <>
@@ -10,8 +11,8 @@ export default function Sidebar(){
                     <li><a><i className="fa-solid fa-user"></i> Admin</a></li>
                     <li>
                         <div className={'d-flex'}>
-                            <img style={{borderRadius:"50%"}} src="https://th.bing.com/th/id/OIP.XTwQxTeTOffeUV2k9_hr5AHaEo?w=296&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" className={'img-admin'}/>
-                            <a>Nguyễn Văn Nam</a>
+                            <img style={{borderRadius:"50%"}} src={user.image} alt="" className={'img-admin'}/>
+                            <a>{user.username}</a>
                         </div>
                     </li>
                     <li><Link to={"/admin"}><i className="fa-solid fa-house"></i> Main</Link></li>
