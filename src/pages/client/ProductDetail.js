@@ -72,7 +72,6 @@ export default function ProductDetail() {
             quantity: quantity,
             price: currentProduct.price
         }
-
         console.log(productFound, 222)
         dispatch(addToOrder(productFound)).then(()=>{
             navigate('/')
