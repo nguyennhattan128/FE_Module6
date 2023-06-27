@@ -26,16 +26,54 @@ export const changeOrderDetailQuantityByInput = createAsyncThunk(
     }
 );
 
-
-
-
 export const deleteOrderDetail = createAsyncThunk(
-    'order/decreaseOrderDetailQuantity',
+    'order/deleteOrderDetail',
     async ( {orderDetailId, productId} ) => {
         const response = await customAPI().delete(`/order/orderDetail/${orderDetailId}`,  { data: { productId } });
         return response.data.data;
     }
 )
+
+
+export const increaseOrder = createAsyncThunk(
+    'order/increaseOrderDetailQuantity',
+    async ( {data} ) => {
+        const response = await customAPI().post(`order/orderDetail/increase`,  data);
+        return response.data;
+    }
+)
+
+
+export const decreaseOrder = createAsyncThunk(
+    'order/decreaseOrderDetailQuantity',
+    async ( {data} ) => {
+        const response = await customAPI().post(`order/orderDetail/decrease`,  data);
+        return response.data;
+    }
+)
+export const buyProduct = createAsyncThunk(
+    'order/buyProduct',
+    async ( {data} ) => {
+        const response = await customAPI().post(`order/buy-product`,  data);
+        return response.data;
+    }
+)
+
+export const addToOrder = createAsyncThunk(
+    'order/addToOrder',
+    async ( {data} ) => {
+        const response = await customAPI().post(`order/addToOrder`,  data);
+        return response.data;
+    }
+)
+
+
+
+
+
+
+
+
 
 
 
