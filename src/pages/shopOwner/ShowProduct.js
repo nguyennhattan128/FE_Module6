@@ -2,8 +2,10 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllProduct, searchProduct} from "../../service/product/ProductService";
 import {searchStaff} from "../../service/staff/staffService";
+import {useNavigate} from "react-router-dom";
 
 export default function ShowProduct() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const products = useSelector(({product}) => {
         return product.listProduct;
@@ -58,7 +60,7 @@ export default function ShowProduct() {
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
                                 <td>
-                                    <button className={'btn btn-success'}>Edit</button>
+                                    <button className={'btn btn-success'} onClick={() => {navigate(`/shop-owner/edit-product/${item.id}`)}}>Edit</button>
                                 </td>
                                 <td>
                                     <button  className={'btn btn-danger'}>Delete</button>
