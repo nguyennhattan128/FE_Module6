@@ -39,3 +39,14 @@ export const showProductByName = createAsyncThunk(
         return response.data.data
     }
 )
+
+
+export const getProductDetail = createAsyncThunk(
+    'product/getOne',
+    async (id) => {
+        console.log(id, 111)
+        const response = await customAPI().get(`/products/product-detail/${id}`);
+        console.log(response)
+        return response.data;
+    }
+)

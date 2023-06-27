@@ -41,9 +41,9 @@ function App() {
                 <Route path='/about' element={<About/>}/>
                 <Route path='/shop/:idStore' element={<ViewShop/>}/>
                 <Route path='/create-shop' element={<CreateShop/>}/>
-                <Route path='/cart' element={<Order/>}/>
+                <Route path='/order' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
-                <Route path='/detail' element={<ProductDetail/>}/>
+                <Route path='/detail/:id' element={<ProductDetail/>}/>
                 <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
