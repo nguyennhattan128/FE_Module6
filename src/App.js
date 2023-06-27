@@ -25,6 +25,7 @@ import OtpInput from "./pages/auth/OtpInput";
 import ListStaff from "./pages/staff/ListStaff";
 import ShowProduct from "./pages/shopOwner/ShowProduct";
 import Pagination from "./pagination/Pagination";
+import ViewSearchMain from "./pages/client/ViewSearchMain";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                 <Route path='/cart' element={<Order/>}/>
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/detail' element={<ProductDetail/>}/>
+                <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>

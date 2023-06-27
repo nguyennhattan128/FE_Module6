@@ -1,13 +1,25 @@
 import {Link} from "react-router-dom";
 import './clientComponentCss/navbar.css'
+import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import {productInShop} from "../../service/product/ProductService";
 
 
 export default function Navbar() {
     let user = JSON.parse(localStorage.getItem('user'));
+    const [value, setValue] = useState("");
+    const dispatch = useDispatch();
 
     const logOut = () => {
         localStorage.clear()
     }
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     dispatch(productInShop({filters,idStore}))
+    // },[value])
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light shadow">
@@ -38,9 +50,9 @@ export default function Navbar() {
                             <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                             </div>
                             <div className="d-flex">
-                                <input type="text" className="form-control" id="inputMobileSearch"
+                                <input type="text" className="form-control" id="inputMobileSearch" onChange={(e) => setValue(e.target.value)}
                                        placeholder="Search ..."/>
-                                <button className="btn-icon" type="submit"><i
+                                <button className="btn-icon" type="submit" onClick={() => navigate("search-main/"+value)}><i
                                     className="fa fa-fw fa-search text-dark mr-2"/></button>
                             </div>
                             <a className="nav-icon position-relative text-decoration-none ms-2" href="#">
