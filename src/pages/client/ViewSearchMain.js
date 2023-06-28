@@ -16,7 +16,7 @@ export default function ViewSearchMain() {
     const nameProduct = param.name
 
     const listProducts = useSelector(({product}) => {
-        return product.listProduct
+        return product.listProduct2
     })
     const total = useSelector(({product}) => {
         return product.total
@@ -68,7 +68,6 @@ export default function ViewSearchMain() {
                         </div>
 
                         <div className="row">
-                            {/*product*/}
                             {listProducts && listProducts.map((item) =>
                                 <div className="col-12 col-md-3 mb-4 card-hover" key={item.id}>
                                     <div className="card h-100">
