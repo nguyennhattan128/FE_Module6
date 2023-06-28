@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {buyProduct, getOrderDetails,} from "../../service/order/orderService";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './Order.css'
 
 export default function Order(){
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const orderDetails = useSelector(({order}) => {
         return order.orderDetails
@@ -128,7 +129,7 @@ export default function Order(){
                                                     <h5>€ {total}</h5>
                                                 </div>
                                                 <button type="button" className="btn btn-dark btn-block btn-lg"
-                                                        data-mdb-ripple-color="dark">Proceed Pay
+                                                        data-mdb-ripple-color="dark" onClick={() => {navigate('/invoice')}}>Proceed Pay
                                                 </button>
                                             </div>
                                         </div>

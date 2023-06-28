@@ -65,7 +65,13 @@ export const addToOrder = createAsyncThunk(
         return response.data;
     }
 )
-
+export const getOrderDetailStatusTrue = createAsyncThunk(
+    'orderDetail/getOrderDetail',
+    async () => {
+        const response = await customAPI().get('order-detail/invoice');
+        return response.data;
+    }
+)
 
 
 

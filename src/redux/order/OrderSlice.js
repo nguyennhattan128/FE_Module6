@@ -4,7 +4,7 @@ import {
     buyProduct,
     changeOrderDetailQuantity,
     changeOrderDetailQuantityByInput, decreaseOrder,
-    deleteOrderDetail, getOrderDetails,
+    deleteOrderDetail, getOrderDetails, getOrderDetailStatusTrue,
     increaseOrder
 } from "../../service/order/orderService";
 
@@ -12,7 +12,8 @@ import {
 
 const initialState = {
     currentOrder: {},
-    orderDetails:[]
+    orderDetails:[],
+    orderDetailStatusTrue: []
 }
 const orderSlice = createSlice({
     name: 'order',
@@ -41,6 +42,9 @@ const orderSlice = createSlice({
         })
         builder.addCase(getOrderDetails.fulfilled,(state, action) => {
             state.orderDetails = action.payload;
+        })
+        builder.addCase(getOrderDetailStatusTrue.fulfilled,(state, action) => {
+            state.orderDetailStatusTrue = action.payload;
         })
     }
 })
