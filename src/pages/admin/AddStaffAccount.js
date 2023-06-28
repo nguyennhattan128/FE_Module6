@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import {addStaff} from "../../service/staff/staffService";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const SchemaError = Yup.object().shape({
@@ -70,7 +71,18 @@ const AddStaffAccount = () => {
                    })
                    console.log(error)
                }else {
-                   navigate('/admin')
+                   Swal.fire({
+                       position: 'center',
+                       icon: 'success',
+                       title: 'New staff has been saved successfully',
+                       showConfirmButton: false,
+                       timer: 1500
+                   })
+
+                   setTimeout(()=>{
+                       navigate('/admin')
+                   }, 2000)
+
                }
                 })
         }

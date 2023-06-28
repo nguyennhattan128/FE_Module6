@@ -70,7 +70,7 @@ export default function Navbar() {
                                     <div className="dropdown-content" style={{width: "180px"}}>
                                         {
                                             user ? <>
-                                                <Link to={'/'}>My account</Link>
+                                                <Link to={'/my-account'}>My account</Link>
                                                 <br/>
                                                 <br/>
                                                 <Link to={'/login'} onClick={() => {
