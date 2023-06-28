@@ -58,7 +58,6 @@ export const buyProduct = createAsyncThunk(
         return response.data;
     }
 )
-
 export const addToOrder = createAsyncThunk(
     'order/addToOrder',
     async ( data ) => {

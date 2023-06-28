@@ -39,30 +39,18 @@ export default function ProductDetail() {
         }
     }
 
-    const buyProductInProductDetail = () => {
+    const buyProductInProductDetail = (status) => {
         let productFound = {
             id: currentProduct.id,
             quantity: quantity,
             price: currentProduct.price,
-            status: true
+            status: status
         }
         dispatch(buyProduct(productFound)).then(()=>{
             navigate('/order')
         })
     }
 
-
-    const addToOrderInProductDetail = (currenProduct) => {
-        let productFound = {
-            id: currentProduct.id,
-            quantity: quantity,
-            price: currentProduct.price,
-            status: false
-        }
-        dispatch(addToOrder(productFound)).then(()=>{
-            navigate('/order')
-        })
-    }
 
     return (
         <>
@@ -146,14 +134,14 @@ export default function ProductDetail() {
                                                 <div className="col d-grid">
                                                     <button type="button" className="btn btn-success btn-lg"
                                                             name="submit" onClick={() => {
-                                                        buyProductInProductDetail()
+                                                        buyProductInProductDetail(true)
                                                     }}>Buy
                                                     </button>
                                                 </div>
                                                 <div className="col d-grid">
                                                     <button type="button" className="btn btn-success btn-lg"
                                                             name="submit" onClick={() => {
-                                                        addToOrderInProductDetail()
+                                                        buyProductInProductDetail(false)
                                                     }}>Add To Cart
                                                     </button>
                                                 </div>
