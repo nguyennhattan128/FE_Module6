@@ -26,6 +26,7 @@ import ListStaff from "./pages/staff/ListStaff";
 import ShowProduct from "./pages/shopOwner/ShowProduct";
 import Pagination from "./pagination/Pagination";
 import ViewSearchMain from "./pages/client/ViewSearchMain";
+import EditAccount from "./pages/client/EditAccount";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
                 <Route path='/contact' element={<Contact/>}/>
                 <Route path='/detail/:id' element={<ProductDetail/>}/>
                 <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
+                <Route path='/my-account' element={<EditAccount/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>

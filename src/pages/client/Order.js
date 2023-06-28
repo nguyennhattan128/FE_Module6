@@ -49,8 +49,6 @@ export default function Order(){
                                                     </h6>
                                                 </div>
                                                 <hr className="my-4"/>
-
-
                                                 {orderDetails && orderDetails.map((item)=>(
                                                     <div key={item.id}>
                                                         <div className="row mb-4 d-flex justify-content-between align-items-center">
