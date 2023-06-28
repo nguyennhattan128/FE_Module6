@@ -106,7 +106,7 @@ export default function Invoice() {
                                             style={{
                                                 backgroundColor: '#59ab6e',
                                                 border: 'none'
-                                            }}>Pay Now
+                                            }} >Pay Now
                                     </button>
                                 </div>
                             </div>
