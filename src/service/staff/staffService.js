@@ -17,6 +17,14 @@ export const getStaffPagination = createAsyncThunk(
     }
 )
 
+export const deleteStaffById = createAsyncThunk(
+    'staff/deleteStaffById',
+    async (idStaff) => {
+        const response = await customAPI().delete(`admin/delete-staff/${idStaff}`)
+    }
+)
+
+
 export const searchStaff = createAsyncThunk(
     'staff/searchStaff',
     async (name) => {
