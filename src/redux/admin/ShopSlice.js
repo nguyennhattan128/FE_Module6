@@ -9,7 +9,8 @@ import {
 
 const initialState = {
     total: 0,
-    listShop: []
+    listShop: [],
+    reload: ''
 }
 const shopSlice = createSlice({
     name: 'shop',
@@ -34,6 +35,7 @@ const shopSlice = createSlice({
                 state.total = action.payload.total
             })
             .addCase(enablingShop.fulfilled,(state, action) => {
+                state.reload = action.payload
             })
     }
 })

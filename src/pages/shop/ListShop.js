@@ -12,6 +12,7 @@ const ListShop = () => {
         page:1,
         page_size: 6
     })
+    const [reload, setReload] = useState(0)
 
     const listShop = useSelector(({shop}) => {
         return shop.listShop
@@ -19,8 +20,11 @@ const ListShop = () => {
     const total = useSelector(({shop}) => {
         return shop.total
     })
+    // const reload = useSelector(({shop}) => {
+    //     return shop.reload
+    // })
 
-
+    console.log("reload", reload)
     console.log('listShop:', listShop)
 
     const [name, setName] = useState('');
@@ -30,10 +34,9 @@ const ListShop = () => {
     const handleSearch = () => {
         dispatch(searchShop(name))
     }
-
     const handleConfirm = (idUser) => {
+        setReload(idUser)
         dispatch(enablingShop(idUser))
-        dispatch(getShopPagination(filters))
     }
     const handlePageChange = (currentPage) => {
         setFilters({
@@ -46,7 +49,7 @@ const ListShop = () => {
     useEffect(() => {
             dispatch(getShopPagination(filters))
         }
-        , [page,page_size])
+        , [page,page_size, reload])
 
 
     return (

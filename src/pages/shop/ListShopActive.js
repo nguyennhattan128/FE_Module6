@@ -48,7 +48,7 @@ const ListShopActive = () => {
         <>
             <div className={"row text-center mt-3"}>
                 <div className={"col-8"}>
-                    <h2>Shop List Inactive</h2>
+                    <h2>Shop List Active</h2>
                 </div>
                 <div className="d-flex col-4" style={{float: "right"}}>
                     <input type="text" className="form-control" id="inputMobileSearch"
