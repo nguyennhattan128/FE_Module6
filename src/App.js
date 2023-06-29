@@ -28,6 +28,7 @@ import Pagination from "./pagination/Pagination";
 import ViewSearchMain from "./pages/client/ViewSearchMain";
 import EditAccount from "./pages/client/EditAccount";
 import Invoice from "./pages/client/Invoice";
+import AdminEditStaff from "./pages/staff/AdminEditStaff";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
                 <Route path='all-staff' element={<ListStaff/>}/>
                 <Route path='pagination-staff' element={<Pagination/>}/>
+                <Route path='edit-staff/:id' element={<AdminEditStaff/>}/>
             </Route>
             <Route path='shop-owner' element={<ShopOwner/>}>
                 <Route path='' element={<ListShopOwner/>}/>

@@ -6,6 +6,7 @@ import Pagination from "../../pagination/Pagination";
 import {Link, useNavigate} from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import {Button} from "react-bootstrap";
+import Swal from "sweetalert2";
 
 
 
@@ -31,8 +32,6 @@ const ListStaff = () => {
     })
 
 
-    console.log('listStaff:', listStaff)
-
     const [name, setName] = useState('');
     const handleInput = (e) => {
         setName(e.target.value)
@@ -51,7 +50,15 @@ const ListStaff = () => {
     }
     const deleteStaff = async (idStaff) => {
         dispatch(deleteStaffById(idStaff)).then(()=>{
-            dispatch((getStaffPagination(filters)))
+            dispatch((getStaffPagination(filters))).then(()=>{
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'You have successfully deleted employee account',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+            })
         })
         setShow(false)
     }
@@ -119,7 +126,7 @@ const ListStaff = () => {
                                             <button style={{border: "none", backgroundColor: "white"}}><i className="fa-solid fa-caret-down icon-staff"></i></button>
                                             <div className="dropdown-content link-staff" style={{width:"180px", height: "auto"}}>
                                                 <div style={{textAlign: "center", height: "50%"}}>
-                                                    <Link>Edit</Link>
+                                                    <Link to={`/admin/edit-staff/${item.id}`}>Edit</Link>
                                                 </div>
                                                 <div style={{textAlign:"center"}}>
                                                     <Link  onClick={()=>{setIdUser(item.id);setShow(true)}}>Delete</Link>

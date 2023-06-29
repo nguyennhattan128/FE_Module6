@@ -5,7 +5,7 @@ import storage from "../../firebase/storage";
 import * as Yup from "yup";
 import {addStaff} from "../../service/staff/staffService";
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -46,6 +46,7 @@ const AddStaffAccount = () => {
     const [file, setFile] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
 
     const formik = useFormik({
         initialValues: {
