@@ -4,7 +4,6 @@ import {
     getOrderDetailPendingReceipt,
     updateOrderDetailPendingReceipt
 } from "../../service/order/orderService";
-import {useNavigate} from "react-router-dom";
 
 export default function ListPendingReceipt() {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -77,7 +76,7 @@ export default function ListPendingReceipt() {
                         </div>
                     </div>
                 </div>
-            )): <p style={{textAlign:"center"}}>You don't have any pending orders</p>}
+            )): <p style={{textAlign:"center"}}>You don't have any pending receipt</p>}
         </>
     )
 }

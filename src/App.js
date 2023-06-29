@@ -31,11 +31,8 @@ import Invoice from "./pages/client/Invoice";
 import ReceivedOrderDetails from "./pages/shopOwner/ReceivedOrderDetails";
 import ListPendingProduct from "./pages/client/ListPendingProduct";
 import ListPendingReceipt from "./pages/shopOwner/ListPendingReceipt";
+import ListConfirmedReceipt from "./pages/shopOwner/ListConfirmedReceipt";
 
-
-function ListConfirmedReceipt() {
-    return null;
-}
 
 function App() {
     return (

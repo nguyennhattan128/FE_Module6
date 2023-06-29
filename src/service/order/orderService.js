@@ -105,9 +105,9 @@ export const updateOrderDetailPendingReceipt = createAsyncThunk(
         } catch (e) {
             console.log(e)
         }
-
     }
 )
+
 
 
 
