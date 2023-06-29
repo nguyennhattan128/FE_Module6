@@ -16,10 +16,16 @@ export default function Sidebar(){
                         </div>
                     </li>
                     <li><Link to={"/admin"}><i className="fa-solid fa-house"></i> Main</Link></li>
-                    <li><a href="src/components/adminComponent#"><i className="fa-solid fa-users"></i> Staff Management</a>
+                    <li><a href="#"><i className="fa-solid fa-users"></i> Staff Management</a>
                         <ul className="sub-menu">
                             <li><Link to={"/admin/all-staff"}><i className="fa-solid fa-check"></i> Staff List</Link></li>
                             <li><Link to={"/admin/add-staff"}><i className="fa-solid fa-check"></i> Add Staff</Link></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i className="fa-solid fa-users"></i> Shop Management</a>
+                        <ul className="sub-menu">
+                            <li><Link to={"/admin/all-shop-inactive"}><i className="fa-solid fa-check"></i> Shop List Inactive</Link></li>
+                            <li><Link to={"/admin/all-shop-active"}><i className="fa-solid fa-check"></i> Shop List Active</Link></li>
                         </ul>
                     </li>
                 </ul>

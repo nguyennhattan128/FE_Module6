@@ -6,10 +6,12 @@ import categoryReducer from "./store/categorySlice";
 import productReducer from "./product/ProductSlice";
 import userReducer from "./user/userSlice";
 import orderReducer from "./order/OrderSlice"
+import shopReducer from "./admin/ShopSlice"
 
 
 const store = configureStore({
     reducer: {
+        shop: shopReducer,
         store: storeReducer,
         staff : staffReducer,
         storeType: storeTypeReducer,

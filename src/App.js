@@ -27,6 +27,8 @@ import ShowProduct from "./pages/shopOwner/ShowProduct";
 import Pagination from "./pagination/Pagination";
 import ViewSearchMain from "./pages/client/ViewSearchMain";
 import EditAccount from "./pages/client/EditAccount";
+import ListShop from "./pages/shop/ListShop";
+import ListShopActive from "./pages/shop/ListShopActive";
 
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
                 <Route path='add-staff' element={<AddStaffAccount/>}/>
+                <Route path='all-shop-inactive' element={<ListShop/>}/>
+                <Route path='all-shop-active' element={<ListShopActive/>}/>
                 <Route path='all-staff' element={<ListStaff/>}/>
                 <Route path='pagination-staff' element={<Pagination/>}/>
             </Route>
