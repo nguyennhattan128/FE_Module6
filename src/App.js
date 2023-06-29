@@ -28,6 +28,7 @@ import Pagination from "./pagination/Pagination";
 import ViewSearchMain from "./pages/client/ViewSearchMain";
 import EditAccount from "./pages/client/EditAccount";
 import Invoice from "./pages/client/Invoice";
+import ReceivedOrderDetails from "./pages/shopOwner/ReceivedOrderDetails";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
                 <Route path='edit-shop' element={<EditShop/>}/>
                 <Route path='add-product' element={<AddProduct/>}/>
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
+                <Route path='received-detail-order' element={<ReceivedOrderDetails/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='edit-staff' element={<EditStaff/>}/>

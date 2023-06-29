@@ -1,7 +1,6 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {checkout, getOrderDetailStatusTrue} from "../../service/order/orderService";
-import Swal from "sweetalert2";
+import {getOrderDetailStatusTrue} from "../../service/order/orderService";
 
 
 export default function Invoice() {
@@ -15,42 +14,6 @@ export default function Invoice() {
     useEffect(() => {
         dispatch(getOrderDetailStatusTrue())
     }, [])
-
-    const handleCheckout = () =>{
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success',
-                cancelButton: 'btn btn-danger'
-            },
-            buttonsStyling: false
-        })
-        swalWithBootstrapButtons.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            showCancelButton: true,
-            confirmButtonText: 'Yes, pay!',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                dispatch(checkout()).then(()=>{
-                    swalWithBootstrapButtons.fire(
-                        'Pay !',
-                        'Your invoice has been paid.',
-                        'success'
-                    )
-                })
-            } else if (
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'Your invoice has not been paid. :)',
-                    'error'
-                )
-            }
-        })
-    }
 
     return (
         <>
@@ -143,9 +106,7 @@ export default function Invoice() {
                                             style={{
                                                 backgroundColor: '#59ab6e',
                                                 border: 'none'
-                                            }}   onClick={()=>{
-                                            handleCheckout()}
-                                    }>Pay Now
+                                            }} >Pay Now
                                     </button>
                                 </div>
                             </div>
