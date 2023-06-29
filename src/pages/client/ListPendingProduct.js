@@ -10,7 +10,6 @@ export default function ListPendingProduct() {
     const orderDetails = useSelector(({order}) => {
         return order.orderDetailPending
     });
-
     useEffect(() => {
         dispatch(getOrderDetailPending())
     }, [])

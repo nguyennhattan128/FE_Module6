@@ -54,9 +54,6 @@ const orderSlice = createSlice({
         builder.addCase(getOrderDetailPendingReceipt.fulfilled,(state, action) => {
             state.orderDetailPendingReceipt = action.payload;
         })
-        builder.addCase(updateOrderDetailPendingReceipt.fulfilled,(state, action) => {
-            state.orderDetailPendingReceipt = action.payload;
-        })
     }
 })
 
