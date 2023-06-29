@@ -25,3 +25,10 @@
     display: flex;
     justify-content: center;
 }
+.card-size{
+    height: 16rem;
+}
+.list-group-item:active {
+    background-color: #59ab6e;
+}
+

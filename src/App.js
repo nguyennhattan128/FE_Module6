@@ -29,6 +29,7 @@ import ViewSearchMain from "./pages/client/ViewSearchMain";
 import EditAccount from "./pages/client/EditAccount";
 import ListShop from "./pages/shop/ListShop";
 import ListShopActive from "./pages/shop/ListShopActive";
+import Invoice from "./pages/client/Invoice";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
                 <Route path='/detail/:id' element={<ProductDetail/>}/>
                 <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
                 <Route path='/my-account' element={<EditAccount/>}/>
+                <Route path='/invoice' element={<Invoice/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>

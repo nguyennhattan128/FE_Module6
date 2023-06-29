@@ -58,7 +58,6 @@ export const buyProduct = createAsyncThunk(
         return response.data;
     }
 )
-
 export const addToOrder = createAsyncThunk(
     'order/addToOrder',
     async ( data ) => {
@@ -66,6 +65,24 @@ export const addToOrder = createAsyncThunk(
         return response.data;
     }
 )
+export const getOrderDetailStatusTrue = createAsyncThunk(
+    'orderDetail/getOrderDetailStatusTrue',
+    async () => {
+        const response = await customAPI().get('order-detail/invoice');
+        return response.data;
+    }
+)
+
+
+export const checkout = createAsyncThunk(
+    'order/payOrder',
+    async () => {
+        const response = await customAPI().get('order/checkout');
+        return response.data;
+    }
+)
+
+
 
 
 

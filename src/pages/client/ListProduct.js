@@ -1,7 +1,34 @@
 import './clientCss/ListProduct.css';
+import "./clientCss/viewShop.css"
 import {Link} from "react-router-dom";
+import Pagination from "../../pagination/Pagination";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {MainProduct, productInShop} from "../../service/product/ProductService";
 
 export default function ListProduct(){
+    const dispatch = useDispatch();
+    const[filters,setFilters] = useState({
+        page: 1,
+        page_size: 8
+    })
+    const listProducts = useSelector(({product}) => {
+        return product.listProduct
+    })
+    const total = useSelector(({product}) => {
+        return product.total
+    })
+    const handlePageChange = (currentPage) => {
+        setFilters({
+            ...filters,
+            page: currentPage
+        })
+    }
+    const page_size = filters.page_size;
+    const page = filters.page
+    useEffect(() => {
+        dispatch(MainProduct({filters}))
+    },[page_size,page])
 
     return(
         <>
@@ -16,11 +43,12 @@ export default function ListProduct(){
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-12 col-md-3 mb-4">
-                            <div className="card h-100">
-                                <Link className="nav-link" to={'/detail/'+1}>
-                                    <a href="shop-single.html">
-                                        <img src="./assets/img/feature_prod_03.jpg" className="card-img-top" alt="..." />
+                        {/*product*/}
+                        {listProducts.map((item) =>
+                            <div className="col-12 col-md-3 mb-4 card-hover" key={item.id}>
+                                <div className="card h-100">
+                                    <Link className="nav-link" to={'/detail/'+item.id}>
+                                        <img src={item.image} className="card-img-top" alt="..." />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled div-content">
                                                 <span>
@@ -32,29 +60,33 @@ export default function ListProduct(){
                                                        href="shop-single.html"><i className="fas fa-cart-plus"></i></a>
                                                 </li>
                                                 </span>
-
                                             </ul>
                                         </div>
-                                    </a>
-                                </Link>
-                                <div className="card-body">
-                                    <ul className="list-unstyled d-flex justify-content-between">
-                                        <li>
+                                    </Link>
+
+                                    <div className="card-body">
+                                        <ul className="list-unstyled d-flex justify-content-between">
+                                            <li>
+
+                                                Quantities : {item.quantity}
+                                            </li>
+                                            <li className="text-muted text-right">Price: {item.price}</li>
+                                        </ul>
+                                        <p className="card-text shop-text">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                        </p>
+                                        <p className="text-muted">
                                             <i className="text-warning fa fa-star" />
                                             <i className="text-warning fa fa-star" />
-                                            <i className="text-warning fa fa-star" />
-                                            <i className="text-warning fa fa-star" />
-                                            <i className="text-warning fa fa-star" />
-                                        </li>
-                                        <li className="text-muted text-right">$360.00</li>
-                                    </ul>
-                                    <p className="card-text">
-                                        Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
-                                    </p>
-                                    <p className="text-muted">bought (74)</p>
+                                            bought (24)</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
+
+                    </div>
+                    <div className={"pagination"}>
+                        <Pagination page={page} page_size={page_size} total={total} onPageChange={handlePageChange} />
                     </div>
                 </div>
             </section>

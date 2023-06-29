@@ -1,30 +1,37 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getOrderDetails,} from "../../service/order/orderService";
-import {Link} from "react-router-dom";
+import {buyProduct, getOrderDetails,} from "../../service/order/orderService";
+import {Link, useNavigate} from "react-router-dom";
 import './Order.css'
-import {boolean} from "yup";
 
 export default function Order(){
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const orderDetails = useSelector(({order}) => {
         return order.orderDetails
     })
-    const changeQuantity = (id,price,status,quantity) => {
+    const handleChangeQuantity = (id,price,status,quantity) => {
         let product = {
             id: id,
             price:price,
             status:status,
             quantity: quantity
         }
-        dispatch()
+        dispatch(buyProduct(product))
     };
-    const handleChange = (id) => {
-        dispatch()
-    }
+    const handleChangeStatus = (id,price,status,quantity) => {
+        let product = {
+            id: id,
+            price:price,
+            status: !status,
+            quantity: quantity
+        }
+        dispatch(buyProduct(product))
+    };
 
+    let total = 0;
 
    useEffect(() => {
        dispatch(getOrderDetails())
@@ -53,7 +60,7 @@ export default function Order(){
                                                     <div key={item.id}>
                                                         <div className="row mb-4 d-flex justify-content-between align-items-center">
                                                             <div className="col-md-1 col-lg-1 col-xl-1">
-                                                                <input type="checkbox" checked={true} onChange={(e)=>{handleChange(item.id)}}/>
+                                                                <input type="checkbox" checked={item.status} onChange={(e)=>{handleChangeStatus(item.product.id,item.price,item.status,0)}}/>
                                                             </div>
                                                             <div className="col-md-2 col-lg-2 col-xl-2">
                                                                 <img
@@ -68,7 +75,7 @@ export default function Order(){
                                                             </div>
 
                                                             <div className="col-md-3 col-lg-3 col-xl-2 d-flex" >
-                                                                <button className="btn btn-link px-2" onClick={() => {changeQuantity(item.product.id,item.price,item.status,-1)}}>
+                                                                <button className="btn btn-link px-2" onClick={() => {handleChangeQuantity(item.product.id,item.price,item.status,-1)}}>
                                                                     <i className="fas fa-minus"/>
                                                                 </button>
                                                                 <input name="quantity"
@@ -81,7 +88,7 @@ export default function Order(){
                                                                     marginRight: 5,
                                                                     marginBottom: 0
                                                                 }}></input>
-                                                                <button className="btn btn-link px-2"  onClick={() => {changeQuantity(item.product.id,item.price,item.status,1)}}>
+                                                                <button className="btn btn-link px-2"  onClick={() => {handleChangeQuantity(item.product.id,item.price,item.status,1)}}>
                                                                     <i className="fas fa-plus"/>
                                                                 </button>
                                                             </div>
@@ -99,6 +106,7 @@ export default function Order(){
                                                                  }}>
                                                                 <h6 className="mb-0">€ {item.product.price * item.quantity}</h6>
                                                             </div>
+                                                            <div style={{display:"none"}}>{item.status === true ? total += item.product.price * item.quantity : total }</div>
                                                             <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                                                 <a  className="text-muted"><i
                                                                     className="fas fa-times"/></a>
@@ -118,10 +126,10 @@ export default function Order(){
                                             <div className="p-5">
                                                 <div className="d-flex justify-content-between mb-5">
                                                     <h5 className="text-uppercase">Total price</h5>
-                                                    <h5>€</h5>
+                                                    <h5>€ {total}</h5>
                                                 </div>
                                                 <button type="button" className="btn btn-dark btn-block btn-lg"
-                                                        data-mdb-ripple-color="dark">Proceed Pay
+                                                        data-mdb-ripple-color="dark" onClick={() => {navigate('/invoice')}}>Proceed Pay
                                                 </button>
                                             </div>
                                         </div>

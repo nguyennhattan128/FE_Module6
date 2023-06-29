@@ -29,6 +29,16 @@ export const productInShop = createAsyncThunk(
             }
 )
 
+export const MainProduct = createAsyncThunk(
+    'product/MainProduct',
+    async (arg) => {
+        let filter = arg.filters
+        let {page,page_size} = filter
+        const response = await customAPI().get(`products/main-product?page=${page}&page_size=${page_size}`)
+        return response.data.data;
+    }
+)
+
 export const showProductByName = createAsyncThunk(
     'product/showProductByName',
     async (arg) => {
