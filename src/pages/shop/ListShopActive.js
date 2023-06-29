@@ -48,7 +48,7 @@ const ListShopActive = () => {
         <>
             <div className={"row text-center mt-3"}>
                 <div className={"col-8"}>
-                    <h2>Shop List Active</h2>
+                    <h2 className="txtdeepshadow">Shop List Active</h2>
                 </div>
                 <div className="d-flex col-4" style={{float: "right"}}>
                     <input type="text" className="form-control" id="inputMobileSearch"
@@ -98,25 +98,25 @@ const ListShopActive = () => {
                             </div>
                             <div className="card-body">
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0 wrapper">
                                         <strong>Email</strong>
-                                        <span>{item.email}</span>
+                                        <div className="box-ndc"><span className="marquee">{item.email}</span></div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0 wrapper">
                                         <strong>Phone Number</strong>
-                                        <span>{item.telephone}</span>
+                                        <div className="box-ndc"><span className="marquee">{item.telephone}</span></div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0 wrapper">
                                         <strong>Address</strong>
-                                        <span>{item.address}</span>
+                                        <div className="box-ndc"><span className="marquee">{item.address}</span></div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0 wrapper">
                                         <strong>Origin</strong>
-                                        <span>{item.origin}</span>
+                                        <div className="box-ndc"><span className="marquee">{item.origin}</span></div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0 wrapper">
                                         <strong>Status</strong>
-                                        <span style={{color: "red"}}><strong>{item.status}</strong></span>
+                                        <span  style={{color: "red"}}><strong>{item.status}</strong></span>
                                     </li>
                                 </ul>
                             </div>
