@@ -81,6 +81,13 @@ export const checkout = createAsyncThunk(
         return response.data;
     }
 )
+export const getOrderDetailPending = createAsyncThunk(
+    'orderDetail/getOrderDetailPending',
+    async () => {
+        const response = await customAPI().get('order-detail/pending');
+        return response.data;
+    }
+)
 
 
 

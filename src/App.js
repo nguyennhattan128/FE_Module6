@@ -29,7 +29,13 @@ import ViewSearchMain from "./pages/client/ViewSearchMain";
 import EditAccount from "./pages/client/EditAccount";
 import Invoice from "./pages/client/Invoice";
 import ReceivedOrderDetails from "./pages/shopOwner/ReceivedOrderDetails";
+import ListPendingProduct from "./pages/client/ListPendingProduct";
+import ListPendingReceipt from "./pages/shopOwner/ListPendingReceipt";
 
+
+function ListConfirmedReceipt() {
+    return null;
+}
 
 function App() {
     return (
@@ -50,6 +56,7 @@ function App() {
                 <Route path='/search-main/:name' element={<ViewSearchMain/>}/>
                 <Route path='/my-account' element={<EditAccount/>}/>
                 <Route path='/invoice' element={<Invoice/>}/>
+                <Route path='/pending' element={<ListPendingProduct/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
@@ -64,6 +71,8 @@ function App() {
                 <Route path='add-product' element={<AddProduct/>}/>
                 <Route path='edit-product/:id' element={<EditProduct/>}/>
                 <Route path='received-detail-order' element={<ReceivedOrderDetails/>}/>
+                <Route path='pending' element={<ListPendingReceipt/>}/>
+                <Route path='confirmed' element={<ListConfirmedReceipt/>}/>
             </Route>
             <Route path='staff' element={<Staff/>}>
                 <Route path='edit-staff' element={<EditStaff/>}/>
