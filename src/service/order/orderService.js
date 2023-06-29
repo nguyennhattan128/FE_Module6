@@ -84,7 +84,21 @@ export const checkout = createAsyncThunk(
 export const getOrderDetailPending = createAsyncThunk(
     'orderDetail/getOrderDetailPending',
     async () => {
-        const response = await customAPI().get('order-detail/pending');
+        const response = await customAPI().get('order-detail/pending-receipt');
+        return response.data;
+    }
+)
+export const getOrderDetailPendingReceipt = createAsyncThunk(
+    'orderDetail/getOrderDetailPendingReceipt',
+    async (storeId) => {
+        const response = await customAPI().post('order-detail/pending-receipt',{data:storeId});
+        return response.data;
+    }
+)
+export const updateOrderDetailPendingReceipt = createAsyncThunk(
+    'orderDetail/updateOrderDetailPendingReceipt',
+    async (arg) => {
+        const response = await customAPI().post('order-detail/pending-receipt/update',arg);
         return response.data;
     }
 )
