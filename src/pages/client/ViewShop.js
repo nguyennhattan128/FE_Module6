@@ -16,7 +16,7 @@ export default function ViewShop(){
     })
     const idUser = JSON.parse(localStorage.getItem('user'))? JSON.parse(localStorage.getItem('user')).idUser : undefined
     const listProducts = useSelector(({product}) => {
-        return product.listProduct
+        return product.listProduct1
     })
 
     const product = listProducts[0];

@@ -11,6 +11,7 @@ import {
 
 const initialState = {
     listProduct: [],
+    listProduct1 : [],
     listProduct2 : [],
     currentProduct: {},
     total:0
@@ -27,7 +28,7 @@ const productSlice = createSlice({
         })
         builder.addCase(productInShop.fulfilled,(state, action) => {
             state.total = action.payload.total;
-            state.listProduct = action.payload.newProducts;
+            state.listProduct1 = action.payload.newProducts;
         })
         builder.addCase(showProductByName.fulfilled,(state, action) => {
             state.total = action.payload.total;
