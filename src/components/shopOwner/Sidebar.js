@@ -6,16 +6,16 @@ let user = JSON.parse(localStorage.getItem("user"));
 
     return(
         <>
-            <div id="menu">
+            <div id="menu" style={{backgroundColor:"orange", color:"black"}}>
                 <ul>
                     <li>
-                        <div className={'d-flex'}>
-                            <img style={{borderRadius:"50%"}} src={user.image} alt="" className={'img-admin'}/>
-                            <a>{user.username}</a>
+                        <div className={'d-flex align-items-center'}>
+                            <img className={"ms-2"} style={{height:"30px",width: "30px",borderRadius:"50%"}} src={user.image}/>
+                            <a>{ user.name}</a>
                         </div>
                     </li>
-                    <li><a><i className="fa-solid fa-user"></i> Shop Owner</a></li>
-                    <li><Link to="/shop-owner"><i className="fa-solid fa-house"></i> Main</Link></li>
+                    <li><a ><i className="fa-solid fa-user"></i> Shop Owner</a></li>
+                    <li><Link to={"/"}><i className="fa-solid fa-house"></i> Back Home</Link></li>
                     <li><Link to={"/shop-owner/edit-shop"}><i className="fa-solid fa-pen"></i>  Shop Information</Link></li>
                     <li><a><i className="fa-solid fa-list-check"></i> Product Management</a>
                         <ul className="sub-menu">
