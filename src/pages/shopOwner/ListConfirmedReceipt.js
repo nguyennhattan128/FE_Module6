@@ -22,7 +22,7 @@ export default function ListConfirmedReceipt() {
                     <div className={"row"}>
                         <div className={"col-4"}>
                             <div style={{display: "flex"}}>
-                                <h5>{user.username}</h5>
+                                <h5>{item.order.user.username}</h5>
                                 <i style={{margin: "3px 0 0 10px"}} className="fa-regular fa-comment"></i>
                             </div>
                         </div>

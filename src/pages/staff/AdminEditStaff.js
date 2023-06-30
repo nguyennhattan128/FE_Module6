@@ -30,7 +30,6 @@ const SchemaError = Yup.object().shape({
 });
 
 function AdminEditStaff() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const idStaff = useParams().id
 

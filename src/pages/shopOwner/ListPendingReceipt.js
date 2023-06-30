@@ -66,16 +66,17 @@ export default function ListPendingReceipt() {
                             <button style={{marginLeft: 10}} className="btn btn-secondary"
                                     onClick={() => {
                                         dispatch(updateOrderDetailPendingReceipt({
-                                            userId: item.order.user.id,
-                                            storeId: user.idStore,
-                                            productId: item.product.id
-                                        })).then(() => {dispatch(getOrderDetailPendingReceipt(user.idStore))})
+                                            orderDetail: item.id
+                                        }))
+                                            .then(() => {
+                                                dispatch(getOrderDetailPendingReceipt(user.idStore))
+                                            })
                                     }}> Confirm
                             </button>
                         </div>
                     </div>
                 </div>
-            )): <p style={{textAlign:"center"}}>You don't have any pending receipt</p>}
+            )) : <p style={{textAlign: "center"}}>You don't have any pending receipt</p>}
         </>
     )
 }

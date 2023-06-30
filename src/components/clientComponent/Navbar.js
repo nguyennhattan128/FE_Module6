@@ -29,6 +29,7 @@ export default function Navbar() {
                                    placeholder="Search ..."/>
                             <button className="btn-icon" type="submit" onClick={() => navigate("search-main/"+value)}><i
                                 className="fa fa-fw fa-search text-dark mr-2"/></button>
+                            <button><Link to={"/success"}>Success</Link></button>
                         </div>
                         <div className="col-2 d-flex justify-content-center align-items-center ">
                             <a className="nav-icon position-relative text-decoration-none mx-3" href="#">

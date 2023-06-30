@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getOrderDetailStatusTrue} from "../../service/order/orderService";
 import {useNavigate} from "react-router-dom";
+import customAPI from "../../service/customAPI";
 
 
 export default function Invoice() {
@@ -105,11 +106,17 @@ export default function Invoice() {
                                 </div>
                                 <div className="col-xl-2">
                                     <button type="button" className="btn btn-primary text-capitalize"
-                                            onClick={() => {navigate('/pending')}}
+                                            onClick={() => {
+                                                customAPI().post('order-detail/pending')
+                                                    .then(res => {
+                                                        console.log("POST order-detail/pending:", res)
+                                                        navigate('/pending')
+                                                    })
+                                            }}
                                             style={{
                                                 backgroundColor: '#59ab6e',
                                                 border: 'none'
-                                            }} >Pay Now
+                                            }}>Pay Now
                                     </button>
                                 </div>
                             </div>

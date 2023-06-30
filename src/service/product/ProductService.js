@@ -19,8 +19,8 @@ export const getAllProductByStoreId = createAsyncThunk(
 )
 export const searchProduct = createAsyncThunk(
     'product/searchProduct',
-    async (keyword) => {
-        const response = await customAPI().get(`http://localhost:3001/products/search/productName/?name=${keyword}`);
+    async (arg) => {
+        const response = await customAPI().get(`/seller/search/productName?name=${arg.keyword}&storeId=${arg.storeId}`);
         return response.data;
     }
 )
