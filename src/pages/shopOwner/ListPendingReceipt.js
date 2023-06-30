@@ -25,7 +25,7 @@ export default function ListPendingReceipt() {
                     <div className={"row"}>
                         <div className={"col-4"}>
                             <div style={{display: "flex"}}>
-                                <h5>{user.username}</h5>
+                                <h5>{item.order.user.username}</h5>
                                 <i style={{margin: "3px 0 0 10px"}} className="fa-regular fa-comment"></i>
                             </div>
                         </div>
@@ -65,9 +65,8 @@ export default function ListPendingReceipt() {
                             <i className="fa-solid fa-hand-point-right"></i>
                             <button style={{marginLeft: 10}} className="btn btn-secondary"
                                     onClick={() => {
-                                        console.log("121212")
                                         dispatch(updateOrderDetailPendingReceipt({
-                                            userId: user.id,
+                                            userId: item.order.user.id,
                                             storeId: user.idStore,
                                             productId: item.product.id
                                         })).then(() => {dispatch(getOrderDetailPendingReceipt(user.idStore))})

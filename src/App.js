@@ -32,6 +32,7 @@ import ReceivedOrderDetails from "./pages/shopOwner/ReceivedOrderDetails";
 import ListPendingProduct from "./pages/client/ListPendingProduct";
 import ListPendingReceipt from "./pages/shopOwner/ListPendingReceipt";
 import ListConfirmedReceipt from "./pages/shopOwner/ListConfirmedReceipt";
+import ListSuccessProduct from "./pages/client/ListSuccessProduct";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
                 <Route path='/my-account' element={<EditAccount/>}/>
                 <Route path='/invoice' element={<Invoice/>}/>
                 <Route path='/pending' element={<ListPendingProduct/>}/>
+                <Route path='/success' element={<ListSuccessProduct/>}/>
             </Route>
             <Route path='admin' element={<Admin/>}>
                 <Route path='' element={<ListAdmin/>}/>
