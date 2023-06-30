@@ -6,6 +6,11 @@ import Pagination from "../../pagination/Pagination";
 import {Link, useParams} from "react-router-dom";
 
 export default function ViewShop(){
+    window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+    })
     const dispatch = useDispatch();
     const param = useParams()
     const idStore = param.idStore
