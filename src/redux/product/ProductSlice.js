@@ -5,7 +5,8 @@ import {
     searchProduct,
     showProductByName,
     getProductDetail,
-    MainProduct
+    MainProduct,
+    getAllProductByStoreId
 } from "../../service/product/ProductService";
 
 
@@ -14,7 +15,8 @@ const initialState = {
     listProduct1 : [],
     listProduct2 : [],
     currentProduct: {},
-    total:0
+    total:0,
+    listProductByStore: []
 }
 const productSlice = createSlice({
     name: 'product',
@@ -40,6 +42,9 @@ const productSlice = createSlice({
         builder.addCase(MainProduct.fulfilled,(state, action) =>{
             state.total = action.payload.total;
             state.listProduct = action.payload.listProducts;
+        })
+        builder.addCase(getAllProductByStoreId.fulfilled,(state, action) =>{
+            state.listProductByStore = action.payload;
         })
 
     }
