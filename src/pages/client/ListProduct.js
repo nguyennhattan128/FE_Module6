@@ -18,7 +18,6 @@ export default function ListProduct(){
     const total = useSelector(({product}) => {
         return product.total
     })
-    console.log("total:",total)
     const handlePageChange = (currentPage) => {
         window.scroll({
             top: 1550,

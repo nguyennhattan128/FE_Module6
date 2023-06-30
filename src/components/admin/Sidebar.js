@@ -10,8 +10,8 @@ export default function Sidebar(){
                 <ul>
                     <li><a><i className="fa-solid fa-user"></i> Admin</a></li>
                     <li>
-                        <div className={'d-flex'}>
-                            <img style={{borderRadius:"50%"}} src={user.image} alt="" className={'img-admin'}/>
+                        <div className={'d-flex align-items-center'}>
+                            <img className={"ms-2"} style={{height:"30px",width: "30px",borderRadius:"50%"}} src={user.image}/>
                             <a>{user.username}</a>
                         </div>
                     </li>
