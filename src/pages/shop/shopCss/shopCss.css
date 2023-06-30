@@ -124,6 +124,8 @@
 .box-ndc:hover .marquee {
     white-space: unset;
     position: absolute;
+    right: 0%;
+    left: 0%;
     background-color: #067086;
     border-style: dashed;
     border-color: #b1dc21;
