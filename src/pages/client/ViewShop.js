@@ -26,6 +26,11 @@ export default function ViewShop(){
         return product.total
     })
     const handlePageChange = (currentPage) => {
+        window.scroll({
+            top: 350,
+            left: 100,
+            behavior: "smooth",
+        });
         setFilters({
             ...filters,
             page: currentPage
