@@ -6,6 +6,11 @@ import Pagination from "../../pagination/Pagination";
 import {Link, useParams} from "react-router-dom";
 
 export default function ViewShop(){
+    window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+    })
     const dispatch = useDispatch();
     const param = useParams()
     const idStore = param.idStore
@@ -16,7 +21,7 @@ export default function ViewShop(){
     })
     const idUser = JSON.parse(localStorage.getItem('user'))? JSON.parse(localStorage.getItem('user')).idUser : undefined
     const listProducts = useSelector(({product}) => {
-        return product.listProduct
+        return product.listProduct1
     })
 
     const product = listProducts[0];
@@ -26,6 +31,11 @@ export default function ViewShop(){
         return product.total
     })
     const handlePageChange = (currentPage) => {
+        window.scroll({
+            top: 350,
+            left: 100,
+            behavior: "smooth",
+        });
         setFilters({
             ...filters,
             page: currentPage

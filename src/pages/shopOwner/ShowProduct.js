@@ -1,15 +1,15 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllProduct, searchProduct} from "../../service/product/ProductService";
-import {searchStaff} from "../../service/staff/staffService";
+import { getAllProductByStoreId, searchProduct} from "../../service/product/ProductService";
 import {useNavigate} from "react-router-dom";
 
 export default function ShowProduct() {
+    const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const products = useSelector(({product}) => {
-        return product.listProduct;
-    })
+        return product.listProductByStore;
+    });
     const [keyword, setKeyword] = useState('');
     const handleInput = (e) => {
         setKeyword(e.target.value)
@@ -18,7 +18,7 @@ export default function ShowProduct() {
         dispatch(searchProduct(keyword))
     }
     useEffect(() => {
-        dispatch(getAllProduct())
+        dispatch(getAllProductByStoreId(user.idStore))
     }, [])
 
 

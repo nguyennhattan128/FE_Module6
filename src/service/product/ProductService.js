@@ -6,7 +6,14 @@ import {useParams} from "react-router-dom";
 export const getAllProduct = createAsyncThunk(
     'product/getAllProduct',
     async () => {
-        const response = await customAPI().get(`http://localhost:3001/products`);
+        const response = await customAPI().get(`products`,);
+        return response.data;
+    }
+)
+export const getAllProductByStoreId = createAsyncThunk(
+    'product/getAllProductByStoreId',
+    async (storeId) => {
+        const response = await customAPI().post(`products/store`,{data:storeId});
         return response.data;
     }
 )
@@ -54,9 +61,7 @@ export const showProductByName = createAsyncThunk(
 export const getProductDetail = createAsyncThunk(
     'product/getOne',
     async (id) => {
-        console.log(id, 111)
         const response = await customAPI().get(`/products/product-detail/${id}`);
-        console.log(response)
         return response.data;
     }
 )

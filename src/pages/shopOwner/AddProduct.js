@@ -34,7 +34,6 @@ const AddProduct = () => {
 
     const listCategory = useSelector(({category}) => {
         if (fetched) {
-            console.log(category.listCategory)
             return category.listCategory
         }
         return []
@@ -60,7 +59,6 @@ const AddProduct = () => {
         onSubmit: async (values) => {
             values.image = values.images[0]
             values.images = values.images.slice(1)
-            console.log(values);
             await dispatch(addProduct(values)).then(() => {
                 Swal.fire({
                     position: 'center',

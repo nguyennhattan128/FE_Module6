@@ -19,6 +19,11 @@ export default function ListProduct(){
         return product.total
     })
     const handlePageChange = (currentPage) => {
+        window.scroll({
+            top: 1550,
+            left: 100,
+            behavior: "smooth",
+        });
         setFilters({
             ...filters,
             page: currentPage
@@ -44,7 +49,7 @@ export default function ListProduct(){
                     </div>
                     <div className="row">
                         {/*product*/}
-                        {listProducts.map((item) =>
+                        {listProducts && listProducts.map((item) =>
                             <div className="col-12 col-md-3 mb-4 card-hover" key={item.id}>
                                 <div className="card h-100">
                                     <Link className="nav-link" to={'/detail/'+item.id}>
@@ -52,12 +57,13 @@ export default function ListProduct(){
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled div-content">
                                                 <span>
-                                                    <li><a className="btn btn-success text-white" href="shop-single.html"><i
-                                                        className="far fa-heart"></i></a></li>
-                                                <li><a className="btn btn-success text-white mt-2"
-                                                       href="shop-single.html"><i className="far fa-eye"></i></a></li>
-                                                <li><a className="btn btn-success text-white mt-2"
-                                                       href="shop-single.html"><i className="fas fa-cart-plus"></i></a>
+                                                    <li><Link className="btn btn-success text-white" to={"/shop/"+item.store.id}><i
+                                                        className="fa-solid fa-shop"></i></Link></li>
+                                                <li><Link to={'/detail/'+item.id} className="btn btn-success text-white mt-2"
+                                                ><i className="far fa-eye"></i></Link>
+                                                </li>
+                                                <li><Link className="btn btn-success text-white mt-2"
+                                                          to={'/order/'}><i className="fas fa-cart-plus"></i></Link>
                                                 </li>
                                                 </span>
                                             </ul>

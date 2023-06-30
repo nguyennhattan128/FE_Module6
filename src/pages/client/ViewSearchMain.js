@@ -7,6 +7,11 @@ import "./clientCss/viewShop.css"
 
 
 export default function ViewSearchMain() {
+    window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+    })
     const dispatch = useDispatch();
     const[filters,setFilters] = useState({
         page: 1,
@@ -23,6 +28,11 @@ export default function ViewSearchMain() {
     })
 
     const handlePageChange = (currentPage) => {
+        window.scroll({
+            top: 0,
+            left: 100,
+            behavior: "smooth",
+        });
         setFilters({
             ...filters,
             page: currentPage

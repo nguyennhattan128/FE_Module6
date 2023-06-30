@@ -8,6 +8,11 @@ import customAPI from "../../service/customAPI";
 
 
 export default function ProductDetail() {
+    window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+    })
     const {id} = useParams();
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);

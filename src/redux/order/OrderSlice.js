@@ -4,8 +4,8 @@ import {
     buyProduct,
     changeOrderDetailQuantity,
     changeOrderDetailQuantityByInput, decreaseOrder,
-    deleteOrderDetail, getOrderDetails, getOrderDetailStatusTrue,
-    increaseOrder
+    deleteOrderDetail, getOrderDetailPending, getOrderDetailPendingReceipt, getOrderDetails, getOrderDetailStatusTrue,
+    increaseOrder, updateOrderDetailPendingReceipt
 } from "../../service/order/orderService";
 
 
@@ -13,7 +13,9 @@ import {
 const initialState = {
     currentOrder: {},
     orderDetails:[],
-    orderDetailStatusTrue: []
+    orderDetailStatusTrue: [],
+    orderDetailPending: [],
+    orderDetailPendingReceipt: [],
 }
 const orderSlice = createSlice({
     name: 'order',
@@ -45,6 +47,12 @@ const orderSlice = createSlice({
         })
         builder.addCase(getOrderDetailStatusTrue.fulfilled,(state, action) => {
             state.orderDetailStatusTrue = action.payload;
+        })
+        builder.addCase(getOrderDetailPending.fulfilled,(state, action) => {
+            state.orderDetailPending = action.payload;
+        })
+        builder.addCase(getOrderDetailPendingReceipt.fulfilled,(state, action) => {
+            state.orderDetailPendingReceipt = action.payload;
         })
     }
 })

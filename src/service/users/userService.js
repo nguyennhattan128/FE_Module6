@@ -27,13 +27,10 @@ export const updateUserInformation = createAsyncThunk(
     'user/updateUserInfo',
     async (values) => {
         try {
-            console.log(values, 111)
             const {token, idStore, ...updateUserDatabase} = values;
-            console.log(updateUserDatabase, 222)
             await customAPI().put(`account/update-account`, updateUserDatabase);
             return values;
         } catch (error) {
-            console.log(error)
             throw error;
         }
     }

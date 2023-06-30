@@ -4,7 +4,6 @@ export default function Pagination(props) {
 
     const handlePageClick = async (data) => { // bắt được page
             let currentPage = data.selected + 1
-            console.log("pagination:",data.selected + 1)
         props.onPageChange(currentPage) //khai báo hàm cho props
     }
     let {page,page_size,total} = props

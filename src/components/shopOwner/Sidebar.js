@@ -21,10 +21,14 @@ let user = JSON.parse(localStorage.getItem("user"));
                         <ul className="sub-menu">
                             <li><Link to={"/shop-owner/show-product"}><i className="fa-solid fa-check"></i> Product List</Link></li>
                             <li><Link to={"/shop-owner/add-product"}><i className="fa-solid fa-check"></i> Add Product</Link></li>
-                            <li><a><i className="fa-solid fa-check"></i> Kind Of Product</a></li>
                         </ul>
                     </li>
-                    <li><a><i className="fa-solid fa-layer-group"></i> Receipt Management</a></li>
+                    <li><a><i className="fa-solid fa-layer-group"></i> Receipt Management</a>
+                        <ul className="sub-menu">
+                            <li><Link to={"/shop-owner/pending"}><i className="fa-solid fa-check"></i> Pending Receipt</Link></li>
+                            <li><Link to={"/shop-owner/confirmed"}><i className="fa-solid fa-check"></i> Confirmed Receipt</Link></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </>
