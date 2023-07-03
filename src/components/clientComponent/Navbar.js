@@ -47,7 +47,7 @@ export default function Navbar() {
                                 <span
                                     className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                             </a>
-                            <a className="nav-icon position-relative text-decoration-none mx-3" href="#">
+                            <a className="nav-icon position-relative text-decoration-none mx-3">
                                 <div className="dropdown">
                                     <i className=" fa-solid fa-user text-dark mr-3"/>
                                     <span

@@ -35,12 +35,13 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #b4e8d7;
+    background-color: white;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-style: double;
-    border-color: #e3d75d;
+    border-color:  #3e8e41;
+    border-radius: 5px;
 }
 
 .dropdown-content a {
@@ -53,7 +54,8 @@
     display: block;
     float: left;
     border-style: double;
-    border-color: #b02a37;
+    border-color:  #3e8e41;
+    border-radius: 5px;
 }
 
 .dropdown-content a:hover {background-color: #ddd;}

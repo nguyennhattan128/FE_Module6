@@ -14,7 +14,7 @@ export default function Header(){
                             {
                                 user ? <>
                                     {
-                                        user.role === "client" ? <><i className="fa-solid fa-shop mx-2"></i> {user.idStore ? <h2>Waiting admin cofirm store</h2> : <Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/create-shop"}>Become a seller</Link>} </> : <></>
+                                        user.role === "client" ? <div className={"d-flex"}><i className="fa-solid fa-shop mx-2"></i> {user.idStore ? <h2 style={{color:"#fff"}}>Waiting admin cofirm store...</h2> : <Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/create-shop"}>Become a seller</Link>} </div> : <></>
                                     }
                                     {
                                         user.role === "seller" ? <><i className="fa-solid fa-shop mx-2"></i><Link className="navbar-sm-brand text-light text-decoration-none me-3" to={"/shop-owner"}>My shop</Link></> : <></>

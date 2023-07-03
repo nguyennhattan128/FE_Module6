@@ -10,7 +10,7 @@ const ListShop = () => {
     const dispatch = useDispatch();
     let [filters,setFilters] = useState({
         page:1,
-        page_size: 6
+        page_size: 3
     })
     const [reload, setReload] = useState(0)
 
@@ -62,14 +62,14 @@ const ListShop = () => {
     return (
         <>
             <div className={"row text-center mt-3"}>
-                <div className={"col-8"}>
+                <div className={"col-12"}>
                     <h2 className="txtdeepshadow">Shop List Inactive</h2>
                 </div>
                 <div className="d-flex col-4" style={{float: "right"}}>
-                    <input type="text" className="form-control" id="inputMobileSearch"
-                           placeholder="Search ..." onChange={(e) => {handleInput(e)}}/>
-                    <button className="btn-icon"><i
-                        className="fa fa-fw fa-search text-dark mr-2" onClick={() => {handleSearch()}}/></button>
+                    {/*<input type="text" className="form-control" id="inputMobileSearch"*/}
+                    {/*       placeholder="Search ..." onChange={(e) => {handleInput(e)}}/>*/}
+                    {/*<button className="btn-icon"><i*/}
+                    {/*    className="fa fa-fw fa-search text-dark mr-2" onClick={() => {handleSearch()}}/></button>*/}
                 </div>
             </div>
             <div className="row mt-3">
@@ -140,9 +140,9 @@ const ListShop = () => {
                                 </ul>
                             </div>
                             <div className={'button-position'}>
-                                <button type="button" className="button4">
-                                    View more
-                                </button>
+                                {/*<button type="button" className="button4">*/}
+                                {/*    View more*/}
+                                {/*</button>*/}
                             </div>
                         </div>
                     </div>

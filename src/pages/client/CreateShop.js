@@ -76,7 +76,7 @@ const CreateShop = () => {
                         confirmButton: "btn btn-success",
                     },
                 }).then(()=>{
-                    navigate('/shop-owner')
+                    navigate('/')
                 })
             })
         }
