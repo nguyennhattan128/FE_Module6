@@ -1,8 +1,23 @@
-
-
+import customAPI from "../../service/customAPI";
+import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export default function Category(){
+
+    const [shop,setShop] = useState([])
+
+
+    useEffect(()=>{
+        customAPI().get(`/store/show-shop`).then((res)=>{
+            const listShop =res.data.data
+            setShop(listShop)
+
+        })
+
+    },[])
+
+
 
     return(
         <>
@@ -17,26 +32,16 @@ export default function Category(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-3 p-5 mt-3">
-                        <a href="module_6/src/components/clientComponent#"><img src="./assets/img/category_img_01.jpg" className="rounded-circle img-fluid border" /></a>
-                        <h5 className="text-center mt-3 mb-3">Watches</h5>
-                        <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
-                    </div>
-                    <div className="col-12 col-md-3 p-5 mt-3">
-                        <a href="module_6/src/components/clientComponent#"><img src="./assets/img/category_img_02.jpg" className="rounded-circle img-fluid border" /></a>
-                        <h2 className="h5 text-center mt-3 mb-3">Shoes</h2>
-                        <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
-                    </div>
-                    <div className="col-12 col-md-3 p-5 mt-3">
-                        <a href="module_6/src/components/clientComponent#"><img src="./assets/img/category_img_03.jpg" className="rounded-circle img-fluid border" /></a>
-                        <h2 className="h5 text-center mt-3 mb-3">Accessories</h2>
-                        <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
-                    </div>
-                    <div className="col-12 col-md-3 p-5 mt-3">
-                        <a href="module_6/src/components/clientComponent#"><img src="./assets/img/category_img_03.jpg" className="rounded-circle img-fluid border" /></a>
-                        <h2 className="h5 text-center mt-3 mb-3">Accessories</h2>
-                        <p className="text-center"><a className="btn btn-success">Go Shop</a></p>
-                    </div>
+                    {shop ? shop.map ((item)=>
+                            <div className="col-12 col-md-3 p-5 mt-3">
+                                <img src={item.avatar} className="rounded-circle img-fluid border"  style={{height :"189px", width: "187px"}} />
+                                <h5 className="text-center mt-3 mb-3">{item.name}</h5>
+                                <p className="text-center"><Link className="btn btn-success" to={`/shop/${item.id}`}>Go Shop</Link></p>
+                            </div>
+                        )
+                        : <></>}
+
+
                 </div>
             </section>
         </>
