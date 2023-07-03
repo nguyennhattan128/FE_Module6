@@ -44,9 +44,17 @@ export const searchShopActive = createAsyncThunk(
 
 
 export const enablingShop = createAsyncThunk(
-    'staff/enablingShop',
+    'shop/enablingShop',
     async (idUser) => {
         const response = await customAPI().post(`http://localhost:3001/admin/enablingAccount`,idUser)
+        return response.data;
+    }
+)
+
+export const rejectShop = createAsyncThunk(
+    'shop/rejectShop',
+    async (idUser) => {
+        const response = await customAPI().post(`http://localhost:3001/admin/rejectAccount`,idUser)
         return response.data;
     }
 )

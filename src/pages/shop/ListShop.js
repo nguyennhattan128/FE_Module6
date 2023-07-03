@@ -1,6 +1,6 @@
 import "./shopCss/shopCss.css"
 import {useEffect, useState} from "react";
-import {enablingShop, getShopPagination, searchShop} from "../../service/admin/shopService";
+import {enablingShop, getShopPagination, rejectShop, searchShop} from "../../service/admin/shopService";
 import {useDispatch, useSelector} from "react-redux";
 import Pagination from "../../pagination/Pagination";
 
@@ -38,6 +38,12 @@ const ListShop = () => {
         e.preventDefault();
         setReload(idUser)
         dispatch(enablingShop(idUser))
+    }
+
+    const handleReject = (idUser,e) => {
+        e.preventDefault();
+        setReload(idUser)
+        dispatch(rejectShop(idUser))
     }
     const handlePageChange = (currentPage) => {
         setFilters({
@@ -99,8 +105,10 @@ const ListShop = () => {
                                                         handleConfirm({storeID: item.id},e)
                                                     }}>Confirm</a>
                                                 </div>
-                                                <div style={{textAlign:"center"}}>
-                                                    <a href="#">Reject</a>
+                                                <div style={{textAlign:"center", height: "50%"}}>
+                                                    <a href="" style={{fontWeight: "bold"}} onClick={(e) => {
+                                                        handleReject({storeID: item.id},e)
+                                                    }}>Reject</a>
                                                 </div>
                                             </div>
                                         </div>
