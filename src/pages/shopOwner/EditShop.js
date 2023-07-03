@@ -142,8 +142,8 @@ function EditShop() {
                                                     <img style={{
                                                         width: 300,
                                                         height: 300,
-                                                        marginTop: 15,
-                                                        marginLeft: 50,
+                                                        marginTop: 10,
+                                                        marginLeft: 25,
                                                         borderRadius: 5,
                                                         border: "1px solid #ddd",
                                                         padding: 5,

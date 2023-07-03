@@ -41,22 +41,22 @@ export default function ListConfirmedReceipt() {
                             <div>
                                 <h5>{item.product.name}</h5>
                                 <div style={{display: "flex"}}>
-                                    <p>The loai</p>
-                                    <p style={{marginLeft: "10px"}}>x1</p>
+                                    <p>Quantity</p>
+                                    <p style={{marginLeft: "10px"}}>x{item.quantity}</p>
                                 </div>
                             </div>
                         </div>
                         <div className={"col-2"}>
-                            <h5>{item.price}</h5>
-                            <p>Ghi chu</p>
+                            <h5>{item.totalPrice}</h5>
+                            <p>Price</p>
                         </div>
                         <div className={"col-2"}>
                             <h5>{item.statusBill}</h5>
-                            <p>Chu thich</p>
+                            <p>Status</p>
                         </div>
                         <div className={"col-2"}>
-                            <h5>Giao nhanh</h5>
-                            <p>Chu thich</p>
+                            <h5>Fast Shipping</h5>
+                            <p>Express</p>
                         </div>
                         <div className={"col-2"}>
                         </div>

@@ -81,11 +81,6 @@ export default function ViewShop(){
                             <i className="fa-solid fa-bars"></i>
                             <h2 className="px-2 shop-sidebar">Categories</h2>
                         </div>
-                        <ul className="list-group list-group-flush ms-3 list-category">
-                            <li className="list-group-item"><Link>Áo</Link></li>
-                            <li className="list-group-item"><Link>Quần</Link></li>
-                            <li className="list-group-item"><Link>Khăn</Link></li>
-                        </ul>
                     </div>
                     <div className="col-lg-10 mt-4">
 
@@ -136,14 +131,10 @@ export default function ViewShop(){
                                                 <li className="" >Price: {item.price}</li>
                                             </ul>
                                             <p className="card-text shop-text" >
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                                {item.description}
                                             </p>
-                                            <p className="">
-                                                <i className="text-warning fa fa-star" />
-                                                <i className="text-warning fa fa-star" />
-                                                <i className="text-warning fa fa-star" />
-                                                bought (24)</p>
-
+                                            <p className="text-muted">
+                                                </p>
                                         </div>
                                     </div>
                                 </div>
