@@ -63,7 +63,10 @@ const CreateShop = () => {
         },
         validationSchema: SchemaError,
         onSubmit: (values) => {
-            dispatch(createShop(values)).then(() => {
+            dispatch(createShop(values)).then((store) => {
+                const user = JSON.parse(localStorage.getItem("user"));
+                console.log(store, 3333)
+                localStorage.setItem("user", JSON.stringify({...user, idStore: store.payload.id, storeStatus: store.payload.status}))
                 Swal.fire({
                     title: "Please wait for admin's confirmation to start business",
                     icon: "success",

@@ -18,8 +18,15 @@ export default function Advertisement(){
                                 </div>
                                 <div className="col-lg-6 mb-0 d-flex align-items-center">
                                     <div className="text-align-left align-self-center">
-                                        <h1 className="h1 text-success"><b>Zay</b> ECommerce</h1>
-                                        <h3 className="h2">Shop effortlessly with Zay - your ultimate online destination.</h3>
+                                        <h1 className="h1 text-success"><b>Zay</b> eCommerce</h1>
+                                        <h3 className="h2">Tiny and Perfect eCommerce Template</h3>
+                                        <p>
+                                            Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1).
+                                            This template is 100% free provided by <a rel="sponsored" className="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website.
+                                            Image credits go to <a rel="sponsored" className="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
+                                            <a rel="sponsored" className="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
+                                            <a rel="sponsored" className="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -33,11 +40,11 @@ export default function Advertisement(){
                                 </div>
                                 <div className="col-lg-6 mb-0 d-flex align-items-center">
                                     <div className="text-align-left">
-                                        <h1 className="h1">Cetaphil Body Moisturizer</h1>
-                                        <h3 className="h2">Hydrating Moisturizing Cream for Dry to Very Dry, Sensitive Skin</h3>
+                                        <h1 className="h1">Proident occaecat</h1>
+                                        <h3 className="h2">Aliquip ex ea commodo consequat</h3>
                                         <p>
-                                            Hydrate your skin with our moisturizing marvel.
-                                            Experience the ultimate hydration with our premium skincare product.
+                                            You are permitted to use this Zay CSS template for your commercial websites.
+                                            You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
                                         </p>
                                     </div>
                                 </div>
@@ -52,10 +59,11 @@ export default function Advertisement(){
                                 </div>
                                 <div className="col-lg-6 mb-0 d-flex align-items-center">
                                     <div className="text-align-left">
-                                        <h1 className="h1">JONATHAN Y</h1>
-                                        <h3 className="h2">LED Metal Task Lamp Modern,Contemporay,Transitional </h3>
+                                        <h1 className="h1">Repr in voluptate</h1>
+                                        <h3 className="h2">Ullamco laboris nisi ut </h3>
                                         <p>
-                                            for Bedroom, Living Room, Office, College Dorm, Coffee Table, Bookcase, Black/BrassGold
+                                            We bring you 100% free CSS templates for your websites.
+                                            If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
                                         </p>
                                     </div>
                                 </div>
