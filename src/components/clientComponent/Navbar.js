@@ -23,14 +23,21 @@ export default function Navbar() {
                     <div className="row mb-3 mt-2">
                         <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         </div>
-                        {currentPath === '/' ?  <div className="col-10 d-flex">
-                            <input type="text" className="form-control" id="inputMobileSearch" onChange={(e) => setValue(e.target.value)}
+                        {currentPath === '/' ? <div className="col-10 d-flex">
+                            <input type="text" className="form-control" id="inputMobileSearch"
+                                   onChange={(e) => setValue(e.target.value)}
                                    placeholder="Search ..."/>
-                            <button className="btn-icon" type="submit" onClick={() => navigate("search-main/"+value)}><i
-                                className="fa fa-fw fa-search text-dark mr-2"/></button>
-                            { user.role === 'client' ? <button className="btn-icon"><Link to={"/success"}><i
-                                className="fa-solid fa-receipt" style={{color: "#7e7c7c"}}></i></Link></button> : <></>}
-                        </div> : <></> }
+                            <button className="btn-icon" type="submit" onClick={() => navigate("search-main/" + value)}>
+                                <i
+                                    className="fa fa-fw fa-search text-dark mr-2"/></button>
+                            {user != null && user.role === 'client' ?
+                                <button className="btn-icon"><Link to={"/pending"}><i
+                                    className="fa-solid fa-p" style={{color: "#7e7c7c"}}></i></Link></button> : <></>}
+                            {user != null && user.role === 'client' ?
+                                <button className="btn-icon"><Link to={"/success"}><i
+                                    className="fa-solid fa-receipt" style={{color: "#7e7c7c"}}></i></Link>
+                                </button> : <></>}
+                        </div> : <></>}
 
                         <div className="col-2 d-flex justify-content-center align-items-center ">
                             <a className="nav-icon position-relative text-decoration-none mx-3" href="#">
@@ -38,7 +45,7 @@ export default function Navbar() {
                                     <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                                 </Link>
                                 <span
-                                    className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                                    className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                             </a>
                             <a className="nav-icon position-relative text-decoration-none mx-3" href="#">
                                 <div className="dropdown">
@@ -57,10 +64,12 @@ export default function Navbar() {
                                                 <br/>
                                                 <br/>
                                                 {
-                                                    user.role === "admin" ? <> <Link to={'/admin'}>Admin</Link></> :<></>
+                                                    user != null && user.role === "admin" ? <> <Link
+                                                        to={'/admin'}>Admin</Link></> : <></>
                                                 }
                                                 {
-                                                    user.role === "staff" ? <> <Link to={'/staff'}>Staff</Link></> :<></>
+                                                    user != null && user.role === "staff" ? <> <Link
+                                                        to={'/staff'}>Staff</Link></> : <></>
                                                 }
                                             </> : <>
                                                 <Link to={'/Register'}>Register</Link>

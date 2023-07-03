@@ -212,10 +212,10 @@ function EditProduct() {
                                                                 position: "relative",
                                                                 color: "green",
                                                                 backgroundColor: "lightgreen",
-                                                                top: -120,
-                                                                right: 40,
+                                                                top: -297,
+                                                                right: -285,
                                                                 lineHeight: "23px",
-                                                                fontWeight: "bold",
+                                                                fontWeight: "bold"
                                                             }}
                                                             onClick={(e) => handleDeleteMainImage(e, values.listImage, setFieldValue)}>x</button>
                                                     </div>

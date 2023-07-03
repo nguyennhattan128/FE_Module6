@@ -38,8 +38,6 @@ export default function ShowProduct() {
                             className="fa fa-fw fa-search text-dark mr-2"/></button>
                     </div>
                     <div className="px-2">
-                        <span>Filters <i className="fa fa-angle-down"/></span>
-                        <i className="fa fa-ellipsis-h ms-3" style={{paddingTop: '10px'}}/>
                     </div>
                 </div>
                 <div className="table-responsive" style={{marginTop: "20px"}}>
@@ -52,7 +50,7 @@ export default function ShowProduct() {
                             <th scope="col" width="10%">Image</th>
                             <th scope="col" width="10%">Price</th>
                             <th scope="col" width="10%">Quantity</th>
-                            <th scope="col" width="10%" colSpan={"2"} style={{textAlign: "center"}}>More Option</th>
+                            <th scope="col" width="10%">More Option</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,9 +67,6 @@ export default function ShowProduct() {
                                             navigate(`/shop-owner/edit-product/${item.id}`)
                                         }}>Edit
                                         </button>
-                                    </td>
-                                    <td>
-                                        <button className={'btn btn-danger'}>Delete</button>
                                     </td>
                                 </tr>
                             )

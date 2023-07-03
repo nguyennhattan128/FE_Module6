@@ -53,7 +53,8 @@ export default function ListProduct(){
                             <div className="col-12 col-md-3 mb-4 card-hover" key={item.id}>
                                 <div className="card h-100">
                                     <Link className="nav-link" to={'/detail/'+item.id}>
-                                        <img src={item.image} className="card-img-top" alt="..." />
+                                        <img style={{width: "228px",
+                                            height: "239px"}} src={item.image} className="card-img-top" alt="..." />
                                         <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul className="list-unstyled div-content">
                                                 <span>
@@ -79,12 +80,10 @@ export default function ListProduct(){
                                             <li className="text-muted text-right">Price: {item.price}</li>
                                         </ul>
                                         <p className="card-text shop-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                            {item.description}
                                         </p>
                                         <p className="text-muted">
-                                            <i className="text-warning fa fa-star" />
-                                            <i className="text-warning fa fa-star" />
-                                            bought (24)</p>
+                                           </p>
                                     </div>
                                 </div>
                             </div>
