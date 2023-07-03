@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import { getAllProductByStoreId, searchProduct} from "../../service/product/ProductService";
+import {getAllProductByStoreId, searchProduct} from "../../service/product/ProductService";
 import {useNavigate} from "react-router-dom";
 
 export default function ShowProduct() {
@@ -15,7 +15,7 @@ export default function ShowProduct() {
         setKeyword(e.target.value)
     }
     const handleSearch = () => {
-        dispatch(searchProduct(keyword))
+        dispatch(searchProduct({keyword:keyword,storeId:user.idStore}))
     }
     useEffect(() => {
         dispatch(getAllProductByStoreId(user.idStore))
@@ -28,13 +28,18 @@ export default function ShowProduct() {
                 <div className="mb-2 d-flex justify-content-between align-items-center" style={{marginTop: "-20px"}}>
                     <div className="position-relative d-flex">
                         <span className="position-absolute search"></span>
-                        <input className="form-control w-100" placeholder="Search by name..." onChange={(e) => {handleInput(e)}}/>
-                        <button className="btn-icon"><i
-                            className="fa fa-fw fa-search text-dark mr-2" onClick={() => {handleSearch()}}/></button>
+                        <input className="form-control w-100" placeholder="Search by name..." onChange={(e) => {
+                            console.log("typing:", e.target.value)
+                            handleInput(e)
+                        }}/>
+                        <button className="btn-icon"
+                                onClick={handleSearch}
+                        ><i
+                            className="fa fa-fw fa-search text-dark mr-2"/></button>
                     </div>
                     <div className="px-2">
                         <span>Filters <i className="fa fa-angle-down"/></span>
-                        <i className="fa fa-ellipsis-h ms-3"  style={{paddingTop:'10px'}}/>
+                        <i className="fa fa-ellipsis-h ms-3" style={{paddingTop: '10px'}}/>
                     </div>
                 </div>
                 <div className="table-responsive" style={{marginTop: "20px"}}>
@@ -47,27 +52,30 @@ export default function ShowProduct() {
                             <th scope="col" width="10%">Image</th>
                             <th scope="col" width="10%">Price</th>
                             <th scope="col" width="10%">Quantity</th>
-                            <th scope="col" width="10%" colSpan={"2"} style={{textAlign:"center"}}>More Option</th>
+                            <th scope="col" width="10%" colSpan={"2"} style={{textAlign: "center"}}>More Option</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {products!==undefined && products.map((item, index) => (
-                            <tr key={item.id}>
-                                <th scope="row" style={{fontWeight: 400, fontSize: "18px"}}>{index + 1}</th>
-                                <td>{item.name}</td>
-                                <td>{item.category.name}</td>
-                                <td><img src={item.image} style={{width: '100px'}}/></td>
-                                <td>{item.price}</td>
-                                <td>{item.quantity}</td>
-                                <td>
-                                    <button className={'btn btn-success'} onClick={() => {navigate(`/shop-owner/edit-product/${item.id}`)}}>Edit</button>
-                                </td>
-                                <td>
-                                    <button  className={'btn btn-danger'}>Delete</button>
-                                </td>
-                            </tr>
+                        {products ?  products.map((item, index) => (
+                                <tr key={item.id}>
+                                    <th scope="row" style={{fontWeight: 400, fontSize: "18px"}}>{index + 1}</th>
+                                    <td>{item.name}</td>
+                                    <td>{item.category.name}</td>
+                                    <td><img src={item.image} style={{width: '100px'}}/></td>
+                                    <td>{item.price}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>
+                                        <button className={'btn btn-success'} onClick={() => {
+                                            navigate(`/shop-owner/edit-product/${item.id}`)
+                                        }}>Edit
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button className={'btn btn-danger'}>Delete</button>
+                                    </td>
+                                </tr>
                             )
-                        )}
+                        ) : <></> }
                         </tbody>
                     </table>
                 </div>

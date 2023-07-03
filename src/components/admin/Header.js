@@ -16,7 +16,6 @@ export default function Header(){
                             </>
                             : <></>
                     }
-                <div className={'button-nav'} style={{textAlign: "right", marginLeft: "50%"}}><Link to={"/"}><img style={{width: "30px", height: "30px", borderRadius: "50%"}} src={"https://th.bing.com/th/id/OIP.XTwQxTeTOffeUV2k9_hr5AHaEo?w=296&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7"}/></Link></div>
                 </div>
             <div id="header"></div>
         </>

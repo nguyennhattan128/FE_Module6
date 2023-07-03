@@ -98,8 +98,8 @@ const ListStaff = () => {
                 <div className="d-flex col-4" style={{float: "right"}}>
                     <input type="text" className="form-control" id="inputMobileSearch"
                            placeholder="Search ..." onChange={(e) => {handleInput(e)}}/>
-                    <button className="btn-icon"><i
-                        className="fa fa-fw fa-search text-dark mr-2" onClick={() => {handleSearch()}}/></button>
+                    <button onClick={() => {handleSearch()}} className="btn-icon"><i
+                        className="fa fa-fw fa-search text-dark mr-2" /></button>
                 </div>
             </div>
             <div className="row mt-3">
