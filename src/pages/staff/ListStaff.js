@@ -16,7 +16,7 @@ const ListStaff = () => {
     const dispatch = useDispatch();
     let [filters,setFilters] = useState({
         page:1,
-        page_size: 4
+        page_size: 3
     })
     let [show,setShow] = useState(false)
     let [idUser,setIdUser] = useState(0)
